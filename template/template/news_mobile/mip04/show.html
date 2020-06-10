@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html mip>
+<head>
+    <meta charset="utf-8">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="shortcut icon" href="//{$host}//favicon.ico" type="image/x-icon" />
+    <title>{$toptitle}</title>
+    <meta name="keywords" content="{$keywords}">
+    <meta name="description" content="{$description}">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{$toptitle}" />
+<meta property="og:description" content="{$description}" />
+<meta property="og:image" content="" />
+<meta property="og:release_date" content="{$postdate}" />
+
+    <link rel="canonical" href="{$thisurl}">
+    <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v1/mip.css">
+    <link rel="stylesheet" type="text/css" href="{$theme_path}/css/amazeui.css">
+    <link rel="stylesheet" type="text/css" href="{$theme_path}/css/web.css">
+    <style mip-custom>
+    
+#right-sidebar ul li {
+    height: 42px;
+    line-height: 42px;
+    padding: 0px 25px;
+    font-size: 16px;
+    border-bottom: 1px solid #111;
+    border-top: 1px solid #444;
+    text-align: center;
+}
+#right-sidebar ul li button {
+    width: 30px;
+    font-size: 22px;
+    background: #2b2b2b;
+    color: #fff;
+    border: 1px solid #2b2b2b;
+    text-align: center;
+}
+#right-sidebar ul li a {
+    color: #fff;
+}
+#right-sidebar {
+    background: #2b2b2b !important;
+}
+    
+ 
+
+    </style>
+</head>
+<body>
+    
+
+    
+{include file="head.html"}
+<!-- 导航栏结束 -->
+    <main class="mipcms-main">
+    
+<div class="am-g cent" id="mt0">
+    <!-- 面包屑导航 -->
+    <div class="place mbx"><span>当前位置：</span><ul class="list-unstyled d-flex red2"><li class="red3"><a href="/" title="首页">首页</a>></li><li class="red3"><a href="{$typeurl}" title="{$typename}">{$typename}</a>></li><li class="red3"><a href="{$thisurl}" title="{$title}">{$title}</a></li></ul></div>
+    <!-- 面包屑导航end -->
+    <div class="cent-lf">
+        <!-- 左侧3 -->
+
+      <div class="wzzw">
+
+            <div class="wzzw-title">
+                <h1>{$title}</h1>
+                <p><span>时间:{$postdate} </span><span>出处:<a target="_blank" href="{$typeurl}">{$typename}</a></span><span>阅读（143）</span>
+                </p>
+            </div>
+            <div class="wzzw-conet">{$body}</div>
+            <p class="hr"></p>
+            <div class="bbm">
+                分享到：
+                <div class="mip-share-container ">
+                    <mip-share></mip-share>
+                </div>
+            </div>
+            <div class="wzy-title">
+                <p></p>
+            </div>
+            <!-- tag标签 -->
+            <!-- tag标签end -->
+            <!-- 上下篇 -->
+            <div class="sxp"> 
+                                <p><strong>上一篇：</strong>
+                                  
+                                  {loop type="arclist" row=1 }
+                <a target="_blank" href="{$vo.url}">{$vo.title}</a> 
+                                  {/loop}
+                </p>
+                                    <p><strong>下一篇：</strong>
+                                       {loop type="arclist" row=1 }
+                     <a target="_blank" href="{$vo.url}">{$vo.title}</a>
+                                       {/loop}
+                    </p>
+                            </div>
+            <!-- 上下篇end -->
+            <div class="tishi"><span>温馨提示：</span>以上内容和图片整理于网络，仅供参考，希望对您有帮助！如有侵权行为请联系删除！</div>
+            <!-- 相关推荐3end -->
+            <div class="wztj">
+                <h2>猜你喜欢</h2>
+                <ul class="am-avg-sm-2 am-avg-md-4 am-thumbnails">
+                            	{loop type="arclist" row=9 }
+                                <li><a target="_blank" href="{$vo.url}" data-type="mip" data-title="{$vo.title}" title='{$vo.title}'>{$vo.title}</a></li>
+                  {/loop}
+                                </ul>
+            </div>
+            <!-- 相关推荐3end -->
+        </div>
+        <!-- 左侧3end -->
+    </div>
+    <!-- 左侧end -->
+    <!-- 右侧 -->
+        <!-- 右侧 -->
+
+    <div class="sidebar ">
+
+        <!-- 右侧数字 -->
+
+        <div class="youce ">
+
+          <div class="title ">
+
+            <h2><i class="am-icon-fire "></i>热门排行</h2>
+
+          </div>
+
+               <ul class="sidebar-sz ">
+
+                                  {loop type="arclist" row=8}
+                                   <li>
+                        <a target="_blank" href="{$vo.url}" data-type="mip" data-title="{$vo.title}" title='{$vo.title}'>
+                        <span>{$k+1}</span>{$vo.title}</a>
+                    </li>
+                 
+                         {/loop}	
+
+                </ul>
+
+        </div>
+
+        <!-- 右侧数字end -->
+
+            <!-- 右侧文字 -->
+
+        <div class="youce">
+
+            <div class="title">
+
+                <h2><i class="am-icon-fire"></i>看了又看</h2>
+
+            </div>
+
+            <ul class="sidebar-wz">
+
+                
+                            	{loop type="arclist" row=9 }
+                                <li><a target="_blank" href="{$vo.url}" data-type="mip" data-title="{$vo.title}" title='{$vo.title}'>{$vo.title}</a></li>
+                  {/loop}	
+            </ul>
+
+
+        </div>
+
+        <!-- 右侧文字end -->
+
+        <!-- 右侧标签 -->
+
+        <div class="youce ">
+
+          <div class="title ">
+
+            <h2><i class="am-icon-fire "></i>最新标签</h2>
+
+          </div>
+
+             <ul class="sidebar-tags "> {loop type="typename" row="30"}
+              
+    <li class="m-b-sm"><a target="_blank" href="{$vo.typeurl}" data-type="mip" data-title="{$vo.typename}" title="{$vo.typename}">{$vo.typename}</a></li>
+   {/loop}	
+
+           </ul>
+
+        </div>
+
+        <!-- 右侧标签end -->
+
+    </div>
+
+    <!-- 右侧end -->
+    <!-- 右侧end -->
+</div>
+
+    </main>
+    <!-- 友情链接 -->
+  {include file="footer.html" }
+    
+
+        <script src="https://c.mipcdn.com/static/v1/mip.js"></script>
+        <script src="https://c.mipcdn.com/static/v1/mip-sidebar/mip-sidebar.js"></script>
+        <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script>
+        <script src="https://c.mipcdn.com/static/v1/mip-gototop/mip-gototop.js"></script>
+        <script src="https://c.mipcdn.com/static/v1/mip-stats-baidu/mip-stats-baidu.js"></script>
+        <script src="https://c.mipcdn.com/static/v1/mip-form/mip-form.js"></script>
+        <script src="https://c.mipcdn.com/static/v1/mip-vd-tabs/mip-vd-tabs.js"></script>
+        <script src="https://c.mipcdn.com/static/v1/mip-semi-fixed/mip-semi-fixed.js"></script>
+        <script src="https://c.mipcdn.com/static/v1/mip-share/mip-share.js"></script>
+        <script src="https://mipcache.bdstatic.com/static/v1/mip-changyan/mip-changyan.js"></script>
+        <script src="https://c.mipcdn.com/extensions/platform/v1/mip-cambrian/mip-cambrian.js"></script>
+        <script src="https://c.mipcdn.com/static/v1/mip-anim/mip-anim.js"></script>
+    
+
+</body>
+</html>

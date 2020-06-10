@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-transform"> 
+<meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>{$toptitle}</title>
+	<meta name="description" content="{$description}" />
+	<meta name="keywords" content="{$keywords}" />
+<link rel="stylesheet" type="text/css" href="{$theme_path}/skin/common-min.css">
+<script>
+var browser = {
+versions : function() {
+var u = navigator.userAgent, app = navigator.appVersion;
+return {//移动终端浏览器版本信息                                                              
+mobile : (!!u.match(/AppleWebKit.*Mobile/) || !!u.match(/Windows Phone/) || !!u.match(/Android/) || !!u.match(/MQQBrowser/)) && !u.match(/iPad/)//是否为移动终端                                 
+};
+}()
+}
+if(browser.versions.mobile){
+ window.location.href="/";
+}
+</script>
+</head>
+<body class="" datasqstyle="{&quot;top&quot;:0,&quot;position&quot;:&quot;static&quot;}" datasquuid="b68079db-41ad-49e5-a898-45510fb04f70" style="top: 40px; position: relative;">
+<div class="container">
+<div class="header_top logo_wrap">  
+	<a class="logo_new" href="https://www.meiyke.com/" title="每一刻视频网"></a>     
+	<div class="ser_n">
+	<div class="searchBox">
+	<div class="search-table">
+		<span class="cur">视频</span>                  
+		<em class="arrow"></em>             
+	</div>
+	<span class="ipt1">
+		<em class="i_search"></em>
+		<input type="hidden" name="action" value="search">
+		<input class="searchKey" id="key" type="text" autocomplete="off" placeholder="大家都在搜" data-placeholder="大家都在搜" x-webkit-speech="">
+		<script>
+			function search() {
+				var k = document.getElementById("key").value;
+				if(k){
+					location.href = '/search/' + k + '/1.html';
+				}
+			}
+		</script>
+	</span>
+	<span class="ipt2"><input type="submit" class="fm_hd_btm_shbx_bttn" value="搜 索" onclick="search()"></span>      
+	</div>
+	<div class="clear_f"></div>            
+	</div>
+	<ul class="cart_info">
+	     <li style="background-color: #95BE3E;"><a target="_blank" style="color: #ffffff" href=""><em class="i_cart">&nbsp;</em>保存到桌面</a></li>
+		<li><a target="_blank" onclick="window.external &amp;&amp; external.addFavorite(document.URL,host.Title)" style="cursor:pointer"><em class="i_cart">&nbsp;</em>Ctrl+D招我做小三</a></li>
+	</ul>
+</div>
+
+{include file="head.html"}
+
+<div class="layout">
+    <div class="sideList">
+        <div class="box box_submenu">
+            <div class="box_tt"><h2>分类索引</h2></div>
+            <ul class="submenu">
+				{loop type="typename" name="leixing" row="11"}
+					<li><a href="{$vo.typeurl}">{$vo.typename}</a></li>
+				{/loop}
+			</ul>
+        </div>
+	</div>
+
+	<div class="mainList">
+		<div id="taglist_div_11" class="taglist_outer">
+		{loop type="typename" name="leixing" row="1"}
+		<dl class="taglist taglist_hide"><dt>{$vo.typename}所有视频</dt></dl>
+		{/loop}
+		</div>
+		<ul class="the-list cf">
+			
+			{loop type="arclist" row="40" image=1}
+				<li>
+					<a href="{$vo.url}" target="_blank" title="{$vo.title}" class="video-img">
+						<img alt="{$vo.title}" src="{$vo.pic}">
+						<span class="video-time">{$postdate}</span>
+						<span class="play-ico"></span>
+					</a>
+					<dl class="v-desc">
+						<dt class="v-title"><a href="{$vo.url}" target="_blank" title="{$vo.title}">{$vo.title}</a></dt>
+					</dl>
+				</li>
+			{/loop}
+			
+		</ul>
+		
+		<div class="wms-paging dataTables_paginate paging_bootstrap pagination">
+			
+			<ul>
+			<?php
+				$this->_var['page']=rand(1,95);
+				?>
+				{loop row="5"}
+					<li{if $vo.i==1} class="active disabled"{/if}><a href="{typename type="url"/}" data-ci-pagination-page="<?php echo $this->_var['vo']['i']+$this->_var['page'];?>"><?php echo $this->_var['vo']['i']+$this->_var['page'];?></a></li>
+				{/loop}
+				<li class="adisabled"><a href="{typename type="url"/}" data-ci-pagination-page="{$page+1}" rel="next">下一页</a></li><li><a href="{typename type="url"/}" data-ci-pagination-page="100">末页</a></li>
+		</ul>
+		
+		</div>
+	</div>
+</div>
+{include file="footer.html" }
+</div>
+
+</body></html>

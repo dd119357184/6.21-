@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$toptitle}</title>
+<meta name="description" content="{$description}" />
+<meta name="keywords" content="{$keywords}" />
+<link rel="stylesheet" type="text/css" href="{$theme_path}/skins/style/list.css" />
+<script type="text/javascript">
+
+function setTab(m,n){
+    var menu=document.getElementById("tab"+m).getElementsByTagName("li");  
+    var div=document.getElementById("tablist"+m).getElementsByTagName("div");
+    
+    var showdiv=[];
+    for (i=0; j=div[i]; i++){
+      if ((" "+div[i].className+" ").indexOf(" tablist ")!=-1){
+       showdiv.push(div[i]);
+      }
+    }
+    for(i=0;i<menu.length;i++)
+    {
+        menu[i].className=i==n?"now":"";
+        showdiv[i].style.display=i==n?"block":"none";  
+    }
+}
+</script>
+</head>
+<body>
+{dede:include filename="head.htm"/}
+<div class="webbody">
+  <div class="w960"><script src='/plus/ad_js.php?aid=22' language='javascript'></script></div>
+  <div class="main">
+    <div class="main_k"> 
+      <!--左栏左小框main_l-->
+      <div class="main_l1 bord_1">
+        <div class="main_k">
+          <div class="list_tit_l">
+            <h3>{dede:field.typename/}</h3>
+          </div>
+        </div>
+        <div class="main_k top_10">
+          <div class="main_l1_l bord_r">
+            <ul class="pic_list">
+              {dede:arclist row='6' flag='c,p' titlelen='26'}
+              <li><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]"><img src="[field:litpic/]" border='0' width='160' height='120' alt="[field:fulltitle/]" />[field:title/]</a></li>
+              {/dede:arclist}
+            </ul>
+          </div>
+          <!---左栏右框-->
+          <div class="main_l1_r">
+            <ul class="text_list_x">
+              {dede:list pagesize='35' row='35' titlelen="44"}
+              <li><span class="date">[field:stime/]</span><a href="[field:arcurl/]" target="_blank">[field:title/]</a></li>
+              {/dede:list}
+            </ul>
+          </div>
+        </div>
+        <div class="pages">
+          <ul class="pageslist">
+            {dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="3"/}
+          </ul>
+        </div>
+      </div>
+      <!--右框main_r-->
+      <div class="main_r1">
+        <div class="ad_r1"><script src='/plus/ad_js.php?aid=28' language='javascript'></script></div>
+        <div class="box_r top_10">
+          <div class="tit_r" id="tab1">
+            <ul>
+              <li onmouseover="setTab(1,0)" class="now">全站热门</li>
+              <li onmouseover="setTab(1,1)">全站推荐</li>
+            </ul>
+          </div>
+          <div id="tablist1" class="box_r1"><!--切换内容-->
+            <div class="tablist block"><!--内容一-->
+              <div class="pic_box top_10">
+                <ul class="pic_list_r">
+                  {dede:arclist typeid='top' row='2' limit='0,2' orderby='hot' titlelen='20'}
+                  <li><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]"><img src="[field:litpic/]" border='0' width='115' height='85' alt="[field:fulltitle/]" />[field:title/]</a></li>
+                  {/dede:arclist}
+                </ul>
+              </div>
+              <div class="box_x bord_t1">
+                <ul class="hot_list">
+                  {dede:arclist typeid='top' row='10' limit='2,10' titlelen='36' orderby='hot'}
+                  <li>[field:textlink/]</li>
+                  {/dede:arclist}
+                </ul>
+              </div>
+            </div>
+            <!--内容一结束-->
+            <div class="tablist"><!--内容二-->
+              <div class="pic_box top_10"><!--图片列表-->
+                <ul class="pic_list_r">
+                  {dede:arclist typeid='top' row='2' limit='0,2' flag='c' titlelen='20'}
+                  <li><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]"><img src="[field:litpic/]" border='0' width='115' height='85' alt="[field:fulltitle/]" />[field:title/]</a></li>
+                  {/dede:arclist}
+                </ul>
+              </div>
+              <!--图片列表结束-->
+              <div class="box_x bord_t1"><!--文字列表-->
+                <ul class="text_list">
+                  {dede:arclist typeid='top' row='10' limit='2,10' titlelen='36' flag='c'}
+                  <li>[field:textlink/]</li>
+                  {/dede:arclist}
+                </ul>
+              </div>
+              <!--文字列表结束--> 
+            </div>
+            <!--内容二结束--> 
+          </div>
+          <!--切换内容结束--> 
+        </div>
+        <!--频道推荐-->
+        <div class="box_r  top_10">
+          <div class="tit_r" id="tab2">
+            <ul>
+              <li onmouseover="setTab(2,0)" class="now">本栏热门</li>
+              <li onmouseover="setTab(2,1)">本栏推荐</li>
+            </ul>
+          </div>
+          <!--切换内容-->
+          <div id="tablist2" class="box_r1"> 
+            <!--内容一-->
+            <div class="tablist block">
+              <div class="pic_box top_10">
+                <ul class="pic_list_r">
+                  {dede:arclist row='2' limit='0,2' orderby='hot' titlelen='20'}
+                  <li><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]"><img src="[field:litpic/]" border='0' width='115' height='85' alt="[field:fulltitle/]" />[field:title/]</a></li>
+                  {/dede:arclist}
+                </ul>
+              </div>
+              <div class="box_x bord_t1">
+                <ul class="text_list">
+                  {dede:arclist row='10' limit='2,10' titlelen='36' orderby='hot'}
+                  <li>[field:textlink/]</li>
+                  {/dede:arclist}
+                </ul>
+              </div>
+            </div>
+            <!--内容一结束--> 
+            <!--内容二-->
+            <div class="tablist">
+              <div class="pic_box top_10">
+                <ul class="pic_list_r">
+                  {dede:arclist row='2' limit='0,2' flag='c' titlelen='20'}
+                  <li><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]"><img src="[field:litpic/]" border='0' width='115' height='85' alt="[field:fulltitle/]" />[field:title/]</a></li>
+                  {/dede:arclist}
+                </ul>
+              </div>
+              <div class="box_x bord_t1">
+                <ul class="text_list">
+                  {dede:arclist row='10' limit='2,10' titlelen='36' flag='c'}
+                  <li>[field:textlink/]</li>
+                  {/dede:arclist}
+                </ul>
+              </div>
+            </div>
+            <!--内容二结束--> 
+          </div>
+          <!--切换内容结束--> 
+        </div>
+        <!--频道推荐结束--> 
+        
+      </div>
+    </div>
+    <!---内容推荐开始-->
+    <div class="main_k top_10">
+      <div class="tit_l3">
+        <h4>图库精选</h4>
+        <span>{dede:channel type='top'}<a href='[field:arcurl/]'>[field:typename/]</a> {/dede:channel}</span></div>
+      <div class="box_l1 bord_1">
+        <ul class="pic_list1">
+          {dede:arclist typeid='top' row='10' titlelen='28'}
+          <li><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]"><img src="[field:litpic/]" border='0' width='160' height='120'  alt="[field:fulltitle/]" />[field:title/]</a></li>
+          {/dede:arclist}
+        </ul>
+      </div>
+    </div>
+    <!---内容推荐结束--> 
+  </div>
+</div>
+{dede:include filename="foot.htm"/}
+</body>
+</html>

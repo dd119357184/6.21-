@@ -1,0 +1,23 @@
+<div class="yqlj am-g">
+  <h3>友情链接：</h3>
+    <ul>
+    {loop type="domain"}
+      <a href="{$vo.url}" title="{$vo.title}" target="_blank">{$vo.title}</a>{/loop} 
+      {if $links_open} {loop type="link"}
+      <a href="{$vo.url}" title="{$vo.title}" target="_blank">{$vo.title}</a>
+      {/loop}
+      {/if}
+  </ul>
+ </div>
+<div class="footer">
+<div class="am-g">
+<div class="footer-b">
+&copy;2019 版权所有 <a target="_blank" href="{$web_url}" rel="nofollow" >{$web_name} </a>
+<a target="_blank" href="http://{$host}/sitemap.xml">网站地图</a> <br /><br />
+声明： 本站部分文章来源于互联网，如有侵犯您的利益 请与本站联系{$web_share}{$web_tongji}{$web_bdpush}
+</div>
+</div>
+</div>
+    <mip-fixed type="gototop">
+        <mip-gototop></mip-gototop>
+    </mip-fixed>

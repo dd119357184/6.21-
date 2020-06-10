@@ -1,0 +1,47 @@
+﻿<mip-cambrian site-id="{当前域名}"></mip-cambrian>
+<mip-fixed type="top" data-slide>
+    <header class="header">
+        <div class="wide">
+            <div class="logo fl">
+                <a href="{网站地址}"><mip-img alt="{网站名称}" src="/uploads/images/logo.png?n={$encode_name}&w=138"></mip-img></a>
+            </div>
+            <div class="nav-box fl">
+                <mip-accordion sessions-key="mip_4" type="manual" animatetime='0.24'>
+                    <section expanded="open">
+                        <h4>
+                            <span class="show-more"><i class="fa fa-times"></i></span>
+                            <span class="show-less"><i class="fa fa-navicon"></i></span>
+                        </h4>
+                        <nav class="mip-accordion-contentnav fl">
+                            <ul class="clearfix">
+                                <li id="nvabar-item-index"><a href="/">首页</a></li>
+                             {menu row="6"}<li id="navbar-category-list2"><a href="{$vo.url}">{$vo.title}</a></li>{/menu}
+							</ul>
+                        </nav>
+                    </section>
+                </mip-accordion>
+            </div>
+            <div class="header-fr fr clearfix">
+                <mip-accordion sessions-key="mip_3" animatetime='0.24' class="search fl">
+                    <section>
+                        <h4>
+                            <span class="show-more"><i class="fa fa-search"></i></span>
+                            <span class="show-less"><i class="fa fa-close"></i></span>
+                        </h4>
+                        <div class="mip-accordion-content">
+                            <mip-form name="search" method="post" url="{$thisurl}">
+                                <input type="hidden" value="title" name="show">
+                                <input type="hidden" value="1" name="tempid">
+                                <input type="hidden" value="news" name="tbname">
+                                <input name="mid" value="1" type="hidden">
+                                <input name="dopost" value="search" type="hidden">
+                                <input name="keyboard" size="11" type="text" placeholder="请输入关键词"  autocomplete="off">
+                                <button class="search-submit" id="btnPost" type="submit">搜索</button>
+                            </mip-form>
+                        </div>
+                    </section>
+                </mip-accordion>
+            </div>
+        </div>
+    </header>
+</mip-fixed>

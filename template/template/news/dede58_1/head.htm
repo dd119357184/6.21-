@@ -1,0 +1,32 @@
+<div class="header">
+  <div class="top960">
+    <div class="topline_1">
+      <div class="logo">
+        <h1><a href="/"><img src="{$theme_path}/skins/images/logo.png" alt="{dede:global.cfg_webname/}"/></a> </h1>
+      </div>
+      <div class="banner">
+        <div class="placesuch">
+          <form  name="formsearch" action="{dede:field name='phpurl'/}/search.php">
+            <input type="hidden" name="kwtype" value="0" />
+            <div class="placesuch1">
+              <input name="q" type="text" id="search-keyword" value="在这里搜索..." onblur="if(this.value.length == 0) this.value='在这里搜索...';" onclick="if(this.value == '在这里搜索...') this.value='';" class="txt_ss" />
+            </div>
+            <div class="placesuch2">
+              <input type="image" src="{$theme_path}/skins/images/ch.gif" name="image" id="submit">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="topline_3">
+      <ul>
+        <li><strong><a href="/">网站首页</a></strong></li>
+      </ul>
+      <ul class="topline_3b">
+        {dede:channel type='top'}
+        <li><strong><a href='[field:typeurl/]' target="_blank">[field:typename/]</a></strong></li>
+        {/dede:channel}
+      </ul>
+    </div>
+  </div>
+</div>

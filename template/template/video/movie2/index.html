@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>{$toptitle}</title>
+	<meta name="description" content="{$description}" />
+	<meta name="keywords" content="{$keywords}" />
+	<meta http-equiv="Cache-Control" content="no-transform"> 
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<script>
+		var browser = {
+		versions : function() {
+		var u = navigator.userAgent, app = navigator.appVersion;
+		return {//移动终端浏览器版本信息                                                              
+		mobile : (!!u.match(/AppleWebKit.*Mobile/) || !!u.match(/Windows Phone/) || !!u.match(/Android/) || !!u.match(/MQQBrowser/)) && !u.match(/iPad/)//是否为移动终端                                 
+		};
+		}()
+		}
+		if(browser.versions.mobile){
+		 window.location.href=location.href.replace('www','m');
+		}
+	</script>
+<link rel="stylesheet" type="text/css" href="{$theme_path}/skin/common-min.css">
+</head>
+
+<body class="" datasqstyle="{&quot;top&quot;:0,&quot;position&quot;:&quot;static&quot;}" datasquuid="a734813d-1a8a-4ba6-b6aa-0cdab2dda2f5" style="top: 40px; position: relative;">
+<div class="header_top logo_wrap">  
+	<a class="logo_new" href="/" title="{$web_name}"></a>     
+	<div class="ser_n">
+	<div class="searchBox">
+	<div class="search-table">
+		<span class="cur">视频</span>                  
+		<em class="arrow"></em>             
+	</div>
+	<span class="ipt1">
+		<em class="i_search"></em>
+		<input type="hidden" name="action" value="search">
+		<input class="searchKey" id="key" type="text" autocomplete="off" placeholder="大家都在搜" data-placeholder="大家都在搜" x-webkit-speech="">
+		<script>
+			function search() {
+				var k = document.getElementById("key").value;
+				if(k){
+					location.href = '/search/' + k + '/1.html';
+				}
+			}
+		</script>
+	</span>
+	<span class="ipt2"><input type="submit" class="fm_hd_btm_shbx_bttn" value="搜 索" onclick="search()"></span>      
+	</div>
+	<div class="clear_f"></div>            
+	</div>
+	<ul class="cart_info">
+	     <li style="background-color: #95BE3E;"><a target="_blank" style="color: #ffffff" href=""><em class="i_cart">&nbsp;</em>保存到桌面</a></li>
+		<li><a target="_blank" onclick="window.external &amp;&amp; external.addFavorite(document.URL,host.Title)" style="cursor:pointer"><em class="i_cart">&nbsp;</em>Ctrl+D招我做小三</a></li>
+	</ul>
+</div>
+
+{include file="head.html"}
+
+<div class="layout-focus"></div>
+		<div class="layout">
+			<div class="line"></div>
+			<div class="layout-left">
+				<div class="hmod_hd clearfix">
+					{loop type="typename" name="leixing" row="1"}
+						<div class="hmod_hd_title clearfix">
+							<h2><a href="javascript:;" class="hot"><i class="red">{$vo.typename}</i></a></h2>
+						</div>
+						<div class="hmod_hd_extra"><a href="{$vo.typeurl}" class="extra_link" target="_blank">更多相关视频...</a></div>
+					{/loop}	
+				</div>
+				<ul class="the-list cf">
+					{loop type="arclist" row="10" image=1}
+						<li>
+							<a href="{$vo.url}" target="_blank" class="video-img">
+								<img alt="{$vo.title}" src="{$vo.pic}">
+								<span class="play-ico"></span>
+							</a>
+							<dl class="v-desc">
+								<dt class="v-title"><a href="{$vo.url}" target="_blank">{$vo.title}</a></dt>
+							</dl>
+						</li>
+					{/loop}	
+				</ul>
+			</div>
+			<div class="layout-right">
+				<div class="hmod_hd clearfix">
+					<div class="hmod_hd_title"><h2>最新排行</h2></div>
+				</div>
+				<div class="hmod_bd">
+				<ul class="rank_list">
+					{loop type="arclist" row="8" image=1}
+						<li><em class="rank_num">1</em>
+							<h4 class="rank_title_b"><a href="{$vo.url}" title="{$vo.title}" class="rank_title" target="_blank">{$vo.title}</a></h4>
+							</li>
+					{/loop}
+				</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout">
+			<div class="line"></div>
+			<div class="layout-left">
+				<div class="hmod_hd clearfix">
+					{loop type="typename" name="leixing" row="1"}
+					<div class="hmod_hd_title clearfix">
+						<h2><a href="javascript:;" class="hot"><i class="red">{$vo.typename}</i></a></h2>
+					</div>
+					<div class="hmod_hd_extra"><a href="{$vo.typeurl}" class="extra_link" target="_blank">更多相关视频...</a></div>
+					{/loop}
+				</div>
+				<ul class="the-list cf">
+					{loop type="arclist" row="10" image=1}
+						<li>
+							<a href="{$vo.url}" target="_blank" class="video-img">
+								<img alt="{$vo.title}" src="{$vo.pic}">
+								<span class="play-ico"></span>
+							</a>
+							<dl class="v-desc">
+								<dt class="v-title"><a href="{$vo.url}" target="_blank">{$vo.title}</a></dt>
+							</dl>
+						</li>
+					{/loop}	
+				</ul>
+			</div>
+			<div class="layout-right">
+				<div class="hmod_hd clearfix">
+					<div class="hmod_hd_title"><h2>最新排行</h2></div>
+				</div>
+				<div class="hmod_bd">
+				<ul class="rank_list">
+					{loop type="arclist" row="8" image=1}
+						<li><em class="rank_num">1</em>
+							<h4 class="rank_title_b"><a href="{$vo.url}" title="{$vo.title}" class="rank_title" target="_blank">{$vo.title}</a></h4>
+							</li>
+					{/loop}
+				</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout">
+			<div class="line"></div>
+			<div class="layout-left">
+				<div class="hmod_hd clearfix">
+					{loop type="typename" name="leixing" row="1"}
+					<div class="hmod_hd_title clearfix">
+						<h2><a href="javascript:;" class="hot"><i class="red">{$vo.typename}</i></a></h2>
+					</div>
+					<div class="hmod_hd_extra"><a href="{$vo.typeurl}" class="extra_link" target="_blank">更多相关视频...</a></div>
+					{/loop}
+				</div>
+				<ul class="the-list cf">
+						{loop type="arclist" row="10" image=1}
+						<li>
+							<a href="{$vo.url}" target="_blank" class="video-img">
+								<img alt="{$vo.title}" src="{$vo.pic}">
+								<span class="play-ico"></span>
+							</a>
+							<dl class="v-desc">
+								<dt class="v-title"><a href="{$vo.url}" target="_blank">{$vo.title}</a></dt>
+							</dl>
+						</li>
+					{/loop}	
+				</ul>
+			</div>
+			<div class="layout-right">
+				<div class="hmod_hd clearfix">
+					<div class="hmod_hd_title"><h2>最新排行</h2></div>
+				</div>
+				<div class="hmod_bd">
+				<ul class="rank_list">
+					{loop type="arclist" row="8" image=1}
+						<li><em class="rank_num">1</em>
+							<h4 class="rank_title_b"><a href="{$vo.url}" title="{$vo.title}" class="rank_title" target="_blank">{$vo.title}</a></h4>
+							</li>
+					{/loop}
+				</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout">
+			<div class="line"></div>
+			<div class="layout-left">
+				<div class="hmod_hd clearfix">
+					{loop type="typename" name="leixing" row="1"}
+					<div class="hmod_hd_title clearfix">
+						<h2><a href="javascript:;" class="hot"><i class="red">{$vo.typename}</i></a></h2>
+					</div>
+					<div class="hmod_hd_extra"><a href="{$vo.typeurl}" class="extra_link" target="_blank">更多相关视频...</a></div>
+					{/loop}
+				</div>
+				<ul class="the-list cf">
+					{loop type="arclist" row="10" image=1}
+						<li>
+							<a href="{$vo.url}" target="_blank" class="video-img">
+								<img alt="{$vo.title}" src="{$vo.pic}">
+								<span class="play-ico"></span>
+							</a>
+							<dl class="v-desc">
+								<dt class="v-title"><a href="{$vo.url}" target="_blank">{$vo.title}</a></dt>
+							</dl>
+						</li>
+					{/loop}	
+				</ul>
+			</div>
+			<div class="layout-right">
+				<div class="hmod_hd clearfix">
+					<div class="hmod_hd_title"><h2>最新排行</h2></div>
+				</div>
+				<div class="hmod_bd">
+				<ul class="rank_list">
+					{loop type="arclist" row="8" image=1}
+						<li><em class="rank_num">1</em>
+							<h4 class="rank_title_b"><a href="{$vo.url}" title="{$vo.title}" class="rank_title" target="_blank">{$vo.title}</a></h4>
+							</li>
+					{/loop}
+				</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout">
+			<div class="line"></div>
+			<div class="layout-left">
+				<div class="hmod_hd clearfix">
+					{loop type="typename" name="leixing" row="1"}
+					<div class="hmod_hd_title clearfix">
+						<h2><a href="javascript:;" class="hot"><i class="red">{$vo.typename}</i></a></h2>
+					</div>
+					<div class="hmod_hd_extra"><a href="{$vo.typeurl}" class="extra_link" target="_blank">更多相关视频...</a></div>
+					{/loop}
+				</div>
+				<ul class="the-list cf">
+					{loop type="arclist" row="10" image=1}
+						<li>
+							<a href="{$vo.url}" target="_blank" class="video-img">
+								<img alt="{$vo.title}" src="{$vo.pic}">
+								<span class="play-ico"></span>
+							</a>
+							<dl class="v-desc">
+								<dt class="v-title"><a href="{$vo.url}" target="_blank">{$vo.title}</a></dt>
+							</dl>
+						</li>
+					{/loop}	
+				</ul>
+			</div>
+			<div class="layout-right">
+				<div class="hmod_hd clearfix">
+					<div class="hmod_hd_title"><h2>最新排行</h2></div>
+				</div>
+				<div class="hmod_bd">
+				<ul class="rank_list">
+					{loop type="arclist" row="8" image=1}
+						<li><em class="rank_num">1</em>
+							<h4 class="rank_title_b"><a href="{$vo.url}" title="{$vo.title}" class="rank_title" target="_blank">{$vo.title}</a></h4>
+							</li>
+					{/loop}
+				</ul>
+				</div>
+			</div>
+		</div>
+		
+{include file="footer.html" }
+</div>
+
+
+
+</body></html>

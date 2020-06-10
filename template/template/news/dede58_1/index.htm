@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$toptitle}</title>
+<meta name="description" content="{$description}" />
+<meta name="keywords" content="{$keywords}" />
+<link rel="stylesheet" type="text/css" href="{$theme_path}/skins/style/css.css" />
+<script src="{$theme_path}/skins/js/common.js" type="text/javascript"></script>
+
+</head>
+<body>
+{dede:include filename="head.htm"/}
+<div class="main">
+  <div class="main_2 clf">
+    <div class="clear"></div>
+    <div class="changepic fl">
+      <div class="focusroll">
+        <div id="idFocusPic" class="iFocus"> 
+          <!-- 幻灯片 -->
+          <ul id=idSlider class="slider slider2">
+            {dede:arclist row='4' flag='p,f'}
+            <li><a target='_blank' href='[field:arcurl/]'><img src='[field:litpic/]' alt="[field:fulltitle/]" width="298" height="330" /></a></li>
+            {/dede:arclist}
+          </ul>
+          <ul id="idNum" class="num">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+          </ul>
+        </div>
+        <script type=text/javascript src="{$theme_path}/skins/js/ifocus.js"></script> 
+      </div>
+      <div class="lhotpic">
+        <ul>
+          {dede:arclist flag='p' row='2' orderby='rand'}
+          <li><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]"><img src="[field:litpic/]" alt="[field:fulltitle/]" width="130" height="98" />[field:title/]</a></li>
+          {/dede:arclist}
+        </ul>
+      </div>
+      <div class="lhot">
+        <ul>
+          {dede:arclist row='6' noflag='f,c' titlelen='40' orderby='hot'}
+          <li><a href="[field:arcurl/]" title="[field:fulltitle/]" target="_blank">[field:title/]</a> </li>
+          {/dede:arclist}
+        </ul>
+      </div>
+    </div>
+    <div class="focus">
+      <div class="top"></div>
+      <dl>
+        {dede:arclist row='3' flag='h' titlelen='30' infolen='100'}
+        <dt><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]">[field:title/]</a></dt>
+        <dd><a href="[field:arcurl/]" target="_blank">[field:infos/]</a></dd>
+        {/dede:arclist}
+      </dl>
+      <ul>
+        {dede:arclist limit='0,6' noflag='c,h,f' titlelen='40'}
+        <li><span><a href="[field:typeurl/]">[[field:typename/]]</a></span><a href="[field:arcurl/]" title="[field:fulltitle/]" target="_blank">[field:title/]</a></li>
+        {/dede:arclist}
+      </ul>
+      <ul>
+        {dede:arclist limit='6,6' noflag='c,h,f' titlelen='40'}
+        <li><span><a href="[field:typeurl/]">[[field:typename/]]</a></span><a href="[field:arcurl/]" title="[field:fulltitle/]" target="_blank">[field:title/]</a></li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div class="rbox fr">
+      <div class="rpic">
+        <ul>
+          {dede:arclist flag='c,p' noflag='h,f' row='5' titlelen='36' infolen='80'}
+          <li>
+            <h2><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]">[field:title/]</a></h2>
+            <a href="[field:arcurl/]" target="_blank"><img src="[field:litpic/]" width="100" height="75" alt="[field:fulltitle/]" /></a>
+            <p>[field:infos/]</p>
+          </li>
+          {/dede:arclist}
+        </ul>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div class="iab  m10"><script src='/plus/ad_js.php?aid=23' language='javascript'></script></div>
+    <div class="box_ladyhealth clf health2">
+      <div class="ladyhealth_top">{dede:type typeid='1'}
+        <h2><a href="[field:typeurl/]" target="_blank">[field:typename/]</a></h2>
+        <span></span><a href="[field:typeurl/]" target="_blank" class="more">更多></a>{/dede:type}</div>
+      <dl>
+        {dede:arclist typeid='1' row='10' titlelen='26' flag='p'}
+        <dd><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]"><img src="[field:litpic/]" alt="[field:fulltitle/]" width="160" height="120" />[field:title/]</a></dd>
+        {/dede:arclist}
+      </dl>
+    </div>
+    <div class="clear"></div>
+    <div class="lifebox fl">
+      <div class="lifebox_top">{dede:type typeid='2'}
+        <h2><a href="[field:typeurl/]" target="_blank">[field:typename/]</a></h2>
+        <span></span><a href="[field:typeurl/]" target="_blank" class="more">更多></a>{/dede:type}</div>
+      <div class="lifebox_cont"> <span> {dede:arclist typeid='2' row='2' titlelen='24' flag='c,p'} <a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]"><img src="[field:litpic/]" alt="[field:fulltitle/]" width="150" height="110" />[field:title/]</a> {/dede:arclist} </span>
+        <ul>
+          {dede:arclist typeid='2' row='11' titlelen='36' noflag='c'}
+          <li><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]">[field:title/]</a></li>
+          {/dede:arclist}
+        </ul>
+      </div>
+    </div>
+    <div class="lifebox fr">
+      <div class="lifebox_top">{dede:type typeid='3'}
+        <h2><a href="[field:typeurl/]" target="_blank">[field:typename/]</a></h2>
+        <span></span><a href="[field:typeurl/]" target="_blank" class="more">更多></a>{/dede:type}</div>
+      <div class="lifebox_cont"> <span> {dede:arclist typeid='3' row='2' titlelen='24' flag='c,p'} <a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]"><img src="[field:litpic/]" alt="[field:fulltitle/]" width="150" height="110" />[field:title/]</a> {/dede:arclist} </span>
+        <ul>
+          {dede:arclist typeid='3' row='11' titlelen='36' noflag='c'}
+          <li><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]">[field:title/]</a></li>
+          {/dede:arclist}
+        </ul>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div class="iab  m10"><script src='/plus/ad_js.php?aid=25' language='javascript'></script></div>
+    <div class="box_enthealth clf box_ent">
+      <div class="ladyhealth_top">{dede:type typeid='4'}
+        <h2><a href="[field:typeurl/]" target="_blank">[field:typename/]</a></h2>
+        <span></span><a href="[field:typeurl/]" target="_blank" class="more">更多></a>{/dede:type}</div>
+      <ul>
+        {dede:arclist typeid='4' row='8' titlelen='24' flag='p'}
+        <li><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]"><img src="[field:litpic/]" alt="[field:fulltitle/]" width="150" height="110" />[field:title/]</a></li>
+        {/dede:arclist}
+      </ul>
+      <dl>
+        {dede:arclist typeid='4' row='10' titlelen='34' flag='c'}
+        <dd><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]">[field:title/]</a></dd>
+        {/dede:arclist}
+      </dl>
+    </div>
+    <div class="lifebox fl">
+      <div class="lifebox_top">{dede:type typeid='5'}
+        <h2><a href="[field:typeurl/]" target="_blank">[field:typename/]</a></h2>
+        <span></span><a href="[field:typeurl/]" target="_blank" class="more">更多></a>{/dede:type}</div>
+      <div class="lifebox_cont"> <span> {dede:arclist typeid='5' row='2' titlelen='24' flag='c,p'} <a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]"><img src="[field:litpic/]" alt="[field:fulltitle/]" width="150" height="110" />[field:title/]</a> {/dede:arclist} </span>
+        <ul>
+          {dede:arclist typeid='5' row='11' titlelen='36' noflag='c'}
+          <li><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]">[field:title/]</a></li>
+          {/dede:arclist}
+        </ul>
+      </div>
+    </div>
+    <div class="lifebox fr">
+      <div class="lifebox_top">{dede:type typeid='6'}
+        <h2><a href="[field:typeurl/]" target="_blank">[field:typename/]</a></h2>
+        <span></span><a href="[field:typeurl/]" target="_blank" class="more">更多></a>{/dede:type}</div>
+      <div class="lifebox_cont"> <span> {dede:arclist typeid='6' row='2' titlelen='24' flag='c,p'} <a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]"><img src="[field:litpic/]" alt="[field:fulltitle/]" width="150" height="110" />[field:title/]</a> {/dede:arclist} </span>
+        <ul>
+          {dede:arclist typeid='6' row='11' titlelen='36' noflag='c'}
+          <li><a href="[field:arcurl/]" target="_blank" title="[field:fulltitle/]">[field:title/]</a></li>
+          {/dede:arclist}
+        </ul>
+      </div>
+    </div>
+    <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<div class="foot">
+  <div class="link"> <span><strong class="this" id="link_tag_1" onMouseMove="tags('link',2,1)">友情链接</strong> <strong id="link_tag_2" onMouseMove="tags('link',2,2)">合作伙伴</strong></span>
+    <ul id="link_1">
+              {loop type="domain"}<dd><a href="{$vo.url}" target="_blank">{$vo.title}</a></dd>{/loop}
+				  {if $links_open}
+				   {loop type="link"}
+			      <dd><a href="{$vo.url}" target="_blank">{$vo.title}</a></dd>
+				   {/loop}
+			   {/if}
+    </ul>
+    <ul id="link_2" style="display:none">
+              {loop type="domain"}<dd><a href="{$vo.url}" target="_blank">{$vo.title}</a></dd>{/loop}
+				  {if $links_open}
+				   {loop type="link"}
+			      <dd><a href="{$vo.url}" target="_blank">{$vo.title}</a></dd>
+				   {/loop}
+			   {/if}
+    </ul>
+  </div>
+</div>
+{dede:include filename="foot.htm"/}
+</body>
+</html>

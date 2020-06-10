@@ -1,0 +1,87 @@
+<div class="footer">
+  <p class="footer_link">
+	<a href="{$web_url}" title="联系我们">联系{$web_name}</a>
+	<span class="ico_line"></span>
+    <a  title="友情链接">友情链接</a>
+    <span class="ico_line">
+    	<p class="friend-link">友情链接：
+		{loop type="domain"}<a href="{$vo.url}" target="_blank">{$vo.title}  | </a>{/loop}
+			{if $links_open}
+		   {loop type="link"}
+		   <a href="{$vo.url}" target="_blank">{$vo.title}  | </a>
+		   {/loop}
+		   {/if}
+</p>
+    </span>
+    <a href="http://{$host}/sitemap.xml" title="版权声明">sitemap</a>
+    <span class="ico_line"></span>
+    {$web_tongji} 
+    <a href="{$web_url}" title="客服中心">客服中心</a>
+	<span class="ico_line"></span>
+   
+	
+  </p>
+   <p class="footer_copy">
+    Copyright © {_runtime('loadTime','end')}s , {$usememory} kb Corporation Limited All Rights Reserved<br>本站所有视频均为网友上传，如若无意侵犯了您的版权或发现任何不良内容。电子邮箱shenma006@gmail.com与我们取得联系
+    <a href="#" target="_blank" class="positionImg"><img src="{$theme_path}/skin/biaoshi.gif" style="vertical-align: top; margin-top: -25px;"></a>
+  </p>
+  
+
+<div class="actGotop"><a href="javascript:;" title="返回每一刻顶部"></a></div>
+
+<script src="{$theme_path}/skin/commonpc.js"></script>
+
+
+
+<script type="text/javascript">
+(function(){
+	$('#select_btn li:first').css('border','none');
+	
+    if ($('#zSlider').length) {
+      zSlider();
+      $('#h_sns').find('img').hover(function(){
+        $(this).fadeTo(200,0.5);
+      }, function(){
+        $(this).fadeTo(100,1);
+      });
+    }
+	
+    function zSlider(ID, delay){
+      var ID=ID?ID:'#zSlider';
+      var delay=delay?delay:5000;
+      var currentEQ=0, picnum=$('#picshow_img li').size(), autoScrollFUN;
+      $('#select_btn li').eq(currentEQ).addClass('current');
+      $('#picshow_img li').eq(currentEQ).show();
+      autoScrollFUN=setTimeout(autoScroll, delay);
+      function autoScroll(){
+        clearTimeout(autoScrollFUN);
+        currentEQ++;
+        if (currentEQ>picnum-1) currentEQ=0;
+        $('#select_btn li').removeClass('current');
+        $('#picshow_img li').hide();
+        $('#select_btn li').eq(currentEQ).addClass('current');
+        $('#picshow_img li').eq(currentEQ).show();
+        autoScrollFUN = setTimeout(autoScroll, delay);
+      }
+      $('#picshow').hover(function(){
+        clearTimeout(autoScrollFUN);
+      }, function(){
+        autoScrollFUN = setTimeout(autoScroll, delay);
+      });
+      $('#select_btn li').hover(function(){
+        var picEQ=$('#select_btn li').index($(this));
+        if (picEQ==currentEQ) return false;
+        currentEQ = picEQ;
+        $('#select_btn li').removeClass('current');
+        $('#picshow_img li').hide();
+        $('#select_btn li').eq(currentEQ).addClass('current');
+        $('#picshow_img li').eq(currentEQ).show();
+        return false;
+      });
+    }
+})();
+</script>
+{$web_share}
+{$web_bdpush}
+
+</div>

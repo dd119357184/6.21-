@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<title>{$toptitle}</title>
+<meta name="description" content="{$description}" />
+<meta name="keywords" content="{$keywords}" />
+<link rel="stylesheet" type="text/css" href="{$theme_path}style.css" />
+<script type="text/javascript" src="{$theme_path}/unitpngfix.js"></script>
+</head>
+<body>
+
+<div id="main_container">
+
+		<div id="header">
+    <div class="logo">
+    <a href="{网站地址}"><img src="{$theme_path}/images/logo.png" width="221" height="91" alt="{$web_name}" title="{$toptitle}" border="0" /></a>
+    </div>
+    
+            <div id="menu_tab">                                     
+                    <ul class="menu">
+                    <li class="divider"></li>                                                                               
+                         <li><a href="/" class="nav_selected"> home </a></li>                         
+                         <li><a href="{geturl tpl="about"/}" class="nav"> about us</a></li>
+                         {loop type="typename" row="2"}
+                         <li><a href="" class="nav"> {$vo.typename}</a></li>
+                         {/loop}
+                         <li><a href="{geturl tpl="contact.html"/}" class="nav"> contact </a></li>
+                    </ul>
+            </div>
+            
+            <div class="search_tab">
+            <input type="text" class="search" value="search" />
+            <input type="image" src="{$theme_path}/images/search.gif" class="search_bt" />
+            </div>
+    
+    
+    </div>
+    
+ 
+            
+            
+    <div id="main_content">
+    
+      <div class="left_sidebar">
+         
+        <div id="left_menu">
+            <ul>
+            {loop type="typename" row="8"}
+            <li><a href="{$vo.typeurl}" title="{$vo.typename}" >{$vo.typename}</a></li>
+            {/loop}
+            </ul>
+        </div>
+        
+        
+        <div class="submenu_pic">
+        <img src="{$theme_path}/images/submenu_pic.gif" alt="{$web_name}"  title="{$toptitle}" />
+        </div>
+        
+        
+     </div>
+        
+        
+        <div id="center_content">
+        
+        <div class="title"><img src="{$theme_path}/images/contact_title.gif" alt="{$web_name}"  title="{$toptitle}" /></div>
+        
+		<div class="product_box">
+
+        
+		        <div id="contact_form">
+                        <label class="contact_form">Name:</label>
+		      			<input type="text" name="user" class="contact_input" />
+		       			<div class="cleardiv"></div>
+                        <label class="contact_form">Email:</label>
+		      		 	<input type="text" name="payuity"  class="contact_input"/>
+		       			<div class="cleardiv"></div>
+                        <label class="contact_form">Message:</label>
+		      		 	<textarea name="text" cols="" rows="" class="contact_textarea"></textarea>
+		       			<div class="cleardiv"></div>
+                        <input type="image" src="{$theme_path}/images/submit.gif" class="contact_submit" />
+            
+      		   </div>
+
+
+
+        </div>
+              
+        
+
+        
+        
+        </div>
+    
+
+   <div class="clear"></div>  
+           
+    <div id="footer">
+    <div class="left_foter"><img src="{$theme_path}/images/footer_logo.gif" alt="{$web_name}"  title="{$toptitle}" /></div>
+    <div class="center_footer">
+    <a href="#">Shipping Terms</a> | <a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a>
+    <br /> By <a href="http://www.cssmoban.com/" title="free css templates" style="color:#9e1c50;">cssmoban</a>
+    </div>
+    </div>
+    
+    </div>
+{分享代码}
+{百度推送代码}
+</div>
+</body>
+</html>

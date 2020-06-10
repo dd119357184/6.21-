@@ -1,0 +1,14 @@
+<div class="copyright">
+	<dl>
+              <dt><a href="{geturl tpl="list"/}" title="新闻中心" target="_self">友情链接</a></dt>
+              {loop type="domain"}<dd><a href="{$vo.url}" target="_blank">{$vo.title}</a></dd>{/loop}
+				  {if $links_open}
+				   {loop type="link"}
+			      <dd><a href="{$vo.url}" target="_blank">{$vo.title}</a></dd>
+				   {/loop}
+			   {/if}
+            </dl>
+<p>
+Copyright &copy; 2020 Powered by <a href="{$thisurl}">{$title}</a>,<a href="{$web_url}">{$web_name}</a>&nbsp;&nbsp;{$web_tongji} <a href="http://{$host}/sitemap.xml">sitemap</a>娱乐门户:一直以来坚持文明办网，传播唯美艺术照片！每一套作品都经过我们专业编辑的精挑细选</p>
+{$web_share}
+{$web_bdpush}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html mip="">
+ <head>
+  <meta charset="utf-8" />
+  <meta name="applicable-device" content="pc,mobile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+  <title>{$toptitle}</title>
+  <meta name="keywords" content="{$keywords}" />
+  <meta name="description" content="{$description}" />
+  <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css" />
+  <link rel="stylesheet" type="text/css" href="{$theme_path}/static/css/base.css" />
+  <link rel="stylesheet" type="text/css" href="{$theme_path}/static/css/m.css" />
+  <link rel="canonical" href="{$thisurl}" />
+ </head>
+ <body>
+ {include file="head.html"}
+ 
+  <div class="searchbox"></div>
+  <!--top end-->
+  <article>
+   <!--lbox begin-->
+   <div class="lbox">
+    <div class="clearblank"></div>
+    <div class="tab_box whitebg">
+     <div class="tab_buttons">
+      <h2 class="htitle"><span class="hnav"></span>推荐文章</h2>
+     </div>
+     <div class="newstab">
+      <div class="newsitem">
+       <div class="newspic">
+        <ul>
+         <li><a href="{$vo.url}" target="_blank">
+           {loop type="arclist" row="2" info=1 image=1}<mip-img layout="full" class="img left-img" alt="{$vo.title}" src="{$vo.pic}"></mip-img>
+		   <span>{$vo.title}</span></a></li>{/loop}
+        </ul>
+       </div>
+       <ul class="newslist">
+        {loop type="arclist" row="5" info=1}<li><i></i><a href="{$vo.url}" title="{$vo.title}" target="_blank">{$vo.title}</a><p>{$vo.info}...</p></li>
+		{/loop}
+	   </ul>
+      </div>
+     </div>
+    </div>
+    <!--tab_box end-->
+    <div class="zhuanti whitebg">
+     <h2 class="htitle"><span class="hnav"></span>热门文章</h2>
+     <ul>
+	 {loop type="arclist" row="6" info=1 image=1}
+      <li><i class="ztpic"><a href="{$vo.url}" target="_blank">
+         <mip-img layout="container" width="234" height="160" src="{$vo.pic}" alt="{$vo.title}"></mip-img></a></i><b>{$vo.title}</b><span>{$vo.info}...</span>
+		 <a href="{$vo.url}" target="_blank" class="readmore">文章阅读</a>
+	  </li>
+	  {/loop}
+     </ul>
+    </div>
+    <!-- <div class="ad whitebg"></a></div> -->
+    <div class="whitebg bloglist">
+     <h2 class="htitle">最新博文</h2>
+     <ul>
+      {loop type="arclist" row="10" info=1 image=1}<li><h3 class="blogtitle"><a href="{$vo.url}" target="_blank">{$vo.title}</a></h3><span class="blogpic imgscale">
+	  <i><a href="{当前栏目URL}" target="_blank">{当前栏目}</a></i><a href="{$vo.url}" title="{$vo.title}">
+         <mip-img layout="container" alt="{$vo.title}" src="{$vo.pic}"></mip-img></a></span><p class="blogtext">{$vo.info}...</p><p class="bloginfo"><i class="avatar"></i>
+		 <span>阅读:{$vo.hits}</span><span><time>{$vo.postdate}</time></span><span>【<a href="{$vo.url}" target="_blank">{typename type="name"/}</a>】</span></p>
+		 <a href="{$vo.url}" class="viewmore">阅读更多</a></li>
+	  {/loop}
+     </ul>
+    </div>
+    <!--bloglist end-->
+{include file="footer.html" }
+ </body>
+</html>

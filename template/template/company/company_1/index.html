@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<title>{$toptitle}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<link rel="stylesheet" type="text/css" href="{$theme_path}/style.css" />
+<script type="text/javascript" src="{$theme_path}/unitpngfix.js"></script>
+</head>
+<body>
+
+<div id="main_container">
+
+	<div id="header">
+    <div class="logo">
+    <a href="{网站地址}"><img src="{$theme_path}/images/logo.png" width="221" height="91" alt="{$web_name}" title="{$toptitle}" border="0" /></a>
+    </div>
+    
+            <div id="menu_tab">                                     
+                    <ul class="menu">
+                    <li class="divider"></li>                                                                               
+                         <li><a href="/" class="nav_selected"> home </a></li>                         
+                         <li><a href="{geturl tpl="about"/}" class="nav"> about us</a></li>
+                         {loop type="typename" row="2"}
+                         <li><a href="" class="nav"> {$vo.typename}</a></li>
+                         {/loop}
+                         <li><a href="{geturl tpl="contact.html"/}" class="nav"> contact </a></li>
+                    </ul>
+            </div>
+            
+            <div class="search_tab">
+            <input type="text" class="search" value="search" />
+            <input type="image" src="{$theme_path}/images/search.gif" class="search_bt" />
+            </div>
+    
+    
+    </div>
+    
+ 
+            
+            
+    <div id="main_content">
+    
+      <div class="left_sidebar">
+         
+        <div id="left_menu">
+            <ul>
+            {loop type="typename" row="8"}
+            <li><a href="{$vo.typeurl}" title="{$vo.typename}" >{$vo.typename}</a></li>
+            {/loop}
+            </ul>
+        </div>
+        
+        <div class="submenu_pic">
+        <img src="{$theme_path}/images/submenu_pic.gif" alt="{$web_name}" title="{$toptitle}" />
+        </div>
+        
+        
+     </div>
+        
+        
+        <div id="center_content">
+        
+        <div class="title"><img src="{$theme_path}/images/lates_products_title.gif" alt="{$web_name}" title="{$toptitle}" /></div>
+        
+		<div class="product_box">
+        <img src="{$theme_path}/images/p1.gif" alt="{$web_name}" title="{$toptitle}" class="prod_image" />
+        <div class="product_details">
+        	<div class="prod_title">Banded Red Polka Bikini.</div>
+        	 {loop type="arclist" row="3" image="1" tpl='product_show' title="typename" info=1}
+            <p>{$vo.info}...
+            </p>
+            {/loop}
+            <p class="price">Price: <span class="price">82.90 $</span></p>
+            <a href="{geturl tpl="details.html"/}" class="details"><img src="{$theme_path}/images/details.gif" alt="{$web_name}" title="{$toptitle}" border="0"/></a>
+        </div>
+        </div>
+        
+		<div class="product_box">
+        <img src="{$theme_path}/images/p2.gif" alt="{$web_name}" title="{$toptitle}" class="prod_image"/>
+        <div class="product_details">
+        	<div class="prod_title">Banded Red Polka Bikini.</div>
+        	 {loop type="arclist" row="3" image="1" tpl='product_show' title="typename" info=1}
+            <p>
+            {$vo.info}...
+            </p>
+            {/loop}
+            <p class="price">Price: <span class="price">33.90 $</span></p>
+            <a href="{geturl tpl="details.html"/}" class="details"><img src="{$theme_path}/images/details.gif" alt="{$web_name}" title="{$toptitle}" border="0"/></a>
+        </div>        
+        </div>        
+        
+        
+        <div class="title"><img src="{$theme_path}/images/shop_title.gif" alt="{$web_name}" title="{$toptitle}" /></div>  
+        {loop type="arclist" row="3" image="1" tpl='product_show' title="typename" info=1}
+        <p class="shop_by_brand">{$vo.info}...
+        </p> 
+        {/loop}
+        <a href="#"><img src="{$theme_path}/images/sp1.gif" alt="{$web_name}" title="{$toptitle}" class="sp" border="0"/></a> 
+        <a href="#"><img src="{$theme_path}/images/sp2.gif" alt="{$web_name}" title="{$toptitle}" class="sp" border="0"/></a>  
+        <a href="#"><img src="{$theme_path}/images/sp3.gif" alt="{$web_name}" title="{$toptitle}" class="sp" border="0"/> </a>   
+        
+        
+        <div class="title"><img src="{$theme_path}/images/center_divider.gif" alt="{$web_name}" title="{$toptitle}" /></div> 
+        <div class="title"><img src="{$theme_path}/images/gift_title.gif" alt="{$web_name}" title="{$toptitle}" /></div> 
+        
+        <a href="#"><img src="{$theme_path}/images/gift1.gif" alt="{$web_name}" title="{$toptitle}" class="gift"/></a>
+        <a href="#"><img src="{$theme_path}/images/gift2.gif" alt="{$web_name}" title="{$toptitle}" class="gift"/></a>
+        <a href="#"><img src="{$theme_path}/images/gift3.gif" alt="{$web_name}" title="{$toptitle}" class="gift"/></a>
+        <a href="#"><img src="{$theme_path}/images/gift4.gif" alt="{$web_name}" title="{$toptitle}" class="gift"/></a>
+         {loop type="arclist" row="3" image="1" tpl='product_show' title="typename" info=1}
+       <p class="gifts_details">{$vo.info}.... Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+        </p> 
+        {/loop}
+        
+        
+        </div>
+    
+<div class="clear"></div>
+        
+           
+    <div id="footer">
+    <div class="left_foter"><img src="{$theme_path}/images/footer_logo.gif" alt="{$web_name}" title="{$toptitle}" /></div>
+    <div class="center_footer">
+    <a href="#">Shipping Terms</a> | <a href="/">Terms &amp; {网站名称}</a> | <a href="{网站地址}">Privacy Policy</a> | <a href="#">Contact</a>
+    <br /> By <a href="{网站地址}" title="free css templates" style="color:#9e1c50;">cssmoban</a>
+    </div>
+    </div>
+    
+    </div>
+
+</div>
+{分享代码}
+{百度推送代码}
+</body>
+</html>
