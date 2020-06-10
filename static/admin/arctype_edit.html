@@ -1,0 +1,102 @@
+{include file="header.html"}
+<body class="body-main">
+<ul id="admin_sub_title">
+	<li class="unsub"><a href="{url('admin/arctype/index')}">模型管理</a></li>
+	<li class="sub"><a>{if $id==0}添加{else}编辑{/if}模型</a></li>
+	<li class="unsub"><a href="javascript:" onclick="nodeImport(0);"><i class="typcn typcn-download" style="font-size:15px;"></i> 导入模型</a></li>
+</ul>
+<script type="text/javascript">
+function nodeImport(id){
+	art.dialog.open('?admin-arctype-import-id-'+id,{lock:true,title:'导入模型',id:'nodeTestifrm',width:'700px',height:'400px'});
+}
+</script>
+<div id="admin_right_b">
+  <form method="post">
+    <table width="98%" border="0" align="center" cellpadding="5" cellspacing="0" class="tableConfig">
+	<tr class="item_title">
+		<td colspan="5"><i class="typcn typcn-cog"></i> 基本设置</td>
+	</tr>
+	<tr>
+      <td width="120" align="right" class="config_td_first">模型名称：</td>
+	  <input type="hidden" name="con[id]" value="{$id|default:0}">
+      <td class="tdbg" colspan="4"><input name="con[name]" type="text" value="{$name}" class="input" size="30"> <font color="#ff3300">*</font></td>
+    </tr>
+
+	<tr>
+      <td align="right" class="config_td_first">文件夹名称：</td>
+      <td class="tdbg" colspan="4"><input name="con[dirname]" type="text" {if $id>0} disabled{/if} value="{$dirname}" class="input" size="30"> <font color="#ff3300">*</font> 填写文件夹名称，数字和字母，不要有中文和符号，不要有重复，<font color="red">添加后不可修改</font></td>
+    </tr>
+	<tr>
+      <td align="right" class="config_td_first">主模板文件：</td>
+      <td class="tdbg" colspan="4"><input name="con[musttpl]" type="text" style="background: #ebebe4;" readonly value="{$musttpl|default:'index,list,show'}" class="input" size="30"> <font color="#ff3300">*</font> 系统默认的模板<font color="red"> 首页：index、列表：list、内容：show</font></td>
+    </tr>
+	<tr>
+      <td align="right" class="config_td_first">其他模板文件：</td>
+      <td class="tdbg" colspan="4"><input name="con[tplfiles]" type="text" value="{$tplfiles}" class="input" size="50"> 不用加.html，多个用,分开。<font color="red">先保存，才可设置url规则</font></td>
+    </tr>
+	<tr class="item_title">
+		<td colspan="5"><i class="typcn typcn-cog"></i> 模板URL规则列表 ( <font color="red" style="font-weight:500">先保存，再设置url规则</font> )</td>
+	</tr>
+	<tr>
+	<td colspan="5">
+		<div class="divtips" style="font-size:13px;line-height:25px">
+			<p>随机模式：即生成的url地址里包含有随机参数，生成的url就是无限模式</p>
+			<p>固定模式：生成的url地址随内容库的条数所定，例如：文章库的txt有999行，则内容页url最多为999条。</p>
+			<p><b>注：修改url规则后，需清除url规则缓存才生效</b></p>
+			</div>
+		<div class="boxlist">
+			<dl class="default">
+				<dt>
+					<p class="title">随机模式URL规则</p>
+				</dt>
+				<dd>{if $id==0}保存后才能设置{else}<a class="button button_small button_warning" href="javascript:" onclick="edit('1','随机模式');">点击修改</a>{/if}</dd>
+		  </dl>
+		  <dl>
+				<dt>
+					<p class="title">固定模式URL规则</p>
+				</dt>
+				<dd>{if $id==0}保存后才能设置{else}<a class="button button_small button_success" href="javascript:" onclick="edit('2','固定模式');">点击修改</a>{/if}</dd>
+		  </dl>
+		  </div>
+		</td>
+	</tr>
+	
+	<tr>
+		  <td colspan="5"><button type="submit" id="dosave" class="button button_submit">提交保存</button> <button type="button" onClick="location.href='{url('admin/arctype/index')}';" class="button button_grey">返回</button></td>
+		</tr>
+	<tr>
+		<td colspan="5"><div class="divtips" style="font-size:13px;line-height:25px">
+			<p>URL规则具体使用可查看《<a href="http://www.xxfseo.com/spider/universal-spiderpool-template-tags.html" target="_blank">小旋风万能蜘蛛池模板标签编写指南</a>》</p>
+			</div></td>
+	</tr>
+	</table>
+<script type="text/javascript">
+function edit(id,typename){
+	var title=id?'修改':'添加';
+	art.dialog.open('?admin-arctype-urlrules_edit-id-{$id|default:0}-urltype-'+id,{
+		lock:true,opacity:0.3,title:title+'URL规则配置【'+typename+'】',id:'openifrm',width:'850px',height:'550px'});
+}
+$("#dosave").click(function(){
+	showDialog();
+	$.ajax({
+		type:"post",
+		url:"{url('admin/arctype/update')}",
+		data:$("form").serialize(),
+		dataType:'json',
+		timeout:28000,
+		global:false,
+		success:function(data){
+			if(data.status==1){
+				showAlert('success',data.info);
+			}else{
+				showAlert('error',data.info);
+			}
+		}
+	});
+ return false;
+});
+</script>
+<div class="runtime"></div>  
+</div>
+</body>
+</html>

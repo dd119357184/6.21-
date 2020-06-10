@@ -1,0 +1,57 @@
+{include file="header.html"}
+<body class="body-main">
+
+<ul id="admin_sub_title">
+	<li class="sub"><a>站长平台验证开关</a></li>
+</ul>
+<div id="admin_right_b">
+<div class="divtips">
+	<p>本工具用于站长平台验证网站时，无需上传验证文件，可直接点击通过验证！</p>
+	<p>验证完成后，请关闭开关，防止他人验证</p>
+	<p>注：目前仅支持百度、360站长平台</p>
+</div>
+<div style="width:400px;margin:100px auto;line-height:50px;">
+	<p style="margin-top:20px;"><button type="button" id="openbtn" class="button button_success" style="width:300px;height:60px;"><i class="typcn typcn-wi-fi"></i> <span id="open_text">点击开启</span></button></p>
+</div>
+<script type='text/javascript'>
+var is_open=false;
+$.ajax({
+	url:'?admin-push-verify_check',
+	success:function(d){
+		if(d==1){
+			is_open=true;
+			$("#openbtn").addClass('button_remove');
+			$('#open_text').html('开启成功，点击关闭...');
+		}
+	}
+});
+$(function() {
+	$("#openbtn").click(function(){
+		$('#open_text').html('正在开启...');
+		var $open=is_open?1:0;
+		$.ajax({
+			url:'?admin-push-verify_open-sid-'+$open,
+			success:function(d){
+				if(d){
+					if($open==0){
+						is_open=true;
+						$("#openbtn").addClass('button_remove');
+						$('#open_text').html('开启成功，点击关闭...');
+					}else{
+						is_open=false;
+						$("#openbtn").removeClass('button_remove');
+						$('#open_text').html('关闭成功，点击开启...');
+					}
+				}else{
+					$('#open_text').html('操作失败，点击重试...');
+				}
+			}
+		});
+	});
+});
+</script>
+<div class="runtime"></div>  
+</div>
+{include file="footer.html"}
+</body>
+</html>

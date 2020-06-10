@@ -1,0 +1,60 @@
+{include file="header.html"}
+<body class="body-main">
+
+
+<ul id="admin_sub_title">
+	<li class="sub"><a href="javascript:void(0)" onClick="selectTab('config0',this)">第三方伪原创</a></li>
+</ul>
+<div id="admin_right_b">
+<script>
+$(function() {
+	$("#dosave").click(function(){
+		showDialog();
+		$.ajax({
+			type:"post",
+			url:"{url('admin/replace/update')}",
+			data:$("form").serialize(),
+			dataType:'json',
+			timeout:28000,
+			global:false,
+			success:function(data){
+				if(data.status==1){
+					showAlert('success','恭喜你，修改成功');
+				}else{
+					showAlert('error',data.info);
+				}
+			}
+		});
+	 return false;
+	});
+});
+</script>
+<form method="post">
+  <table width="98%" border="0" align="center" cellpadding="3" cellspacing="0" id="config0" class="tableConfig">
+	<tr class="tdbg item_title">
+		<td align="right"><i class="typcn typcn-cog"></i> 奶盘伪原创API设置</td>
+		<td style="font-weight:500;color:red">naipan.com</td>
+	</tr>
+	<tr class="tdbg">
+      <td width="150" align="right">授权用户：</td>
+      <td class="tdbg"><input name="con[nanpan_user]" type="text" class="input" value="{$nanpan_user}" style="width:150px"> <span>购买的授权用户，如：test@163.com</span></td>
+    </tr>
+	
+	<tr class="tdbg">
+      <td width="150" align="right">授权码：</td>
+      <td class="tdbg"><input name="con[nanpan_sign]" type="text" class="input" value="{$nanpan_sign}" style="width:300px"> <span>购买的授权码，如：ICQl3kdebh7zns97XVT9dLDBASR7pBrM2AAKbI7HpMw=</span></td>
+    </tr>
+	</table>
+
+	<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1">
+    <tr class="tdbg">
+	  <td width="130" align="center" class="tdbg">&nbsp;</td>
+      <td><button type="submit" id="dosave" class="button button_submit">保存设置</button></td>
+    </tr>
+	</table>
+	</form>
+<div class="runtime"></div>  
+</div>
+{include file="footer.html"}
+</body>
+</html>

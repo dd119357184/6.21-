@@ -1,0 +1,24 @@
+  <div id="header" class="dhsd heaferys">
+   <div class="header container">
+    <div class="logo">
+     <a href="//{$host}" title="{$web_name}">{$web_name}</a>
+    </div>
+    <div id="monavber" class="nav heaferys" data-type="index" data-infoid="">
+     <ul class="navbar">
+      <li id="nvabar-item-index"><a href="//{$host}">首页</a></li>       
+                       {menu row="8"}       
+      <li id="navbar-category-2"><a href="{$vo.url}" data-type="mip" data-title="{$vo.title}" title="{$vo.title}">{$vo.title}</a></li>
+                            	{/menu}
+     </ul>
+    </div>
+    <div id="mnav">
+     <button on="tap:menu.toggle" id="btn-open" role="button" tabindex="0" class="btn menu"><i class="fa fa-bars"></i></button>
+    </div>
+    <div class="search">
+     <mip-form name="search" url="//{$host}/search" method="get">
+      <input type="text" name="q" placeholder="搜索" />
+      <button type="submit" class="submit" value="搜索"><i class="fa fa-search"></i></button>
+     </mip-form>
+    </div>
+   </div>
+  </div>

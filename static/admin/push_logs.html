@@ -1,0 +1,59 @@
+{include file="header.html"}
+<body class="body-main">
+<ul id="admin_sub_title">
+	<li class="sub"><a href="javascript:void(0)">链接推送记录</a></li>
+	<li class="unsub"><a href="?admin-push-logs_del" onclick='return confirm("确定删除?删除后不可恢复!");'>删除推送记录</a></li>
+	<li class="tips">注：仅显示最近5000条记录</li>
+</ul>
+<style type="text/css">
+table td{ word-break: keep-all;white-space:nowrap;}
+</style>
+<div id="admin_right_b" style="90%">
+
+<table border="0" align="center" cellpadding="3" cellspacing="1" class="table_b" style="margin-top:10px">
+	<tbody>
+	<tr>
+	  <td width="50" align='center' class="title_bg">id</td>
+	  <td width="120" align='center' class="title_bg">Token域名</td>
+	  <td width="80" align='center' class="title_bg">推送平台</td>
+	  <td width="70" align='center' class="title_bg">类型</td>
+	  <td width="70" align='center' class="title_bg">推送数量</td>
+	  <td width="70" align='center' class="title_bg">成功数量</td>
+	  <td width="80" align='center' class="title_bg">剩余额度</td>
+	  <td width="60" align='center' class="title_bg">方式</td>
+	  <td width="120" align='center' class="title_bg">状态</td>
+	  <td width="140" align='center' class="title_bg">推送时间</td>
+    </tr>
+	</tbody>
+	<tbody id="rlist">
+	{foreach $list as $vo}
+		<tr class="tdbg">
+			<td align="center">{$vo.id}</td>
+			<td>{$vo.domain}</td>
+			<td align="center">{$vo.isxiong}</td>
+			<td align="center">{$vo.type}</td>
+			<td align="center"><font color="blue">{$vo.urlnum}</font></td>
+			<td align="center"><font color="blue">{$vo.success}</font></td>
+			<td align="center"><font color="blue">{$vo.remain}</font></td>
+			<td align="center">{$vo.guaji}</td>
+			<td>{$vo.msg}</td>
+			<td align="center">{$vo.time}</td>
+		</tr>
+	{foreachelse}
+		<tr bgcolor='#ffffff'>
+			<td colspan='10' height="25" align="center">暂无记录！</td>
+		</tr>
+	{/foreach}
+	</tbody>
+	<tbody>
+	<tr>
+      <td colspan="10" class="tdbg content_page" align="center"><a>共 <font id="total">{$total|default:0}</font> 条</a>&nbsp;<span id="pages">{$pages}</span></td>
+	</tr>
+	</tbody>
+</table>
+
+<div class="runtime"></div>  
+</div>
+{include file="footer.html"}
+</body>
+</html>

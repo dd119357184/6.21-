@@ -1,0 +1,6 @@
+#如果用的是宝塔面板设置伪静态，则去掉 第一行 的 location / { 和最后一行的 }
+location / {
+  if (!-e $request_filename){
+    rewrite ^/(.*)$ /index.php?$1 last;
+  }
+}

@@ -1,0 +1,59 @@
+{include file="header.html"}
+<body class="body-main">
+{if !$isrun}
+<div id="iframe_loading" style="height:100px;margin-top:50px;text-align:center;line-height:22px;">
+	<p><img src="./static/images/ajax_loader.gif" /></p>
+	<p>正在加载配置......</p>
+</div>
+<div id="iframe_div"></div>
+<input type="hidden" id="check_runtime" value="0" />
+<script>
+function timest(){
+  var tmp = Date.parse( new Date() ).toString();
+  tmp = tmp.substr(0,10);
+  return tmp;
+}
+function checkifr(){
+	var runtime=$('#check_runtime').val();
+	if(runtime>999 && (timest()-runtime)>120){
+		$('#check_runtime').val(timest());
+		$('#stafrm').attr('src', $('#stafrm').attr('src'));
+	}
+	setTimeout('checkifr();',1000);
+}
+$(function() {
+	setTimeout(function(){
+		$('#iframe_div').html('<iframe name="stafrm" frameborder="0" id="stafrm" width="100%" height="100" src="{$iframeurl}" ></iframe>');
+		document.getElementById("stafrm").onload = function() {
+			document.getElementById("iframe_loading").style.display="none";
+			$('#stafrm').height('380px');
+			checkifr();
+		}
+	},100);
+	
+});
+</script>
+{else}
+<div style="font-size:13px;line-height:22px;">
+<p><b>本次推送域名: <font color="red">{$domain}</font>，类型：<font color="red">{$typename}</font></p>
+<p><b>本次推送状态：</b><font color="blue">{$msg}</font></p>
+<p><b>本次推送链接数量：<b>{$urlnum}</b>条，部分链接如下：</b>（ <span id="waitmsg"><span id="waittime" style="color:blue;font-weight:bold" data-href="{$jumpurl}">{$jumptime}</span> 秒后继续...）</span></p>
+<textarea style="width:98%;height:280px;">{$urllist}</textarea>
+</div>
+<script>
+$('#check_runtime',parent.document).val("{time()}");
+(function(){
+var wait = document.getElementById('waittime'),href = $('#waittime').attr('data-href');
+var interval = setInterval(function(){
+	var time = --wait.innerHTML;
+	if(time <= 0) {
+		location.href = href;
+		$('#waitmsg').html("正在推送...");
+		clearInterval(interval);
+	};
+},1000 );
+})();
+</script>
+{/if}
+</body>
+</html>

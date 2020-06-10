@@ -1,0 +1,39 @@
+<div class="wrapper">
+        <div class="friend-link">
+            <h1>友情链接</h1>
+            <ul>
+               {loop type="domain"}<li><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>{/loop}
+				{if $links_open}
+			   {loop type="link"}
+			   <li><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>
+			   {/loop}
+			   {/if}
+            </ul>
+        </div>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <section class="wrapper">
+        <div class="left">
+            <nav class="footer_menu">
+                <ul class="menu"></ul>
+            </nav>
+            <section class="footer_contact"></section>
+            <section class="copyright">
+                &copy;2019 Powered By <a href="/">{网站名称}</a>
+            </section>
+        </div>
+        <div class="right">
+            <a href="//{$host}/sitemap.xml" target="_blank">网站地图</a>
+            <section class="footer_btn">
+                <a href="#" title="" rel="external nofollow "><i class="icon icon-weibo "></i></a>
+                <a href="#" title="" rel="external nofollow"><i class="icon icon-tencent-weibo"></i></a>
+            </section>
+        </div>
+    </section>
+</footer>
+
+{统计代码}
+{百度推送代码}

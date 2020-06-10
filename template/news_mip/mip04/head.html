@@ -1,0 +1,60 @@
+<!-- 头部 -->
+<div class="tb">
+<div class="am-g">
+<span class="am-fl">欢迎来到{$web_name}</span>
+<div class="am-fr">
+<a target="_blank" href="{$thisurl}">{$title}</a>
+<a target="_blank" href="//{$host}/sitemap.xml">sitemap</a>
+</div>
+</div>
+</div>
+<div class="tb1">
+<div class="tb1-a">
+    <h2>{$web_name}</h2>
+    <mip-form url="//{$host}/search/" action="//{$host}/search/"  method="GET" target="_self" class="mip-element mip-layout-container" >
+        <input type="text" name="q" validatetarget="q" validatetype="must" placeholder="搜索" class="input search-txt">
+            
+        <input type="submit" value="提交" class="search-btn">
+    </mip-form>
+
+   <div class="tb1-b">
+     <div on="tap:right-sidebar.open"><span><i></i></span>
+     </div>
+   </div>
+   <mip-sidebar 
+      id="right-sidebar"
+      layout="nodisplay"
+      side="right"
+      class="mip-hidden"
+      aria-hidden="true"
+      >
+      <ul class="mtop">
+          <li>
+              <button on="tap:right-sidebar.close"> X </button>
+          </li>
+          <li class='active'>
+              <a target="_blank" href="//{$host}" data-type="mip" data-title="首页" title='首页'>首页</a>
+          </li>
+                {menu row="12"}
+                    <li class=''>
+              <a target="_blank" href="{$vo.url}" data-type="mip" data-title="{$vo.title}" title="{$vo.title}">{$vo.title}</a>
+          </li>
+              	{/menu}
+                </ul>
+    </mip-sidebar>
+</div>
+</div>
+<!-- 头部结束 -->
+<!-- 导航栏 -->
+<div  data-am-sticky id="nav">
+<header class="navdh am-g">
+    <ul>
+      <li class=''><a target="_blank" href="//{$host}" data-type="mip" data-title="首页" title='首页'>首页</a></li>
+       {menu row="12"}
+             <li class=''><a href="{$vo.url}" data-type="mip" data-title="{$vo.title}" title="{$vo.title}">{$vo.title}</a></li>  
+      	{/menu}
+       
+    </ul> 
+</header>
+</div>
+<!-- 导航栏结束 -->

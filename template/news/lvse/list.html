@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+<title>{$toptitle}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+	<!--[if lt IE 9 ]>
+		<script type="text/javascript" src="{$theme_path}/skin/js/helper/modernizr.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="{$theme_path}/skin/js/cmstop-common.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/js/jquery.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/js/config.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/js/jquery.cookie.js"></script>
+	<!-- 本页面私有 -->
+    	<link rel="stylesheet" type="text/css" href="{$theme_path}/skin/html/css/style.css" />
+    	<script type="text/javascript" src="{$theme_path}/skin/html/js/common.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/html/js/list.js"></script>
+	<!-- @本页面私有 -->
+</head>
+<body>
+	{include file="header.html"}
+	<!--@网站公共头部-->
+	<div class="main newslist">
+	<!--左侧-->
+	<div class="listl list2">
+		<div class="listview">{$typename}</div>
+		<ul>
+			{loop type="arclist" row=20 image=1 info=1}
+				<li>
+			
+					<div class="viewimg"><div class="hotimgzz"></div><a href="{$vo.url}" class="zzsz">
+						</a><a href="{$vo.url}"  target="_blank" title="{$vo.title}">
+							<img src="{$vo.pic}" alt="{$vo.title}" width="250" height="165"/>
+						</a>
+						<div class="standpoint"><a href="{$vo.url}">热点新闻</a></div>
+					</div>
+					<h3><a href="{$vo.url}">{$vo.title}</a></h3>
+					<p>{$vo.info}...</p>
+					<span>{$vo.postdate}</span>
+				</li>
+				{/loop}
+					</ul>
+		<div class="page"> {loop type="typename" }<a href="{$vo.typeurl}">{$k+1}</a>{/loop}
+
+		</div>
+	</div>
+
+	<!--右侧-->
+	<div class="listr">
+		<!--排行榜-->
+		<div class="viewpoint hotlist">
+			<div class="hd">
+				<ul><li><a href="javascript:;" class="on">总排行</a></li><li><a href="javascript:;">月排行</a></li><li><a href="javascript:;">周排行</a></li></ul>
+			</div>
+			<div class="com-title"><span><img src="{$theme_path}/skin/html/images/symbol-18.png" alt="" />排行榜</span></div>
+			<div class="bd">
+						<ul>
+      {loop type="arclist" row="10"}
+                <li ><a href="{$vo.url}">{$vo.title}</a></li>
+                {/loop}
+     
+							</ul>
+						<ul>{loop type="arclist" row="10"}
+                <li ><a href="{$vo.url}">{$vo.title}</a></li>
+                {/loop}
+							</ul>
+						<ul>{loop type="arclist" row="10"}
+                <li ><a href="{$vo.url}">{$vo.title}</a></li>
+                {/loop}
+							</ul>
+						</div>
+		</div>
+		<div class="floatfix"></div>
+		<!-- @广告位_02 -->
+		<!--编辑推荐-->
+		<div class="recommend">
+			<div class="com-title" style="margin-bottom:10px;"><span><img src="{$theme_path}/skin/html/images/symbol-7.png" alt="编辑推荐" />编辑推荐</span></div>
+			<ul class="ulfix">
+			{loop type="arclist" row=4 image=1}
+                  <li><img src="{$vo.pic}" alt="{$vo.title}" width="150" height="98" />
+	<p>
+		<a href="{$vo.url}">{$vo.title}</a>
+	</p>
+</li>{/loop}
+
+
+			</ul>
+		</div>
+		<!-- 广告位_03-->
+		<div class="adimg"><a href="" title="" target="_blank"><img src="{$theme_path}/skin/html/images/img17.jpg" alt="" /></a></div>
+		<!-- @广告位_03 -->
+		<div class="follow">
+			<div class="com-title"><span><img src="{$theme_path}/skin/html/images/symbol-5.png" alt="" />关注我们</span></div>
+			<div class="followcon followcon2">
+				<span>关注微信公众号，了解最新精彩内容</span>
+				<p class="">
+					<img src="{$theme_path}/skin/html/images/qr1.jpg" alt="" />
+<img src="{$theme_path}/skin/html/images/qr2.jpg" alt="" />
+				</p>
+			</div>
+		</div>
+	</div>	
+
+</div>
+
+	{include file="footer.html" }
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+    <title>{$toptitle}</title>
+<meta name="description" content="{$description}" />
+<meta name="keywords" content="{$keywords}" />
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<link rel="stylesheet" type="text/css" href="{$theme_path}/skin/css/cmstop-article.css" />
+	<link rel="stylesheet" type="text/css" href="{$theme_path}/skin/css/cmstop-comment-mode.css" />
+	<link rel="stylesheet" type="text/css" href="{$theme_path}/skin/css/cmstop-right-common.css" />
+	<!--[if lt IE 9 ]>
+		<script type="text/javascript" src="{$theme_path}/skin/js/helper/modernizr.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="{$theme_path}/skin/js/config.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/js/jquery.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/js/jquery.cookie.js"></script>
+	<script type="text/javascript">
+		var contentid = '{固定数字1}';// 文章ID
+		var title = "{$title}";//文章标题
+		var topicid = '{固定数字2}';// 评论主题
+		var context = '';//全文内容缓存
+		var content = '';//第一页内容缓存
+		var _IMG_URL = '{网站地址}';
+		var upload_url = "{网站地址}";
+		var www_url = "{网站地址}";
+		var thumb = "{网站地址}uploads/images/{固定数字3}.jpg";
+		var url = "{当前地址}";
+		var source_link = "";
+		var summary = "{$description}";
+	</script>
+
+	<script type="text/javascript" src="{$theme_path}/skin/js/cmstop-common.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/js/cmstop-imagezoom.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/js/fet.js"></script>
+<script type="text/javascript" src="{$theme_path}/skin/js/repos.js"></script>
+		<!-- 本页面私有 -->
+    	<link rel="stylesheet" type="text/css" href="{$theme_path}/skin/html/css/style.css" />
+    	<script type="text/javascript" src="{$theme_path}/skin/html/js/common.js"></script>
+    	<script type="text/javascript" src="{$theme_path}/skin/html/js/post.js"></script>
+	<!-- @本页面私有 -->
+</head>
+
+<body>
+	{include file="header.html"}
+
+	<!--@网站公共头部-->
+	<!-- 预处理代码区 -->
+<div class="main newslist">
+	<!--左侧-->
+	<div class="listl">
+    <div class="inner">
+		<div class="listview2">{$typename}</div>
+		<div class="listlcon" style="margin-bottom:30px;">
+			<div class="listltitle">
+				<h3>{$title}</h3>
+				<p>
+					<a class="tfontsize" href="javascript:;"  >字号+</a>
+					<span class="spanimg1">作者：<a href="{$web_url}">{$web_name}</a> </span> <span class="spanimg2">来源：{typename type="name"/}</span>					<span class="spanimg3">{$postdate}</span>
+					<span class="spanimg4"><a href="#cm">我要评论</a>(0)</span>
+				</p>
+			</div>
+			<div>
+              
+                  <div class="say"><p>{$description}</p></div>
+                  
+            </div>		</div>
+		<div class="article-content fontSizeSmall BSHARE_POP">{$body}</div>
+		<div class="tag">
+			<div class="tagtitle"></div>
+						<div class="share">
+				<a href="javascript:;" class="sharea1">分享到新浪微博</a>
+				<a href="javascript:;" class="sharea2">分享到腾讯微博</a>
+				<a href="javascript:;" class="sharea3">收藏</a>
+			</div>
+		</div>
+		<div class="avow">
+			<div class="avowtitle"></div>
+			<!-- 声明 -->
+			<p>1.本站遵循行业规范，任何转载的稿件都会明确标注作者和来源；2.本站的原创文章，请转载时务必注明文章作者和来源，不尊重原创的行为我们将追究责任；3.作者投稿可能会经我们编辑修改或补充。</p>
+			<!-- @声明 -->
+		</div>
+		<div class="ad"><a href="#" target="_blank"><img  src="{$theme_path}/skin/html/images/img24.jpg" alt="" /></a></div>
+		<div class="correlation">
+			<div class="com-title"><span><img  src="{$theme_path}/skin/html/images/symbol-23.png" alt="" />相关文章</span></div>
+			<ul class="ulfix">
+            {loop type="arclist" row="4" image=1}
+			
+			<li>
+					<div class="corimg">
+						<a href="{$vo.url}" class="title" target="_blank"><img  src="{$vo.pic}"  width="175" height="115" alt="{$vo.title}" /></a>
+					</div>
+					<p>{$vo.title}</p>
+					<p>{$vo.postdate}</p>
+					</li>
+					{/loop}
+
+									
+							</ul>
+		</div>
+		<!-- 评论 -->
+		<div class="comment">
+		<div class="com-title"><span id="cm"><img  src="{$theme_path}/skin/html/images/symbol-23.png" alt="" />网友点评</span></div>
+
+
+               
+		</div>
+		<!-- @评论 -->
+        </div>
+	</div>
+
+	<!--右侧-->
+	<div class="listr">
+		<div class="rserach">
+        <form  name="formsearch" action="">
+        <input type="hidden" name="kwtype" value="0" />
+				<input name="q" type="text" class="text-rserach" /> 
+	<input  type="submit" class="btn-rserach" value="" />
+	
+</form>
+		</div>
+				<div class="adimg">
+			<!-- 广告位_01 -->
+			<a href="" title="" target="_blank"><img src="{$theme_path}/skin/html/images/img14.jpg" alt="" /></a>
+
+			<!-- @广告位_01 -->
+		</div>
+		<!--精彩导读-->
+		<div class="read read2">
+			<div class="com-title"><span><img  src="{$theme_path}/skin/html/images/symbol-3.png" alt="" style="margin-bottom: 1px;" />精彩导读</span></div>
+                  
+				{loop type="arclist" row=5 image=1}
+				<div class="readbox">
+				<div class="readimg">
+					<a href="{$vo.url}" target="_blank" title="{$vo.title}">
+						<img  src="{$vo.pic}" alt="{$vo.title}" width="90" height="59"/>
+					</a></div>
+				<p><a href="{$vo.url}" target="_blank" title="{$vo.title}">{$vo.title}</a></p>
+				<div class="floatfix"></div>
+			</div>
+			{/loop}
+
+
+
+					</div>
+		
+		<!--科技快报-->
+		<div class="viewpoint hotlist">
+			<div class="com-title"><span><img  src="{$theme_path}/skin/html/images/symbol-13.png" alt="" />热门资讯</span></div>
+			<ul>{loop type="arclist" row="9"}
+                <li ><a href="{$vo.url}">{$vo.title}</a></li>
+                {/loop}
+						</ul>
+		</div>
+		<div class="floatfix"></div>
+		<div class="follow">
+			<div class="com-title"><span><img  src="{$theme_path}/skin/html/images/symbol-5.png" alt="" />关注我们</span></div>
+			<div class="followcon followcon2">
+				<span>关注微信公众号，了解最新精彩内容</span>
+				<p class="">
+					<img  src="{$theme_path}/skin/html/images/qr1.jpg" alt="" />
+<img  src="{$theme_path}/skin/html/images/qr2.jpg" alt="" />
+				</p>
+			</div>
+		</div>
+	</div>	
+
+	<!--右侧返回顶部、二维码-->
+	<!-- 左侧分享 -->
+	<div class="mshare">
+		<a href="javascript:;" class="msharea1"></a>
+<a id="wx" class="msharea2"href="#" style="cursor:*"></a>
+<div id="qrcode" class="qrcode" style="display: none;"> </div>
+<a href="javascript:;" class="msharea3"></a>
+<a href="#cm" class="msharea4"></a>
+	</div>
+	<!-- @左侧分享 -->
+</div>
+	{include file="footer.html" }
+<!--@网站公共页脚-->
+	<!-- 脚本区域 -->
+	<script src="{$theme_path}/skin/html/js/qrcode.js"></script> 
+	<script type="text/javascript" src="{$theme_path}/skin/js/zeroclipboard/ZeroClipboard.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/js/apps/digg.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/js/article-show.js"></script>	
+	<script type="text/javascript" src="{$theme_path}/skin/js/mood-show.js"></script>
+	<script>
+	$(function() {
+		$("#gotop").click(function () {
+				$("html,body").animate({scrollTop:0},500);
+			});
+		$('.article-content a').each(function(i,a){
+			var $a = $(a);
+			if(!$a.attr('target')) 
+			{
+				$a.attr('target','_blank');
+			}
+		});
+		$('#zeroclipboard').attr('data-clipboard-text', location.href)
+	});
+	</script>
+	</body>
+</html>

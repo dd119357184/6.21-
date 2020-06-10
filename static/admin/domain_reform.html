@@ -1,0 +1,85 @@
+{include file="header.html"}
+<body class="body-main">
+<ul id="admin_sub_title">
+	<li class="sub"><a href="javascript:void(0)">站点优化管理</a></li>
+</ul>
+<div id="admin_right_b">
+<style type="text/css">
+.boxlist dl{ min-width:180px;width:auto;}
+.red{ color:red}
+</style>
+<table border="0" align="center" cellpadding="8" cellspacing="1" class="tableConfig">
+<tr class="item_title">
+	<td colspan="5"><i class="typcn typcn-cog"></i>站点优化配置（一个网站分组一个配置） (<span class="tips" style="color:red">注：如果网站分组未设置，则使用默认配置</span>)</td>
+</tr>
+<tr>
+	<td colspan="5">
+	<div class="boxlist">
+	<dl class="default">
+		<dt>
+			<p class="title">默认的调用配置</p>
+			<p>标题重组：{if $default.reform_title}<b style="color:green">{$default.reform_titlename}</b>{else}<b class="red">已关闭</b>{/if}</p>
+			<p>打散基数：<font color="blue">{$default.reform_title_base}</font></p>
+			<p>内容句子打乱：{if $default.shuffle_content}<b style="color:green">已开启</b>{else}<b class="red">已关闭</b>{/if}</p>
+			<p>内容关联标题：{if $default.insert_title2content}<b style="color:green">已开启</b>{else}<b class="red">已关闭</b>{/if}</p>
+			<p>内容库繁体转换：{if $default.tobig5}<b style="color:green">已开启</b>{else}<b class="red">已关闭</b>{/if}</p>
+			<p>unicode转码：<b>{$default.unicode}</b></p>
+			<p>ASCII特殊码(内容)：{if $default.insert_bodyascii}<font style="color:green">已开启</b>{else}<font class="red">已关闭</font>{/if}</p>
+			<p>ASCII特殊码(标题)：{if $default.insert_titleascii}<font style="color:green">已开启</b>{else}<font class="red">已关闭</font>{/if}</p>
+			<p>插入模板干扰标签：{if $default.insert_randtags==1}老版干扰{elseif $default.insert_randtags==2}<b style="color:green">新版干扰</b>{else}<font class="red">已关闭</font>{/if}</p>
+			<p>图片url本地化：{if $default.localpic}<font style="color:green">已开启</b>{else}<font class="red">已关闭</font>{/if}</p>
+			<p>文章发布时间：{if !$default.addtime_type || $default.addtime_type=='1'}内置{else}系统{/if}</p>
+			<p>企业名称自动生成：{if $default.auto_make_webname}<b style="color:green">已开启</b>{else}<b class="red">已关闭</b>{/if}</p>
+		</dt>
+		<dd><a class="button button_small button_warning" href="javascript:" onclick="edit('0','默认的调用配置');">点击修改</a></dd>
+	  </dl>
+	{foreach $list as $k=>$vo}
+	<dl>
+        <dt>
+			<p class="title">{$vo.name}</p>
+			{if $vo.isset}
+			<p>标题重组：{if $vo.data.reform_title}<b style="color:green">{$vo.data.reform_titlename}</b>{else}<b class="red">已关闭</b>{/if}</p>
+			<p>打散基数：<font color="blue">{$vo.data.reform_title_base}</font></p>
+			<p>内容句子打乱：{if $vo.data.shuffle_content}<b style="color:green">已开启</b>{else}<b class="red">已关闭</b>{/if}</p>
+			<p>内容关联标题：{if $vo.data.insert_title2content}<b style="color:green">已开启</b>{else}<b class="red">已关闭</b>{/if}</p>
+			<p>内容库繁体转换：{if $vo.data.tobig5}<b style="color:green">已开启</b>{else}<b class="red">已关闭</b>{/if}</p>
+			<p>unicode转码：<b>{$vo.data.unicode}</b></p>
+			<p>ASCII特殊码(内容)：{if $vo.data.insert_bodyascii}<font style="color:green">已开启</b>{else}<font class="red">已关闭</font>{/if}</p>
+			<p>ASCII特殊码(标题)：{if $vo.data.insert_titleascii}<font style="color:green">已开启</b>{else}<font class="red">已关闭</font>{/if}</p>
+			<p>插入模板干扰标签：{if $vo.data.insert_randtags==1}老版干扰{elseif $vo.data.insert_randtags==2}<b style="color:green">新版干扰</b>{else}<font class="red">已关闭</font>{/if}</p>
+			<p>图片url本地化：{if $vo.data.localpic}<font style="color:green">已开启</b>{else}<font class="red">已关闭</font>{/if}</p>
+			<p>文章发布时间：{if !$vo.addtime_type || $vo.addtime_type=='1'}内置{else}系统{/if}</p>
+			<p>企业名称自动生成：{if $vo.auto_make_webname}<b style="color:green">已开启</b>{else}<b class="red">已关闭</b>{/if}</p>
+			{else}
+			<p>标题重组：未设置</p>
+			<p>打散基数：未设置</p>
+			<p>内容句子打乱：未设置</p>
+			<p>内容关联标题：未设置</p>
+			<p>内容库繁体转换：未设置</p>
+			<p>unicode转码：未设置</p>
+			<p>ASCII特殊码(内容)：未设置</p>
+			<p>ASCII特殊码(标题)：未设置</p>
+			<p>插入模板干扰标签：未设置</p>
+			<p>图片url本地化：未设置</p>
+			<p>文章发布时间：未设置</p>
+			<p>企业名称自动生成：未设置</p>
+			{/if}
+		</dt>
+        <dd>{if $vo.isset}<a class="button button_small button_success" href="javascript:" onclick="edit('{$vo.id}','{$vo.name}');">修改</a>&nbsp;&nbsp;<a href="?admin-domain-reform_del-cid-{$vo.id}" class="button button_small button_remove" onclick='return confirm("确定清除该配置？!");'>清除</a>{else}<a class="button button_small" href="javascript:" onclick="edit('{$vo.id}','{$vo.name}');">未设置，点击设置</a>{/if}</dd>
+      </dl>
+	{/foreach}</div>
+	</td>
+</tr>
+</table>
+<script type="text/javascript">
+function edit(id,typename){
+	var title=id?'修改':'添加';
+	art.dialog.open('?admin-domain-reform_edit-cid-'+id,{
+		lock:true,opacity:0.3,title:title+'站点优化配置【'+typename+'】',id:'openifrm',width:'650px',height:'520px'});
+}
+</script>
+<div class="runtime"></div>  
+</div>
+{include file="footer.html"}
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>正在安装 - {$cms_name} x{$cms_version}</title>
+<script type="text/javascript" src="static/js/jquery.js"></script>
+<link href="{$theme_path}/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="main">
+{include file="header.html"}
+{if $errmsg}
+<div class="tips_box">
+	<div class="tips_txt">
+<p>{$errmsg}</p>
+</div>
+</div>
+{else}
+<div class="install_ok">
+	恭喜你，程序安装完成！<button onclick="location.href='./xxfseo_admin.php';" class="ok_btn">点击进入后台</button>
+</div>
+{/if}
+{include file="footer.html"}
+</div>
+</body>
+</html>

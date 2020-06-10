@@ -1,0 +1,51 @@
+﻿   </div>
+   <div class="rbox">
+    <div class="whitebg paihang">
+     <h2 class="htitle">热门文章</h2>
+     <ul>
+	 {loop type="arclist" row="6"}
+      <li><i></i><a href="{$vo.url}" title="{$vo.title}" target="_blank">{$vo.title}</a></li>
+	  {/loop}
+     </ul>
+    </div>
+    <div class="whitebg tuijian">
+     <h2 class="htitle">最新文章</h2>
+     <ul>
+	{loop type="arclist" row="6" image=1}
+      <li><a href="{$vo.url}" title="{$vo.title}" target="_blank"><i>
+         <mip-img layout="container" src="{$vo.pic}" alt="{$vo.title}"></mip-img></i>
+		 <p>{$vo.title}</p></a></li>
+	{/loop}
+     </ul>
+    </div>
+	<div class="whitebg tuijian">
+     <h2 class="htitle">友情链接</h2>
+     <ul>
+	 {loop type="domain"}<li><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>{/loop}
+				{if $links_open}
+			   {loop type="link"}
+			   <li><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>
+			   {/loop}
+			   {/if}
+     </ul>
+    </div>
+   </div>
+  </article>
+  <footer>
+   <div class="box">
+    <div class="endnav">
+     <p class="text-center mip-footer">&copy; 2019 <a data-type="mip" href="/" data-title="{$title}">{$title}</a><a href="/sitemap.xml"> 网站地图</a>
+	 <br class="visible-xs" /> Powered By <a data-type="mip" data-title="{$toptitle}" href="/" target="_blank">{网站名称}</a></p>
+    </div>
+   </div>
+  </footer>
+  <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-stats-baidu/mip-stats-baidu.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-gototop/mip-gototop.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-history/mip-history.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-fixed/mip-fixed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://c.mipcdn.com/extensions/platform/v2/mip-cambrian/mip-cambrian.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-sidebar/mip-sidebar.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-script/mip-script.js"></script>
+{统计代码}
+{百度推送代码}

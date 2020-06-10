@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>{$toptitle}</title>
+<meta name="description" content="{$description}" />
+<meta name="keywords" content="{$keywords}" />
+<link rel="stylesheet" type="text/css" href="{$theme_path}/skin/css/index.css">
+<script src="{$theme_path}/skin/js/jquery.min.js"></script>
+<script src="{$theme_path}/skin/js/main.js"></script>
+</head>
+<body class="other">
+{include file="head.html"}
+<!-- main -->
+<div class="container">
+  <div class="ty-top clearfix">
+    <div class="swiper-ty">
+      <ul class="slider">
+	   {loop type="arclist" row="3" image=1}
+        <li><a href="{$vo.url}" target="_blank" title="{$vo.title}"><img src="{$vo.pic}" alt="{$vo.title}" />
+          <p></p>
+          <span>{$vo.title}</span> </a> </li>
+		  {/loop}
+      </ul>
+      <ul class="navdot">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="ty-news">
+      <div class="ty-news-head"> <span>推荐</span> </div>
+      <ul class="ty-news-list">
+       {loop type="arclist" row="6"}
+       <li ><em>{$vo.i}</em> <a href="{$vo.url}">{$vo.title}</a></li>
+		{/loop}
+
+      </ul>
+    </div>
+  </div>
+  
+  <!--分割线-->
+  <div class="cut-line"></div>
+  <div class="ty-bottom clearfix">
+    <div class="left-part">
+      <div class="pic-and-gradient">
+	   {loop type="arclist" image=1 row=1}<a href="{$vo.url}"><img src="{$vo.pic}" />
+        <p>{$vo.title}</p></a>
+		 {/loop}
+		</div>
+      <ul class="ty-pic-txt">
+	   {loop type="arclist" image=1 row=4}
+        <li style="margin-bottom:5px;"> <a class="ty-pic-txt-p" href="{$vo.url}" target="_blank" title="{$vo.title}"> <img src="{$vo.pic}" height="75" alt="{$vo.title}" /> </a>
+          <p><a href="{$vo.url}" target="_blank" title="{$vo.title}">{$vo.title}</a></p>
+        </li>
+		 {/loop}
+      </ul>
+    </div>
+    <div class="mid-part">
+      <div class="pic-and-gradient">
+	   {loop type="arclist" image=1 row=1}<a href="{$vo.url}"><img src="{$vo.pic}" />
+        <p>{$vo.title}</p></a>
+		 {/loop}
+		</div>
+      <ul class="ty-pic-txt">
+	   {loop type="arclist" image=1 row=4}
+        <li style="margin-bottom:5px;"> <a class="ty-pic-txt-p" href="{$vo.url}" target="_blank" title="{$vo.title}"> <img src="{$vo.pic}" height="75" alt="{$vo.title}" /> </a>
+          <p><a href="{$vo.url}" target="_blank" title="{$vo.title}">{$vo.title}</a></p>
+        </li>
+		 {/loop}
+      </ul>
+    </div>
+    <div class="float-left">
+     <div class="pic-and-gradient">
+	   {loop type="arclist" image=1 row=1}<a href="{$vo.url}"><img src="{$vo.pic}" />
+        <p>{$vo.title}</p></a>
+		 {/loop}
+		</div>
+      <ul class="ty-pic-txt">
+	   {loop type="arclist" image=1 row=4}
+        <li style="margin-bottom:5px;"> <a class="ty-pic-txt-p" href="{$vo.url}" target="_blank" title="{$vo.title}"> <img src="{$vo.pic}" height="75" alt="{$vo.title}" /> </a>
+          <p><a href="{$vo.url}" target="_blank" title="{$vo.title}">{$vo.title}</a></p>
+        </li>
+		 {/loop}
+      </ul>
+    </div>
+  </div>
+</div>
+<!--滚动播报-->
+<div class="container">
+  <div class="title-wrap">
+    <div class="title title-gd"><a href="./shehui_index_.htm">社会</a></div>
+  </div>
+  <div class="yl-top clearfix">
+    <ul class="yl-left-list">
+	 {loop type="arclist" image=1 row=3 info=1}
+      <li> <a href="{$vo.url}">{$vo.title}</a>
+		<p >{$vo.info}</p>
+      </li>{/loop}
+    </ul>
+    <div class="swiper-yl">
+      <ul class="slider">
+	  {loop type="arclist" image=1 row=2 info=1}
+        <li><a href="{$vo.url}" target="_blank" title="{$vo.title}"> <img src="{$vo.pic}" alt="{$vo.title}" /> </a>
+          <p></p>
+          <span>{$vo.info}</span> </a> </li>
+		  {/loop}
+
+      </ul>
+      <ul class="navdot">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+  <ul class="ssrd-card hide-margin-top-20 ssrd-card-1200 clearfix">
+   {loop type="arclist" image=1 info=1 row=12}
+    <li>
+      <div class="ssrd-pic"><a href="{$vo.url}"><img src="{$vo.pic}" /></a></div>
+      <div class="ssrd-card-content">
+        <div class="ssrd-title"><a href="{$vo.url}" target="_blank" title="{$vo.title}">{$vo.title}</a></div>
+        <div class="ssrd-body">{$vo.info}...</div>
+        <div class="ssrd-tag"><i class="i-time"></i>{$vo.postdate}</div>
+      </div>
+    </li>{/loop}
+  </ul>
+</div>
+{include file="footer.html" }
+
+</body>
+</html>

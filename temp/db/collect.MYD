@@ -1,0 +1,14 @@
+a:4:{i:21;a:15:{i:0;i:51;i:1;s:16:"1905电影图片";i:2;s:176:"a:2:{s:15:"collect_day_num";i:0;s:12:"regxurl_list";s:114:"https://www.1905.com/mdb/film/list/o0d0p{p,1,500,1}.html->https://(w).m1905.cn/(*)uploadfile/(d)/(d)/thumb_(*).jpg";}";i:3;s:10:"1575995507";i:4;i:0;i:5;s:10:"1504934249";i:6;s:3:"pic";i:7;s:1:"0";i:8;s:1:"0";i:9;s:0:"";i:10;s:2:"54";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";}i:23;a:15:{i:0;i:56;i:1;s:18:"搜狐新闻内容";i:2;s:447:"a:10:{s:15:"collect_day_num";s:1:"0";s:17:"split_content_num";s:1:"1";s:12:"regxurl_list";s:43:"http://www.sohu.com/
+http://news.sohu.com/";s:12:"regxurl_show";s:29:"http://www.sohu.com/a/(d)_(d)";s:12:"testurl_show";s:0:"";s:14:"body_area_regx";s:88:"id="mp-editor">(.*)<a href="//www.sohu.com
+<article class="article-text">(.*)</article>";s:7:"min_num";s:2:"30";s:16:"body_filter_regx";s:0:"";s:10:"sift_words";s:0:"";s:12:"replace_word";i:0;}";i:3;s:10:"1573808575";i:4;i:0;i:5;s:10:"1559034165";i:6;s:4:"body";i:7;s:1:"0";i:8;s:2:"44";i:9;s:1:"1";i:10;s:2:"52";i:11;s:0:"";i:12;s:2:"cn";i:13;s:0:"";i:14;s:0:"";}i:24;a:15:{i:0;i:57;i:1;s:44:"新浪、qq、163、凤凰、搜狐的标题";i:2;s:405:"a:6:{s:15:"collect_day_num";s:1:"0";s:12:"regxurl_list";s:236:"https://news.ifeng.com/
+https://news.qq.com/
+https://www.qq.com/
+https://news.sina.com.cn/
+https://www.sina.com.cn/
+https://news.sohu.com/
+https://www.sohu.com/
+https://news.163.com/
+https://www.163.com/
+https://news.baidu.com/";s:7:"min_num";s:2:"30";s:10:"sift_words";s:0:"";s:16:"body_filter_regx";s:0:"";s:12:"replace_word";i:0;}";i:3;s:10:"1556531325";i:4;i:0;i:5;s:10:"1569298250";i:6;s:5:"title";i:7;s:1:"0";i:8;s:3:"224";i:9;s:0:"";i:10;s:8:"51,52,55";i:11;s:5:"title";i:12;s:2:"cn";i:13;s:0:"";i:14;s:0:"";}i:25;a:15:{i:0;i:58;i:1;s:18:"新浪新闻内容";i:2;s:476:"a:8:{s:15:"collect_day_num";s:1:"0";s:12:"regxurl_list";s:25:"https://news.sina.com.cn/";s:12:"regxurl_show";s:54:"https://news.sina.com.cn/(w)/(d)-(d)-(d)/(w)-(w).shtml";s:12:"testurl_show";s:0:"";s:14:"body_area_regx";s:167:"<div class="article" id="article">(.*)<p class="show_author">
+<div class="article [^>]+>(.*)<p class="article-editor">
+<h2 class="contentSubTitle"></h2>.*<p>(.*)<!--";s:7:"min_num";s:2:"30";s:16:"body_filter_regx";s:0:"";s:10:"sift_words";s:0:"";}";i:3;s:10:"1556473203";i:4;i:0;i:5;s:10:"1558791522";i:6;s:4:"body";i:7;s:1:"0";i:8;s:2:"23";i:9;s:1:"1";i:10;s:8:"51,52,55";i:11;s:0:"";i:12;s:2:"cn";i:13;s:0:"";i:14;s:0:"";}}

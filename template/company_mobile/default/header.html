@@ -1,0 +1,24 @@
+
+<div class="top">
+  <div class="logo"><a href="{网站地址}"><img src="/uploads/images/logo.png?n={$encode_name}&w=200" height="50"></a></div>
+  <div class="tel">
+    <div class="tel_a">{联系电话}</div>
+    <div class="tel_a">
+      <div class="weibo">{网站名称}</div>
+    </div>
+  </div>
+</div>
+<!-- top结束 --> 
+
+<!-- 导航开始 -->
+<ul class="nav">
+  <li style="width:20%"><a href="/">网站首页</a></li>
+{menu row="6" tpl="product_list"}
+  <li style="width:20%"><a href="{$vo.url}">{$vo.title}</a></li>
+{/menu}
+<li style="width:20%"><a href="{geturl tpl="list"/}">新闻中心</a></li>
+        <li style="width:20%"><a href="{geturl tpl="about"/}">关于我们</a></li>
+        <li style="width:20%"><a href="{geturl tpl="contact"/}">联系我们</a></li>
+  
+</ul>
+<!-- 导航结束 --> 

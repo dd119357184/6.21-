@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]> <html lang="zh-CN" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="zh-CN" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="zh-CN" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-CN"><!--<![endif]-->
+<head>
+
+	<meta charset="utf-8">
+    <title>{$toptitle}</title>
+	<meta name="description" content="{$description}" />
+	<meta name="keywords" content="{$keywords}" />
+	<!--[if lt IE 9 ]>
+		<script type="text/javascript" src="{$theme_path}/skin/js/helper/modernizr.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="{$theme_path}/skin/js/cmstop-common.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/js/jquery.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/js/config.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/js/jquery.cookie.js"></script>
+    	<link rel="stylesheet" type="text/css" href="{$theme_path}/skin/html/css/style.css" />
+    	<script type="text/javascript" src="{$theme_path}/skin/html/js/common.js"></script>
+	<script type="text/javascript" src="{$theme_path}/skin/html/js/index.js"></script>
+</head>
+
+
+<body>
+	{include file="header.html"}
+<div class="main"> 
+  <!--主要内容-->
+  <div class="mainnews"> 
+    <!--顶部文字新闻-->
+	<div class="latestnews">
+		<ul id="miniNewsRegion">
+        {loop row="5"}
+		 
+			<li>{loop type="arclist" row="2"}<img src="{$theme_path}/skin/html/images/symbol-1.png" alt="{$vo.title}" /><a href="{$vo.url}">{$vo.title}</a> {/loop}</li>
+        {/loop}
+			
+		</ul>
+		<div class="msearch">
+        <form  name="formsearch" action="">
+        <input type="hidden" name="kwtype" value="0" />
+			 <input type="text" name="q" placeholder="输入关键词" class="text-msearch"  id="baiduSearch"/>
+<input type="submit" class="btn-msearch" value="" />
+</form>
+		</div>
+	 </div>
+
+    <!--左侧-->
+    <div class="newsl">
+	    	<!-- 首页幻灯片 -->
+		<div class="m-slide">
+				 <ul class="img">
+				 {loop type="arclist" row="5" image=1}
+                    <li><a href="{$vo.url}"><img src="{$vo.pic}" width="670" height="365"/></a></li>
+                    {/loop}
+                
+		 </ul>
+<div id="ifocus_opdiv"></div>
+<div id="ifocus_tx">
+	        <ul>
+			{loop type="arclist" row="5"}
+                    <li ><a href="{$vo.url}">{$vo.title}</a></li>
+                    {/loop}
+</div>
+   <ul class="tab">
+   {loop type="arclist" row="5"}
+                    <li><div class="color{$vo.i}">{$vo.title}</div></li>
+                    {/loop}
+
+	</ul>
+			</div>
+		<!-- @首页幻灯片 -->
+
+		<!--精选导读-->
+		<div class="chosen">
+			<div class="com-title"><span><img src="{$theme_path}/skin/html/images/symbol-4.png" alt="" />精选导读</span></div>
+
+		{loop type="arclist" info=1 row=1 image=1}
+           <div class="chosenbox ">
+
+			<div class="chosenimg"><a href="{$vo.url}"><img src="{$vo.pic}" alt="{$vo.title}" width="130" height="85" /></a></div>
+			<h3><a href="{$vo.url}" title="{$vo.title}" target="_blank">{$vo.title}</a></h3>
+			<p style="height: 40px;overflow: hidden;">{$vo.info}...</p>
+			<p><span></span></p>
+		</div>
+		{/loop}
+			{loop type="arclist" info=1 row=1 image=1}
+           <div class="chosenbox chosenbox-ml">
+
+			<div class="chosenimg"><a href="{$vo.url}"><img src="{$vo.pic}" alt="{$vo.title}" width="130" height="85" /></a></div>
+			<h3><a href="{$vo.url}" title="{$vo.title}" target="_blank">{$vo.title}</a></h3>
+			<p style="height: 40px;overflow: hidden;">{$vo.info}...</p>
+			<p><span></span></p>
+		</div>
+		{/loop}
+{loop type="arclist" info=1 row=1 image=1}
+           <div class="chosenbox ">
+
+			<div class="chosenimg"><a href="{$vo.url}"><img src="{$vo.pic}" alt="{$vo.title}" width="130" height="85" /></a></div>
+			<h3><a href="{$vo.url}" title="{$vo.title}" target="_blank">{$vo.title}</a></h3>
+			<p style="height: 40px;overflow: hidden;">{$vo.info}...</p>
+			<p><span></span></p>
+		</div>
+		{/loop}
+			{loop type="arclist" info=1 row=1 image=1}
+           <div class="chosenbox chosenbox-ml">
+
+			<div class="chosenimg"><a href="{$vo.url}"><img src="{$vo.pic}" alt="{$vo.title}" width="130" height="85" /></a></div>
+			<h3><a href="{$vo.url}" title="{$vo.title}" target="_blank">{$vo.title}</a></h3>
+			<p style="height: 40px;overflow: hidden;">{$vo.info}...</p>
+			<p><span></span></p>
+		</div>
+		{/loop}{loop type="arclist" info=1 row=1 image=1}
+           <div class="chosenbox ">
+
+			<div class="chosenimg"><a href="{$vo.url}"><img src="{$vo.pic}" alt="{$vo.title}" width="130" height="85" /></a></div>
+			<h3><a href="{$vo.url}" title="{$vo.title}" target="_blank">{$vo.title}</a></h3>
+			<p style="height: 40px;overflow: hidden;">{$vo.info}...</p>
+			<p><span></span></p>
+		</div>
+		{/loop}
+			{loop type="arclist" info=1 row=1 image=1}
+           <div class="chosenbox chosenbox-ml">
+
+			<div class="chosenimg"><a href="{$vo.url}"><img src="{$vo.pic}" alt="{$vo.title}" width="130" height="85" /></a></div>
+			<h3><a href="{$vo.url}" title="{$vo.title}" target="_blank">{$vo.title}</a></h3>
+			<p style="height: 40px;overflow: hidden;">{$vo.info}...</p>
+			<p><span></span></p>
+		</div>
+		{/loop}
+	    
+		  	<div class="floatfix"></div>
+		</div>
+		<!--@精选导读-->
+		<!--热门推荐-->
+		<div class="hot">
+			<div class="com-title"><span><img src="{$theme_path}/skin/html/images/symbol-6.png" alt="" />热门推荐</span></div>
+			{loop type="arclist" info=1 row=10 image=1}
+                <div class="hotbox">
+	<div class="hotimg">
+		<div class="hotimgzz"></div>
+		<img src="{$vo.pic}" alt="{$vo.title}" width="250" height="165"/>
+		<div class="standpoint">社会新闻</div>
+		<a class="zzsz" href="{$vo.url}"  target="_blank" title="{$vo.title}"></a>
+	</div>
+	<h3><a href="{$vo.url}">{$vo.title}</a></h3>
+	<p>{$vo.info}...</p>
+	<span>阅读：{$vo.hits}</span><span>{$vo.postdate}</span> 
+  </div>
+{/loop}
+</div>
+		<!--@热门推荐-->
+    </div>
+    
+    <!--右侧-->
+    <div class="newsr">
+		<div class="topnews">
+			<div class="com-title"><span><img src="{$theme_path}/skin/html/images/symbol-3.png" alt="" />今日头条</span></div>
+			<div class="sideMenu" style="margin:0 auto">
+			{loop type="arclist" info=1 row=5}
+                <h3 class="h3img1"><a href="{$vo.url}">{$vo.title}</a></h3>
+	  <ul><li>{$vo.info}...</li></ul>
+		{/loop}
+
+			</div>
+		</div>
+
+      <!--关注我们-->
+      <div class="follow">
+        <div class="com-title"><span><img src="{$theme_path}/skin/html/images/symbol-5.png" alt="" />关注我们</span></div>
+        <div class="followcon"> <span>关注微信公众号，了解最新精彩内容</span>
+          <p class=""> <img src="{$theme_path}/skin/html/images/qr1.jpg" alt="" /> <img src="{$theme_path}/skin/html/images/qr2.jpg" alt="" /> </p>
+          <a href="" class="awb1"></a><a href="" class="awb2"></a><a href="" class="asubscription"></a> </div>
+      </div>
+      <!--阅读推荐-->
+		<div class="read">
+		  <div class="com-title"><span><img src="{$theme_path}/skin/html/images/symbol-3.png" alt="自媒体" />自媒体</span></div>
+		  {loop type="arclist" info=1 row=4 image=1}
+		  		     <div class="readbox">
+		<div class="readtitle"><a href="{$vo.url}"  target="_blank" title="{$vo.title}">{$vo.title}</a></div>
+		<div class="readimg"><a href="{$vo.url}"  target="_blank" title="{$vo.title}"><img src="{$vo.pic}" alt="{$vo.title}" width="90" height="59"/></a></div>
+		<p>{$vo.info}...</p>
+	  </div>
+	  {/loop}
+
+		</div>
+      
+      <!--品牌展示-->
+      <div class="brandshow">
+      <div class="com-title"><span><img src="{$theme_path}/skin/html/images/symbol-5.png" alt="" />品牌展示</span></div>
+<a href="#" title="" target="_blank"><img src="{$theme_path}/skin/html/images/img9.jpg" alt="" /></a>
+<a href="#" title="" target="_blank"><img src="{$theme_path}/skin/html/images/img10.jpg" alt=""></a> </div>
+
+    </div>
+    <div class="floatfix"></div>
+  </div>
+  
+  <!--其他信息-->
+	<div class="mainother">
+		<!-- 合作伙伴 -->
+		<div class="partners">
+			<div class="partnerstitle"></div>
+			<div class="partnersimg"><a href=""><img src="{$theme_path}/skin/html/images/link_logo1.jpg" alt="" /></a></div>
+			<div class="partnersimg"><a href=""><img src="{$theme_path}/skin/html/images/link_logo2.jpg" alt="" /></a></div>
+			<div class="partnersimg"><a href=""><img src="{$theme_path}/skin/html/images/link_logo3.jpg" alt="" /></a></div>
+			<div class="partnersimg"><a href=""><img src="{$theme_path}/skin/html/images/link_logo4.jpg" alt="" /></a></div>
+			<div class="partnersimg"><a href=""><img src="{$theme_path}/skin/html/images/link_logo5.jpg" alt="" /></a></div>
+			<div class="partnersimg"><a href=""><img src="{$theme_path}/skin/html/images/link_logo6.jpg" alt="" /></a></div>
+			<div class="partnersimg"><a href=""><img src="{$theme_path}/skin/html/images/link_logo7.jpg" alt="" /></a></div>
+			<div class="partnersimg"><a href=""><img src="{$theme_path}/skin/html/images/link_logo8.jpg" alt="" /></a></div>
+
+		</div>
+		<!-- @合作伙伴 -->
+		
+	{include file="footer.html" }
+</body>
+</html>

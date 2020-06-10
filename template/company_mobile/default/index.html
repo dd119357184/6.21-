@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>{$toptitle}</title>
+<meta name="description" content="{$description}" />
+<meta name="keywords" content="{$keywords}" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+{include file="style.html"}
+</head>
+<body>
+<!-- top开始 -->
+{include file="header.html"}
+ 
+<!-- banner开始 -->
+<div class="line"></div>
+<div class="wrapper">
+  <div class="swipe">
+    <ul id="slider">
+ {loop type="typename" row="4"}
+      <li><img width="100%" src="{getone name="common/banner"/}" /></li>
+ {/loop}
+    </ul>
+    <div id="pagenavi"> <a href="javascript:void(0);" class="active">1</a> <a href="javascript:void(0);">2</a> <a href="javascript:void(0);">3</a> <a href="javascript:void(0);">4</a> </div>
+  </div>
+</div>
+<div class="line"></div>
+<script type="text/javascript">
+var active=0,
+as=document.getElementById('pagenavi').getElementsByTagName('a');
+for(var i=0;i<as.length;i++){
+	(function(){
+		var j=i;
+		as[i].onclick=function(){
+			t2.slide(j);
+			return false;
+		}
+	})();
+}
+
+var t1=new TouchScroll({id:'wrapper','width':4,'opacity':0.7,color:'#555',minLength:20});
+
+var t2=new TouchSlider({id:'slider', speed:600, timeout:6000, before:function(index){
+		as[active].className='';
+		active=index;
+		as[active].className='active';
+	}});
+</script> 
+<!-- banner结束 --> 
+<!-- 资讯开始 -->
+<div class="advantage"> <p style="text-align:center; color:#0a61a0; font-size: 16px;">{网站名称} </p>
+  <p style="font-size: 16px;">{网站名称}{公司简介短}<a style="color:#ff0000" href="{geturl tpl="about"/}">...[详细]</a></p>
+ </div>
+ <div class="Cons">新闻中心<span><a href="{geturl tpl='list'/}">更多>></a></span></div>
+<div class="Cons_news">
+  <ul>
+ {loop type="arclist" row="20"}
+<li><a href="{$vo.url}" title="{$vo.title}">{$vo.title}</a><span style="float: right;">{$vo.postdate}</span></li>
+{/loop}
+  </ul>
+</div>
+<!-- 资讯结束 --> 
+<!-- 产品开始 -->
+
+<div class="Cons">产品中心</div>
+<div class="brand">
+  <ul>
+{loop type="arclist" row="6" image="1" tpl='product_show' title="typename"}
+    <li><a href="{$vo.url}"><img src="{$vo.pic}" alt="{$vo.title}"></a></li>
+{/loop}
+
+  </ul>
+</div>
+<!-- 产品结束 --> 
+{include file="footer.html" }
+
+</body>
+</html>

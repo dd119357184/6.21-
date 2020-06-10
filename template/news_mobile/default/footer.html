@@ -1,0 +1,19 @@
+<div class="Cons_news">
+  <ul>
+ {loop type="typename" row="10" tpl="product_list" fan=1}<li><a href="{$vo.typeurl}">{$vo.typename}</a></li> {/loop}
+{loop type="domain"}<li><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>{/loop}
+{loop type="link"}<li><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>{/loop}
+  </ul>
+</div>
+<!-- 底部开始 -->
+<div class="contrat" style="text-align:center;">
+<p><b>邮箱:</b>{联系邮箱}</p>
+<p><b>电话:</b>{联系电话}</p>
+<p><b>传真:</b>{联系电话}</p>
+<p>Copyright &copy; 2019 Powered by {网站名称}</p>
+</div>
+<!-- 底部结束 -->
+
+{$web_tongji}
+{$web_bdpush}
+{$web_share}

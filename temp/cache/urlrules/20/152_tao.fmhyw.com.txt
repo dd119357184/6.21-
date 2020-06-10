@@ -1,0 +1,1 @@
+a:2:{s:4:"list";a:3:{s:7:"tplfile";s:4:"list";s:5:"rules";s:32:"newslist/{数字1}{id}{数字2}/";s:6:"system";s:1:"1";}s:4:"show";a:3:{s:7:"tplfile";s:4:"show";s:5:"rules";s:23:"show/{id}{数字5}.html";s:6:"system";s:1:"1";}}

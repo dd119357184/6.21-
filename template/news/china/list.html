@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{$toptitle}</title>
+	<meta name="description" content="{$description}" />
+	<meta name="keywords" content="{$keywords}" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link href="{$theme_path}/2016/wenzhang/css/style.css" rel="stylesheet" type="text/css">
+    <script src="{$theme_path}/jquery/jquery-1.9.1.min.js"></script>
+    <!--让ie8以下支持media query-->
+    <!--[if lte IE 8]>
+    <script src="{$theme_path}/jquery/respond.min.js"></script>
+    <![endif]-->    
+    <!--让ie8以下支持media query-->
+    <!--[if lte IE 8]>
+    <script src=".{$theme_path}/jquery/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        $(document).ready(function () {
+            /*判断相关推荐里是否有图片，若没有话，就让文字左浮动*/
+            /*
+             $(".rec_one").each(function () {
+             var imgs = $(this).find("div.pic>img");
+             if (imgs.length > 0 && imgs[0].currentSrc == "") {
+             $(this).find("div.pic").css("display", "none");
+             }
+             });*/
+            if($(window).width()<=1200 )
+            {
+                $(".logo img")[0].src="/uploads/images/logo.png?n={$encode_name}&w=120";
+
+            }
+            $(".down_btn").click(function () {
+                $(".head_mobile").hide();
+                $(".drop_down").fadeIn("slow");
+            });
+            $(".drop_down .title img").click(function () {
+                $(".drop_down").fadeOut("slow");
+                $(".head_mobile").show();
+            });
+        });
+    </script>
+    <base target="_self"/>
+</head>
+<body>
+<!--导航区域开始-->
+{include file="header.html"}
+<!--导航区域结束-->
+<!--banner区域开始-->
+<div id="banner">
+    <div class="banner_inner">
+        <form class="search_box" action=""  id="searchForm" name="searchForm" method="get" onSubmit="document.charset='u'+'t'+'f'+'-8';">
+            <input name="q" type="text" id="anyWord" class="txt" placeholder="请输入您要查询的内容" /><input name="Submit" id="Submit" type="submit" class="btn" value="" /><input name="s" type="hidden" value="8349451817408476651" />
+            <input name="nsid" type="hidden" value="0" />
+        </form>
+        <div class="banner_r">
+            <div class="login"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!--banner区域结束-->
+<!--正文开始-->
+<div id="contentMain">
+    <div class="content_inner">
+        <!--左侧区域-->
+        <div class="content_left">
+            <!--当前位置-->
+            <p class="position" id="locat">当前位置：<a href="/">首页</a> > <a href="{$thisurl}">{$typename}</a></p>
+
+            <div class="line"></div>
+
+            <!--新闻正文开始-->
+            <div class="text">
+                <!--标题列表 开始-->
+				<style type="text/css">
+				<!--
+				/* -------- 标题列表 -------- */
+				.lists{ padding:10px;width:100%;}
+				.lists .biaot{ background:url(img/6.jpg) no-repeat 0 16px; padding-left:15px;text-align:left;height:36px;line-height:36px;overflow:hidden;}
+				.lists .biaot a{color:#333333;font-size:16px;}
+				.lists .biaot span{ float:right;color:#808080; font-size:12px}
+				.lists .space{ height:10px}
+				/* -------- 翻页 -------- */
+				.pageLink { width:90%; font-size:14px; margin:0 auto; clear:both; font-family:Tahoma; text-align:center; padding:40px 0; }
+				.pageLinkOn { font-size:14px; color:#fff; font-weight:bold; text-align:center; background:#3c648c; margin:4px 4px; display:inline-block; padding:0px 5px; font-family:Tahoma; line-height:20px; margin-bottom:3px; }
+				.pageLink a { font-size:14px; text-align:center; background:#fff; border:1px solid #3c648c; margin:4px 4px; display:inline-block; padding:0px 5px; line-height:18px; }
+				.pageLink a:hover { font-size:12px; font-weight:bold; color:#fff; text-align:center; background:#3c648c; border:1px solid #3c648c; margin:4px 4px; display:inline-block; padding:0px 5px; text-decoration:none; }
+				-->
+				</style>
+
+				<div class="lists">
+					<!--news-list-column start-->
+					{loop type="arclist" row=20}
+                <li >
+                    <div class="biaot"><span class="date">{$vo.postdate}</span><a href="{$vo.url}">{$vo.title}</a></div>
+                </li>
+                {/loop}
+						
+						<div class="space"></div>
+						<div class="clear"></div>
+					
+					<!--news-list-column end-->
+					<!-- 分页 begin -->
+		<div id="newsPages">
+
+			<!-- 分页 开始 -->
+			<!--翻页实现代码 start-->
+    <script language="javascript">
+        function Turn(count,_sPageName, _sPageExt)
+        {
+            var aa=_sPageName,bb=_sPageExt,page=parseInt(document.getElementById("page").value);
+            if(isNaN(page))page=1;
+            if(page<1)page=1;
+            if(page>count)page=count;
+            if(page==1)
+                window.location.href=aa+'.'+bb;
+            else
+                window.location.href=aa+'_'+(page-1)+'.'+bb;
+        }
+
+        function createPageHTML(_nPageCount, _nCurrIndex, _sPageName, _sPageExt){
+            if(_nPageCount == null || _nPageCount<=1){
+                return;
+            }
+            document.write("共有 "+_nPageCount+" 页，本页是第 "+(_nCurrIndex+1)+" 页    ");
+            var nCurrIndex = _nCurrIndex || 0;
+            if(nCurrIndex == 0)
+            {
+                document.write("首页&nbsp;");
+                document.write("上一页&nbsp;");
+                document.write("<a href=\""+_sPageName+"_" + (nCurrIndex+1) + "."+_sPageExt+"\">下一页</a>&nbsp;");
+                document.write("<a href=\""+_sPageName+"_" + (_nPageCount-1) + "."+_sPageExt+"\">末页</a>&nbsp;");
+            }
+            else
+            {
+                if(nCurrIndex == _nPageCount-1)
+                {
+                document.write("<a href=\""+_sPageName+ "."+_sPageExt+"\">首页</a>&nbsp;");
+                
+                if(nCurrIndex==1)document.write("<a href=\""+_sPageName+ "."+_sPageExt+"\">上一页</a>&nbsp;");else{document.write("<a href=\""+_sPageName+"_" + (nCurrIndex-1) + "."+_sPageExt+"\">上一页</a>&nbsp;");}
+                document.write("下一页&nbsp;");
+                document.write("末页&nbsp;");
+                }
+                else
+                {
+                document.write("<a href=\""+_sPageName + "."+_sPageExt+"\">首页</a>&nbsp;");
+                if(nCurrIndex==1)document.write("<a href=\""+_sPageName+ "."+_sPageExt+"\">上一页</a>&nbsp;");else{document.write("<a href=\""+_sPageName+"_" + (nCurrIndex-1) + "."+_sPageExt+"\">上一页</a>&nbsp;");}       
+                document.write("<a href=\""+_sPageName+"_" + (nCurrIndex+1) + "."+_sPageExt+"\">下一页</a>&nbsp;");
+                document.write("<a href=\""+_sPageName+"_" + (_nPageCount-1) + "."+_sPageExt+"\">末页</a>&nbsp;");
+                }
+            }
+            document.write("跳转到<input style='border:2px solid #ccc;' name='page' type='text' id='page' size='3' /> 页<input style='border:2px solid #ccc;font-weight:bold;' type='button' name='Submit' value='GO' onclick=\"Turn('"+_nPageCount+"','"+_sPageName+"','"+_sPageExt+"')\"\ />");
+        }
+    </script>
+    <!--翻页实现代码 end-->
+			<div class="pageLink" id="pageLink">
+			 {loop type="typename" }<a href="{$vo.typeurl}">{$k+1}</a>{/loop}
+			</div>
+			<!-- 分页 结束 -->
+		</div>
+		<!-- 分页 end -->
+				</div>
+                <!--标题列表 结束-->
+            </div>
+            <!--新闻正文结束-->
+
+            <div class="clear"></div>
+
+        </div>
+        <!--左侧区域结束-->
+        <!--右侧区域-->
+        <div class="content_right" style="padding-top:60px;">
+            <!--国内新闻 开始-->
+            <div class="infomation">
+                <h3>国内新闻</h3>
+                <ul>
+		
+                    {loop type="arclist" row="5"}
+                    <li ><a href="{$vo.url}">{$vo.title}</a></li>
+                    {/loop}
+                    
+                </ul>
+<div class="clear"></div>
+            </div>
+            <!--国内新闻 结束-->
+<div class="Hspace"></div>
+
+<div class="news_pic">
+                <h3>图片精选</h3>
+                <ul>
+
+                {loop type="arclist" row="8" image=1 fan=1}
+                 <li>
+<a href="{$vo.url}"><img src="{$vo.pic}" alt="{$vo.title}"/></a>
+<p><a href="{$vo.url}">{$vo.title}</a></p>
+</li>
+   {/loop}  
+                    
+                </ul>
+<div class="clear"></div>
+            </div>
+<div class="Hspace"></div>
+<!--国际新闻 开始-->
+            <div class="infomation">
+                <h3>国际新闻</h3>
+                <ul>
+			
+                     {loop type="arclist" row="5"}
+                    <li ><a href="{$vo.url}">{$vo.title}</a></li>
+                    {/loop}
+                    
+                </ul>
+<div class="clear"></div>
+            </div>
+            <!--国际新闻 结束-->
+
+<div class="Hspace"></div>
+<!--原创新闻 开始-->
+            <div class="infomation">
+                <h3>原创新闻</h3>
+                <ul>
+		
+                     {loop type="arclist" row="5"}
+                    <li ><a href="{$vo.url}">{$vo.title}</a></li>
+                    {/loop}
+                    
+                </ul>
+<div class="clear"></div>
+            </div>
+            <!--原创新闻 结束-->
+<div class="Hspace"></div>
+
+           <div class="infomation">
+                <h3>全网热点</h3>
+                <ul>
+			 {loop type="domain"}<li ><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>{/loop}
+				{if $links_open}
+			   {loop type="link"}
+			   <li ><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>
+			   {/loop}
+			   {/if}
+			<div class="Hspace"></div>
+        </div>
+            <div class="line"></div>
+        </div>
+        <!--右侧区域结束-->
+    </div>
+</div>
+<div class="clear"></div>
+<!--正文结束-->
+{include file="footer.html" }
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html mip xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$toptitle}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+<link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+<link rel="canonical" href="{$thisurl}">
+<link href="{$theme_path}/style/style.css" rel="stylesheet" />
+</head>
+<body>
+{include file="head.html"}
+<main class="container">
+    <div class="wrapper posts">
+        <div class="content">
+            <section class="content_left">
+                <article class="entry">
+                    <article class="crumbs">
+                        <a href="/">
+                            <i class="icon icon-home"></i>首页
+                        </a>
+                        <i class="icon icon-angle-right"></i>
+                        <a target="_blank" href="{当前栏目URL}">{当前栏目}</a>
+                        <i class="icon icon-angle-right"></i><span class="current">正文</span>
+                    </article>
+                    <header class="post_header">
+                        <h1>{$title}</h1>
+                        <div class="share">
+                            <span>
+                                <button on="tap:share.toggle" id="btn-open" role="button" tabindex="0">
+                                    <i class="icon icon-reply"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="postinfo">
+                            <div class="left">
+                                <span class="author">
+                                    <a href="/" title="Issac"><i class="icon icon-user"></i>{网站名称}</a>
+                                </span>
+                                <span class="category">
+                                    <i class="icon icon-th-thumb"></i>{$typename}
+                                </span><span class="date">
+                                    <i class="icon icon-calendar-minus-o"></i>
+                                    <b>{$postdate}</b>
+                                </span>
+                            </div>
+                            <div class="right">
+                                <span class="view"><i class="icon icon-eye-3"></i><b><span>0</span></b></span>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="content_post">
+                          {$body}
+                    </div>
+                    <div class="next-prev-posts">
+                        <div class="prev-post">
+                          {loop type="arclist" row=1 }
+                                <a href="{$vo.url}" target="_blank" class="prev-a prev has-background" alt="{$vo.title}">
+                                    <span>上一篇</span><h4>{$vo.title}</h4>
+                                </a>{/loop}
+
+                        </div>
+                        <div class="next-post">
+                          {loop type="arclist" row=1 }
+                                <a href="{$vo.url}" target="_blank" class="prev-a prev has-background" alt="{$vo.title}">
+                                    <span>下一篇</span><h4>{$vo.title}</h4>
+                                </a>{/loop}
+                        </div>
+                    </div>
+                </article>
+                
+            </section>
+            <aside class="sidebar">
+<!-- 热门文章 -->    
+<section class="sidebar_widget widget_posts">
+    <div class="sidebar_title">
+        <h3>热门文章</h3>
+    </div>
+  <ul>
+   {loop type="arclist" row="6" fan=1 image=1}
+    <li>
+       <article class="list_layout">
+                    <a href="{$vo.url}" class="thumbs" title="{$vo.title}">
+                        <mip-img src="{$vo.pic}" alt="{$vo.title}"></mip-img>
+                    </a>
+                    <h3><a href="{$vo.url}" title="{$vo.title}">{$vo.title}</a></h3>
+                    <div class="info"><span class="category">
+                        <a target="_blank" href="{$vo.url}">{随机栏目}</a>
+                    </span><span class="date">{$vo.postdate}</span><span class="view">
+                        <i class="icon icon-eye-1"></i><b>{$vo.hits}</b>
+                    </span></div>
+                </article>
+    </li>{/loop}
+    </ul>
+</section>
+
+<section class="sidebar_widget widget_posts">
+    <div class="sidebar_title">
+        <h3>最新文章</h3>
+    </div><section class="author_post">
+        <ul>
+          {loop type="arclist" row="5" fan=1}
+                <li><a href="{$vo.url}" class="imglayout" title="{$vo.title}">{$vo.title}</a></li>
+          {/loop}
+        </ul>
+    </section>
+</section>
+                
+            </aside>
+        </div>
+    </div>
+{include file="footer.html" }
+    <script src="https://c.mipcdn.com/static/v1/mip.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-gototop/mip-gototop.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://c.mipcdn.com/extensions/platform/v1/mip-cambrian/mip-cambrian.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-lightbox/mip-lightbox.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-vd-tabs/mip-vd-tabs.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-form/mip-form.js"></script>
+</body>
+</html>

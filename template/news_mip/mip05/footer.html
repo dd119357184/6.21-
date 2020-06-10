@@ -1,0 +1,49 @@
+  <div class="main container"><div class="qk_index_yqlj">
+     <div class="qk_ibox3_z_bt">
+      <em></em>
+      <p>友情链接</p>
+    </div>
+     <div class="qk_index_yqlj_nr">
+      <ul>{loop type="domain"}
+        <li> <a href="{$vo.url}" title="{$vo.title}" target="_blank">{$vo.title}</a>{/loop}</li>
+      {if $links_open} {loop type="link"}
+      <li>  <a href="{$vo.url}" title="{$vo.title}" target="_blank"> {$vo.title}</a></li>      
+      {/loop}
+      {/if}   
+       </ul>
+     </div>
+    </div>
+	  </div>
+	  </div>
+  <div class="ft_wp">
+   <div class="container container1">
+    <p class="text-center mip-footer">&copy;2019&nbsp;Powered By <a data-type="mip" data-title="MIPJZ" href="{$web_url}" target="_blank">{$web_name}</a> - &nbsp;<a href="http://{$host}/sitemap.xml">网站地图</a> </p>
+    <p class="text-center mip-footer">本站的部分内容来源于互联网，如不慎侵犯到您的权益，请联系我们，我们会在36小时内删除。{$web_share}</p>{$web_bdpush}{$web_tongji}
+   </div>
+   <mip-lightbox id="menu" layout="nodisplay" class="mip-hidden">
+    <div class="lightbox">
+     <nav class="m_menu">
+      <ul class="menu">      
+        
+       <li><a href="//{$host}" data-type="mip" data-title="{$web_name}" title="首页">首页</a></li>
+        {loop type="typename" row="7"}
+       <li class="li-subcate "><a href="{$vo.typeurl}" data-type="mip" data-title="{$vo.typename}" title="{$vo.typename}">{$vo.typename}</a></li>
+        {/loop}  
+        <li></li>
+      </ul>
+     </nav>
+     <span on="tap:menu.toggle" class="close lightbox-close">&times;</span>
+    </div>
+   </mip-lightbox>
+   <mip-fixed type="gototop">
+    <mip-gototop></mip-gototop>
+   </mip-fixed>
+   <script src="https://c.mipcdn.com/static/v1/mip.js"></script>
+   <script src="https://c.mipcdn.com/static/v1/mip-stats-baidu/mip-stats-baidu.js"></script>
+   <script src="https://c.mipcdn.com/static/v1/mip-gototop/mip-gototop.js" type="text/javascript" charset="utf-8"></script>
+   <script src="https://c.mipcdn.com/static/v1/mip-history/mip-history.js" type="text/javascript" charset="utf-8"></script>
+   <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js" type="text/javascript" charset="utf-8"></script>
+   <script src="https://c.mipcdn.com/extensions/platform/v1/mip-cambrian/mip-cambrian.js"></script>
+   <script src="https://c.mipcdn.com/static/v1/mip-form/mip-form.js" type="text/javascript" charset="utf-8"></script>
+   <script src="https://c.mipcdn.com/static/v1/mip-lightbox/mip-lightbox.js"></script>
+  </div>

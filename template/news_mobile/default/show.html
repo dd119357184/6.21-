@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>{$toptitle}</title>
+<meta name="description" content="{$description}" />
+<meta name="keywords" content="{$keywords}" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+{include file="style.html"}
+</head>
+<body>
+<!-- top开始 -->
+{include file="header.html"}
+ 
+<div class="Cons"><a href="/">首页</a> > <a href="{$typeurl}">{$typename}</a></div>
+<div class="end">
+  <div class="end_title">{$title}</div>
+  <div class="end_num">发布日期：{$postdate}</div>
+  <div class="end_time">浏览次数：{固定数字3}</div>
+  <div class="end_con">{$body}</div>
+  <div class="end_con">上一篇：{loop type="arclist" row=1 }<a href="{$vo.url}">{$vo.title}</a>{/loop}<br />下一篇：{loop type="arclist" row=1 }<a href="{$vo.url}">{$vo.title}</a>{/loop}</div>
+</div>
+<div class="Cons">相关文章</div>
+<div class="Cons_news">
+  <ul>
+{loop type="arclist" row="10"}
+<li><a href="{$vo.url}" title="{$vo.title}">{$vo.title}</a><span style="float: right;">{$vo.postdate}</span></li>
+{/loop}
+<div class="Cons">栏目分类</div>
+<div class="Cons_news">
+<ul>
+{loop type="typename" row="8" fan="1"}
+<li><a href="{$vo.url}" title="{$vo.title}">{$vo.title}</a><span style="float: right;">{$vo.postdate}</span></li>
+{/loop}
+{include file="footer.html" }
+</body>
+</html>

@@ -1,0 +1,23 @@
+最近有用户反映图片不显示，经检查使用的是nginx服务器，并且伪静态规则没有错误
+
+原来是由于有的nginx默认配置会自动拦截常见的图片后缀和css、js
+
+解决办法就是找到nginx配置，删除那2段代码；
+
+通常情况下是在nginx安装目录下的conf/nginx.conf文件，如果是宝塔面板，则nginx配置和站点配置里都要删除
+
+
+找到如下代码：
+
+
+location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$ 
+{ 
+expires 30d; 
+} 
+location ~ .*\.(js|css)?$ 
+{ 
+expires 1h; 
+}
+
+
+删除之后重启就可以了。

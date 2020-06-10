@@ -1,0 +1,51 @@
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<style type="text/css">
+.page_trace{ font-size:14px;width:100%;z-index: 999999;color: #000;text-align:left;}
+.page_trace_tab{ background:white;margin:0;height: 350px;}
+.page_trace_tab_tit{height:30px;padding: 6px 12px 0;border-bottom:1px solid #ececec;border-top:1px solid #ececec;font-size:16px}
+.page_trace_tab_tit span{color:#000;padding-right:12px;height:30px;line-height: 30px;display:inline-block;margin-right:3px;cursor: pointer;font-weight:700}
+.page_trace_tab_cont{padding: 0; line-height: 24px}
+.header{ display:none}
+</style>
+<div class="page_trace" id="page_trace_debug" itemid="debug">
+	<!-- page_trace -->
+	<div class="page_trace_tab">
+		<div class="page_trace_tab_tit">
+			<span>xxfseo调试信息</span>
+		</div>
+		<div class="page_trace_tab_cont">
+			<div>
+			<ol style="padding: 0; margin:0">
+			<?php
+			$i=1;
+			$debug_logs=debug_log();
+			foreach($debug_logs as $k=>$vo){
+				$usetime=$vo['usetime'];
+				$memory=$vo['memory'];
+				if($vo['slow']){
+					$usetime='<b style="font-size:15px">'.$usetime.'</b>';
+				}
+				if($memory>100){
+					$memory='<b style="font-size:15px">'.$memory.'</b>';
+				}
+				/*if($vo['key']=='alluse'){
+					write('./ab.txt','usetime: '.$vo['usetime'].'s , memory: '.$vo['memory'].'kb'."\r\n",'a+');
+					if($vo['usetime']>2){
+						$con=var_export($debug_logs,true);
+						write('./ab/'.$vo['usetime'].'.txt',$con);
+					}
+				}*/
+				echo '<li style="'.($vo['slow']?'background:#ffe6ce;':'').'border-bottom:1px solid #EEE;font-size:14px;padding:2px 12px">'.$i.'. <span style="color:blue">'.$vo['key'].'</span>: Usetime <span style="color:red" class="xxf_usetime">'.$usetime.'</span>s , Memory: <span style="color:red">'.$memory.'</span>KB</li>';
+				$i++;
+			}
+			echo '<li style="background:#ffe6ce;border-bottom:1px solid #EEE;font-size:14px;padding:2px 12px"><span style="color:blue">alltags_runtime</span>:';
+				foreach(get_tags_runtime() as $k=>$vo){
+					echo $k.': <span style="color:red">'.$vo.'</span>s , ';
+				}
+			echo '</li>';
+			?>
+			</ol>
+			</div>
+		</div>
+	</div>
+</div>

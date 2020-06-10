@@ -1,0 +1,25 @@
+<div class="footer2">
+<div class="container">
+  <div class="frdLink">
+    <div class="frdLinkTit"> 友情链接 </div>
+    <div class="frdLinks clearfix">   {loop type="domain"}<a href="{$vo.url}" target="_blank">{$vo.title}</a>{/loop}
+	{if $links_open}
+   {loop type="link"}
+   <a href="{$vo.url}" target="_blank">{$vo.title}</a>
+   {/loop}
+   {/if}</div>
+  </div>
+  <div class="copyright">
+  <p>免责声明：本站所有信息均来源于互联网搜集，并不代表本站观点，本站不对其真实合法性负责。如有信息侵犯了您的权益，请告知，本站将立刻删除。</p>
+ <p >Copyright &copy; 2019 Powered by <a href="{$thisurl}">{$title}</a>,<a href="{$web_url}">{$web_name}</a>&nbsp;&nbsp;{$web_tongji}</p>
+	 <p ><a href="http://{$host}/sitemap.xml">sitemap</a></p>
+</div>
+ </div>
+<script type="text/javascript">
+   ycSlider({ wrap: '.swiper-gdbb', dir: 'left', autoplay: 3500, speed: 400, navFn: function(index) { var gdbbContentLi = $('#gdbbContent li');
+   gdbbContentLi.eq(index).fadeIn().siblings().hide(); } });
+   ycSlider({ wrap: '.swiper-yl', dir: 'left', autoplay: 3500, speed: 400 });
+   ycSlider({ wrap: '.swiper-ty', dir: 'left', autoplay: 3500, speed: 400 });
+  </script>
+{$web_share} 
+{$web_bdpush}

@@ -1,0 +1,51 @@
+<section class="mod NewsAll">
+    <div class="title TitA"> <em></em><h3>友情链接</h3></div>
+    <!--// box-tit end-->
+    <div class="con show">
+      <ul class="feeds feeds-right" id="HotList">
+       {loop type="domain"}
+          <li class="feeds-item">
+            <div class="feeds-item-detail">
+              <h3><a href="{$vo.url}">{$vo.title}</a></h3>
+            </div>
+          </li>
+		 {/loop}
+		  {loop type="link"}
+          <li class="feeds-item">
+            <div class="feeds-item-detail">
+              <h3><a href="{$vo.url}">{$vo.title}</a></h3>
+            </div>
+          </li>
+		 {/loop}
+
+      </ul>
+    </div>
+    <!--// con end--> 
+  </section>
+<footer class="footer-min">
+  <div class="app"> <a href="#" class="pcs">电脑版</a> - <a href="#" class="smlweb">手机版</a> </div>
+  <div class="copyright">Copyright &copy; 2019 Powered by <a href="{$thisurl}">{$title}</a>,<a href="{$web_url}">{$web_name}</a>&nbsp;&nbsp;{$web_tongji}</div>
+</footer>
+<a class="back-to-top"></a>
+</div>
+ 
+<script src="{$theme_path}/skin/js/swipe.js"></script> 
+<script>
+var elem = document.getElementById('mySwipe');
+window.mySwipe = Swipe(elem, {
+auto: 3000,
+continuous: true,
+callback: function(pos) {
+
+  var i = bullets.length;
+  while (i--) {
+    bullets[i].className = ' ';
+  }
+  bullets[pos].className = 'on';
+}
+});
+var bullets = document.getElementById('position').getElementsByTagName('li');
+</script>
+
+{$web_share} 
+{$web_bdpush}

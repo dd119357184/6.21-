@@ -1,0 +1,54 @@
+{include file="header.html"}
+<body class="body-main">
+<ul id="admin_sub_title">
+	<li class="sub"><a href="javascript:">广告管理</a></li>
+	<li class="unsub"><a href="{url('admin/ads/edit')}">添加广告</a></li>
+</ul>
+
+<div id="admin_right_b">
+
+  <table border="0" align="center" cellpadding="3" cellspacing="1" class="table_b">
+	<tr>
+	  <td width="80" align='center' class="title_bg">id</td>
+      <td class="title_bg" width="120">标识(唯一)</td>
+	  <td class="title_bg" width="150">模板调用标签</td>
+	   <td class="title_bg" width="100">所属分组</td>
+	  <td class="title_bg" width="120">广告说明</td>
+	  <td align='center' class="title_bg" width="120">自动插入位置</td>
+      <td class="title_bg" width="80">屏蔽蜘蛛</td>
+      <td width="150" align='center' class="title_bg">管理</td>
+	  <td class="title_bg">&nbsp;</td>
+    </tr>
+{foreach $list as $vo}
+    <tr onmouseover=this.bgColor='#EDF8FE'; onmouseout=this.bgColor='#ffffff'; bgcolor='#ffffff'>
+	  <td align="center" height="25">{$vo.id}</td>
+	  <td>{$vo.mark}</td>
+	  <td style="color:#ff6600">{<a></a>$myad.{$vo.mark}<a></a>}</td>
+	  <td align="center">{$vo.groupname}</td>
+	  <td>{$vo.name}</td>
+	  <td align='center'>
+		{if !$vo.insert_position}不插入{/if}
+		{if $vo.insert_position=='1'}插入页面头部{/if}
+		{if $vo.insert_position=='2'}插入页面底部{/if}
+		{if $vo.insert_position=='3'}插入内容前面{/if}
+		{if $vo.insert_position=='4'}插入内容后面{/if}
+	  </td>
+	  <td align="center" height="25">{if $vo.ban_robot}<font color="green">开启</font>{else}<font color="red">关闭</font>{/if}</td>
+      <td align="center"><a href="?admin-ads-preview-id-{$vo.id}" target='_blank' class="button button_small button_inverse">预览</a> <a href="?admin-ads-edit-id-{$vo.id}" class="button button_small">编辑</a> <a href="?admin-ads-del-id-{$vo.id}" onclick='return confirm("确定删除?删除后不可恢复!");' class="button button_small button_remove">删除</a></td>
+	  <td>&nbsp;</td>
+    </tr>
+{foreachelse}
+	<tr bgcolor='#ffffff'>
+		<td colspan='9' height="25" align="center">暂无广告！</td>
+	</tr>
+{/foreach}
+
+  </table>
+<div class="divtips" style="margin-top:10px;">
+<p>注：使用自动插入无需修改模板，如自动插入的位置不满意可手动使用调用标签写入模板中</p>
+</div>
+<div class="runtime"></div>  
+</div>
+{include file="footer.html"}
+</body>
+</html>

@@ -1,0 +1,22 @@
+{include file="header.html"}
+<div class="divtips">
+	<p>提示：仅预览前20条</p>
+</div>
+<div style="max-height:400px;overflow:auto;background:#eee;">
+		<table border="0" align="center" cellpadding="3" cellspacing="1" class="table_b">
+		<tr>
+		  <td class="title_bg">标题</td>
+		  <td width="80" align='center' class="title_bg">缩略图</td>
+		</tr>
+	{foreach $list as $k=>$vo}
+		<tr onmouseover=this.bgColor='#EDF8FE'; onmouseout=this.bgColor='#ffffff'; bgcolor='#ffffff'>
+		  <td>&nbsp;&nbsp;{$vo.title}</td>
+		  <td align='center'>{if $vo.litpic}<font color="green">有</font>{else}<font color="red">无</font>{/if}</td>
+		</tr>
+	{foreachelse}
+		<tr bgcolor='#ffffff'>
+			<td colspan='2' height="25" align="center">暂无文档！</td>
+		</tr>
+	{/foreach}
+		</table>
+</div>

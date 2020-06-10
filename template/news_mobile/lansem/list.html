@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<title>{$toptitle}</title>
+<meta name="description" content="{$description}" />
+<meta name="keywords" content="{$keywords}" />
+<meta name="applicable-device" content="mobile">
+<link href="{$theme_path}/skin/css/bootstrap.min.css" rel="stylesheet">
+<link href="{$theme_path}/skin/css/wap_v5.css" rel="stylesheet">
+<script type="text/javascript" src="{$theme_path}/skin/js/jquery-1.8.3.js"></script>
+</head>
+<body class="m-category">
+<div class="container">
+{include file="head.html"}
+<div class="wrap">
+  <div class="crumbs lh40">您的当前位置：<a href="/">首页</a> > <a href="{$thisurl}">{$typename}</a></div>
+  <section>
+    <div class="list-bar">
+      <div class="list-top"> </div>
+      <div class="w768"> </div>
+      <div class="sider_tabs_con">
+        <div class="con show">
+          <ul class="feeds feeds-right" id="showajaxnews">
+
+ {loop type="arclist" image=1 row=10}
+          <li class="feeds-item">
+            <div class="feeds-item-detail hasImg">
+              <p class="feeds-item-pic"><a href="{$vo.url}" target="_blank"><img src="{$vo.pic}"></a></p>
+              <h3><a href="{$vo.url}">{$vo.title}</a></h3>
+              <div class="feeds-item-info"> <span class="time">时间：{$vo.postdate}</span></div>
+            </div>
+          </li>
+		 {/loop}
+          </ul>
+          <div class="loadmore" id="loadmore">{loop type="typename" }<a href="{$vo.typeurl}">{$k+1}</a>{/loop}</div>
+        </div>
+      </div>
+      <!--// sider_tabs_con end-->
+      <div class="w768"></div>
+    </div>
+    <!--// list-bar end--> 
+  </section>
+</div>
+<!--// wrap end--> 
+{include file="footer.html" }
+</body>
+</html>

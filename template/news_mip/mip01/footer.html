@@ -1,0 +1,70 @@
+﻿       <div class="sidebox col-7 col-m-24">
+            <dl class="function" id="divComments">
+                <dt class="function_t">最近发表</dt>
+                <dd class="function_c">
+                    <ul>
+                    {loop type="arclist" row="10" fan=1}<li><a href="{$vo.url}">{$vo.title}</a></li>{/loop}
+                    </ul>
+                </dd>
+            </dl>
+            <dl class="function" id="divPrevious">
+                <dt class="function_t">随机阅读</dt>
+                <dd class="function_c">
+                    <ul>
+                    {loop type="arclist" row="20" fan=1}<li><a href="{$vo.url}">{$vo.title}</a></li>{/loop}
+					</ul>
+                </dd>
+            </dl>
+            <dl class="function" id="divSearchPanel">
+                <dt class="function_t">搜索</dt>
+                <dd class="function_c">
+                    <div>
+                        <mip-form name="search" method="post" url="{$vo.url}">
+                            <input type="hidden" value="title" name="show">
+                            <input type="hidden" value="1" name="tempid">
+                            <input type="hidden" value="news" name="tbname">
+                            <input name="mid" value="1" type="hidden">
+                            <input name="dopost" value="search" type="hidden">
+                            <input type="text" name="keyboard" size="11" >
+                            <input type="submit" value="搜索">
+                        </mip-form>
+                    </div>
+                </dd>
+            </dl>
+            <dl class="function" id="divLinkage">
+                <dt class="function_t">友情链接</dt>
+                <dd class="function_c">
+                    <ul>
+                    {loop type="domain"}<li><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>{/loop}
+				{if $links_open}
+			   {loop type="link"}
+			   <li><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>
+			   {/loop}
+			   {/if}
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="wide">
+        <dl class="row">
+            <dd class="col-18 col-m-24 mb15">Copyright &copy; <a href="{$thisurl}">{$title}</a> 版权所有,<a href="{$web_url}">{$web_name}</a>&nbsp;<a href="http://{$host}/sitemap.xml">sitemap</a>&nbsp;{$web_tongji}</dd>
+        </dl>
+    </div>
+</footer>
+<mip-fixed type="gototop">
+    <mip-gototop></mip-gototop>
+</mip-fixed>
+<mip-stats-baidu token="{当前域名}"></mip-stats-baidu>
+<script src="https://c.mipcdn.com/static/v1/mip.js"></script>
+<script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js"></script>
+<script src="https://c.mipcdn.com/static/v1/mip-accordion/mip-accordion.js"></script>
+<script src="https://c.mipcdn.com/static/v1/mip-gototop/mip-gototop.js"></script>
+<script src="https://c.mipcdn.com/static/v1/mip-share/mip-share.js"></script>
+<script src="https://c.mipcdn.com/static/v1/mip-form/mip-form.js"></script>
+<script src="https://c.mipcdn.com/static/v1/mip-changyan/mip-changyan.js"></script>
+<script src="https://mipcache.bdstatic.com/extensions/platform/v1/mip-cambrian/mip-cambrian.js"></script>
+{统计代码}
+{百度推送代码}

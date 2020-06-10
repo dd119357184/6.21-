@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>{$toptitle}</title>
+<meta name="description" content="{$description}" />
+<meta name="keywords" content="{$keywords}" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+{include file="style.html"}
+</head>
+<body>
+{include file="header.html"}
+<!-- 最新资讯开始 -->
+<div class="Cons">{$typename}</div>
+<div class="Cons_news">
+  <ul>
+  {loop type="arclist" row=20}
+<li><a href="{$vo.url}" title="{$vo.title}">{$vo.title}</a><span style="float: right;">{$vo.postdate}</span></li>
+ {/loop}
+  </ul>
+</div>
+<!-- 最新资讯资讯结束 --> 
+
+<!-- 翻页开始开始 -->
+<div class="page">{loop type="typename" }<li><a href="{$vo.typeurl}">[{$k+1}]</a></li>{/loop}
+</div>
+<!-- 翻页开始结束 --> 
+
+{include file="footer.html" }
+</body>
+</html>

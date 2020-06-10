@@ -1,0 +1,45 @@
+{include file="header.html"}
+<body class="body-main">
+<ul id="admin_sub_title">
+	<li class="sub"><a href="javascript:void(0)" onClick="selectTab('config0',this)">其他优化</a></li>
+</ul>
+<div id="admin_right_b">
+<script>
+$(function() {
+});
+</script>
+<form method="post" action="{url('admin/config/update')}" enctype="multipart/form-data">
+<table width="98%" border="0" align="center" cellpadding="4" cellspacing="0" id="config0" class="tableConfig">
+	<tbody>
+		<tr class="tdbg item_title">
+			<td width="150" align="right"><i class="typcn typcn-cog"></i> 基本设置</td>
+			<td></td>
+		</tr>
+		<tr class="tdbg">
+		  <td align="right" class="config_td_first">文章发布时间：</td>
+		  <td><select name="con[addtime_type]">
+			<option value="1" {if !$addtime_type || $addtime_type=='1'} selected="selected"{/if}>内置时间</option>
+			<option value="2" {if $addtime_type=='2'} selected="selected"{/if}>当前时间</option>
+		  </select></td>
+		</tr>
+
+		<tr class="tdbg">
+		  <td align="right" class="config_td_first">企业名称自动生成：</td>
+		  <td class="icheck_radios"><label><input type="radio" name="con[auto_make_webname]" value="1" {if $auto_make_webname} checked{/if}>开启</label>
+				<label><input type="radio" name="con[auto_make_webname]" value="0" {if !$auto_make_webname} checked{/if}>关闭</label>　<span>仅限企业模型</span></td>
+		</tr>
+
+	</tbody>
+</table>
+	<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1">
+    <tr class="tdbg">
+	  <td width="150" align="center" class="tdbg">&nbsp;</td>
+      <td><button type="submit" id="dosave" class="button button_submit">保存设置</button></td>
+    </tr>
+	</table>
+	</form>
+<div class="runtime"></div>  
+</div>
+{include file="footer.html"}
+</body>
+</html>

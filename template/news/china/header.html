@@ -1,0 +1,37 @@
+<div id="header">
+    <div class="header_inner">
+        <!--pc端导航-->
+        <ul class="nav_pc">
+            <li><a href="{网站地址}">首页</a></li>
+					 {menu row="8"}
+					<li ><a href='{$vo.typeurl}'>{$vo.typename}</a></li>
+					{/menu}
+        </ul>
+        <!--pc端导航 结束-->
+        <!--移动端导航-->
+        <div class="mobile">
+            <div class="head_mobile">
+                <ul>
+                    <li><a href="{网站地址}">首页</a></li>
+                    {menu row="3"}
+					<li ><strong><a href='{$vo.typeurl}'>{$vo.typename}</a></strong></li>
+					{/menu}
+                    <div class="clear"></div>
+                </ul>
+                <span class="down_btn"><img src="{$theme_path}/2016/wenzhang/images/down_w_btn.png" /></span>
+            </div>
+            <div class="drop_down">
+                <div class="title"><h3>导航</h3><img src="{$theme_path}/2016/wenzhang/images/up_w_btn.png" />
+                </div>
+                <ul class="nav_mobile">
+                    <li><a href="{网站地址}">首页</a></li>
+					 {loop type="typename" row="8"}
+					<li ><a href='{$vo.typeurl}'>{$vo.typename}</a></li>
+					{/loop}
+                </ul>
+            </div>
+        </div>
+        <!--移动端导航 结束-->
+        <div class="logo"><a href="{网站地址}"><img src="/uploads/images/logo.png?n={$encode_name}&w=138" /></a></div>
+    </div>
+</div>

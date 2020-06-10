@@ -1,0 +1,116 @@
+@charset "utf-8";/* CSS Document */
+*{text-decoration:none;border:none;list-style:none;list-style-type:none;padding:0;margin:0}
+li{padding:0;margin:0}
+body{font-family:"微软雅黑";position:relative;}
+/*top样式*/
+.top{width:100%;height:50px;float:left}
+.logo{/* width:25%; *//* float:left; */text-align: center;}
+.tel{width:130px;height:49px;float:right;margin-right:8px;}
+.tel_a{width:130px;height:16px;font-size:17px;color:#D72700;font-family:"微软雅黑";text-align:right;margin-top:6px;}
+.weixin{width:52px;height:16px;float:right}
+.weibo{height:16px;float:right;font-weight:bold;}
+/*导航样式*/
+.nav{float:left;width:100%;background-color: #51b308;}
+.nav li{float:left;height:40px;line-height:40px;text-align:center;}
+.nav li a{color:#fff;font-size:13px;text-decoration:none;border-left: 1px solid #1a8018;border-top: 1px solid #238018;width:100%;display:block;}
+/*切换标签样式*/
+.itab{float:left;width:100%;}
+.slideBox{width:100% height:38px;background:#e1d9c1;font-family:"微软雅黑"}
+.slideBox span{background:#e1d9c1;color:#000;cursor:pointer;float:left;font-size:16px;height:42px;line-height:42px;text-align:center;}
+.slideBox dt .on,.slideBox a:hover{color:#800713;border-bottom:2px solid #800713;background:url(../images/01.png) no-repeat scroll 50% bottom;font-weight:bold;}
+.slideBox dd{width:100%;height:auto;clear:both;display:none;background:#fff}
+.slideBox dd ul li{width:25%;text-align:center;height:40px;line-height:40px;background:#fff;font-size:14px;float:left;}
+.slideBox dd ul li a{text-decoration:none;color:#000;}
+.slideBox dd ul li a:hover{text-decoration:none;color:#000;border-bottom:none;background:none}
+/*线条样式样式*/
+.line{width:100%;height:2px;background:#D2E2EC;float:left;margin:3px auto;}
+/*线条样式样式*/
+.focus{width:320px;height:200px;overflow:hidden;position:relative;margin:auto;float:left;margin:5px auto;}
+.focus ul{height:320px;position:absolute;}
+.focus ul li{float:left;width:320px;height:200px;overflow:hidden;position:relative;}
+.focus .btnBg{position:absolute;width:320px;height:20px;left:0;bottom:0;background:#000;}
+.focus .btn{position:absolute;width:320px;height:10px;padding:5px 10px;right:0;bottom:0;text-align:right;}
+.focus .btn span{display:inline-block;_display:inline;_zoom:1;width:20px;height:5px;_font-size:0;margin-left:5px;cursor:pointer;background:#fff;}
+.focus .btn span.on{background:#fff;}
+/*banner样式 */
+.wrapper{left:0;width:100%;overflow:hidden;float:left;}
+/* swipe */
+.swipe{width:100%;overflow:hidden;margin:0 auto}
+.swipe ul{-webkit-transition:left 800ms ease-in 0;-moz-transition:left 800ms ease-in 0;-o-transition:left 800ms ease-in 0;-ms-transition:left 800ms ease-in 0;transition:left 800ms ease-in 0;}
+.swipe #pagenavi{position:absolute;left:0;bottom:10px;text-align:center;width:100%;}
+.swipe #pagenavi a{width:10px;height:10px;line-height:99em;background:#fff;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;margin:0 4px;overflow:hidden;cursor:pointer;display:inline-block;*display:inline;*zoom:1;}
+.swipe #pagenavi a.active{background:#C80002;}
+/* 最新资�?*/
+.Cons{width:95%;height:24px;line-height:24px;font-size:13px;font-weight:bold;color: #20a00a;float:left;background: #d2ecd6;padding:5px 2.5%;}
+.Cons span{float:right;margin-right:5px}
+.Cons span a{color:#FF0000;font-weight:lighter;}
+.Cons a{color:#534003}
+.Cons_news{width:100%;float:left;}
+.Cons_news ul li{padding:5px 2.5%;border-bottom: 1px solid #d2ecd6;font-size:15px;float:left;width:95%;}
+.Cons_news ul li a{color:#333}
+.Cons_news ul li a span{float:right;color:#ae9751;font-weight:bold}
+.Cons_img{width:100%;float:left;background:url(../images/lianjie.jpg) no-repeat right 7px;}
+.Cons_img img{width:25%;float:left;border-radius:3px;}
+.Cons_img p{width:68%;float:left;margin-left:3%;font-size:13px;color:#844003;line-height:20px;}
+/* 品牌项目 */
+.brand{width:100%;float:left;margin:10px 0;}
+.brand ul li{width:25%;height: 120px;margin-left:2.5%;float:left;text-align:center;line-height:18px;font-size:16px;}
+.brand ul li a img{width:100%;-webkit-box-shadow:0 2px 1px #c3c3c3;-moz-box-shadow:0 2px 1px #c3c3c3;box-shadow:0 2px 1px #c3c3c3;border-radius:5px;}
+/* 澳昇优势 */
+.advantage{width:95%;margin:10px 2.5%;float:left;}
+.advantage image{width:100%}
+.advantage p{font-size:14px;line-height:24px;}
+.advantage span{color:#800713;font-weight:bolder}
+/* 联系澳昇 */
+.contrat{width:95%;float:left;margin:10px 2.5%;}
+.contrat p{font-size:12px;line-height:24px;width:100%;float:left}
+.contrat img{width:50%;float:left;}
+/* 翻页 */
+.page{width:95%;padding:5px 2.5%;text-align:center}
+.page li{color:#7B7A7A;font-size:12px;display:inline;}
+.page a{font-size:12px;font-weight:bold;color:#333;padding:5px 5px}
+/* 项目介绍 */
+.project_pic{width:100%;}
+.project_pic img{width:30%;float:left;margin-left:2.5%;margin-top:10px;border-radius:3px}
+/* 移民项目 */
+.xiangmu{width:100%;float:left;}
+.xiangmu ul li{/*width:45%;*/
+	padding:10px 2.5%;font-size:16px;float:none;overflow:hidden;}
+.xiangmu ul li a{color:#333}
+/*关于澳昇*/
+.us{width:95%;margin:10px 2.5%;float:left;line-height:24px;font-size:15px}
+.us p{text-indent:2em;}
+.us img{width:100%;margin-top:5px;}
+/* 最终页 */
+.end{width:95%;margin:10px 2.5%;float:left;}
+.end p{font-size:16px;line-height:24px;width:100%;float:left}
+.end_title{width:100%;text-align:center;font-size:16px;font-weight:bold;float:left}
+.end_num{width:52%;text-align:right;font-size:13px;color:#666;float:left;padding:5px 2.5%;}
+.end_time{width:38%;text-align:left;font-size:13px;color:#666;float:left;padding:5px 2.5%;}
+.end_con{width:100%;float:left;}
+.end_con img{width:100%}
+.end_con p{text-indent:2em;font-size:14px;margin-top:10px;line-height:20px;}
+
+.ass_title{width:100%;height:40px;line-height:40px;text-align:center;font-size:20px;font-weight:bold;color:#5d4b11;border-bottom:1px dashed #534003;padding:5px 0;margin-bottom:10px;}
+.ass_con{width:100%;}
+.ass_nam{width:100%;color:#333;}
+.ass_nam1{width:20%;float:left;height:30px;line-height:30px;text-align:right;padding:10px 0;}
+.ass_nam2{width:75%;float:left;padding:10px 0;}
+.ass_nam3{width:75%;float:left;padding:10px 0;}
+.ass_nam3 input{width:100%;height:30px;border:1px solid #cbb673;text-indent:10px;letter-spacing:2px;font-size:16px;font-family:"微软雅黑";color:#333}
+.ass_nam4{width:75%;float:left;padding:10px 0;}
+.ass_nam4 input{width:40%;height:30px;line-height:30px;text-align:center;color:#fff;letter-spacing:5px;font-size:16px;font-family:"微软雅黑";color:#fff;border-radius:3px;background:#7f6101;float:left;margin-right:10%}
+#dropdown{width:100%;margin:0 auto;position:relative}
+#dropdown p{width:100%;height:30px;line-height:30px;border:1px solid #cbb673;color:#333;cursor:pointer;background:url(../images/xila_pic.jpg) no-repeat right;text-indent:10px}
+#dropdown ul{width:100%;margin-top:30px;border:1px solid #cbb673;position:absolute;display:none;background:#fff}
+#dropdown ul li{width:100%;height:30px;line-height:30px;text-indent:10px}
+#dropdown ul li a{display:block;height:30px;color:#333;text-decoration:none}
+#dropdown ul li a:hover{background:#e1d9c1;color:#333}
+/* 微博微信 */
+.weiboa{width:95%;padding:10px 2.5%;}
+.weiboa_table{width:50px;height:30px;line-height:30px;text-align:center;border-radius:3px;background:#7f6101;color:#fff;font-size:16px;margin-bottom:10px;}
+.weiboa_title{width:100%;font-size:16px;color:#333;line-height:24px;}
+.weiboa_title span{color:#7f6101;font-weight:bold}
+.weiboa_img{width:100%}
+.weiboa_img img{width:90%;margin-top:10px;padding:0 5%;}
+

@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html mip xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$toptitle}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+<link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+<link rel="canonical" href="{$thisurl}">
+<link href="{$theme_path}/style/style.css" rel="stylesheet" />
+</head>
+    <style mip-custom>
+        .s043cda {
+            font-weight: bold;
+        }
+
+        .s3df0a3 {
+            display: inline;
+        }
+
+        .mip-carousle-subtitle {
+            display: none;
+        }
+
+        .pagination .active span {
+            border: 1px #efefef solid;
+            min-width: 32px;
+            height: 32px;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 32px;
+            cursor: pointer;
+            margin: 3px;
+            font-size: 12px;
+            padding: 0 8px;
+            background-color: #004FCB;
+            border-color: #004FCB;
+            color: #fff;
+        }
+
+        mip-vd-tabs .mip-vd-tabs-scroll-touch {
+            padding-bottom: 28px;
+            margin-top: -32px;
+        }
+
+        ul li.inlinb, li.page-item {
+            display: inline-block;
+        }
+    </style>
+<body>
+{include file="head.html"}
+<main class="container">
+    
+<div class="wrapper">
+    <section class="content">
+        <section class="content_left home">
+            <mip-vd-tabs allow-scroll>
+                <section>
+                    <h1>{当前栏目}</h1>
+                </section>
+                <div>
+                  {loop type="arclist" row=10 info=1 image=1}
+                        <article class="post_main post_blog">
+                            <a href="{$vo.url}" class="thumbs" title="{$vo.title}">
+                                <mip-img layout="container" alt="{$vo.title}" src="{$vo.pic}"></mip-img>
+                            </a>
+                            <h2><a href="{$vo.url}" title="{$vo.title}">{$vo.title}</a></h2>
+                            <div class="excerpt">{$vo.info}...</div>
+                            <div class="postinfo">
+                                <div class="left"><span class="author"><a href="{当前栏目URL}" title="{当前栏目}"><i class="icon icon-user-1"></i>{当前栏目}</a></span><span class="date"><i class="icon icon-calendar-1"></i><b>{$vo.postdate}</b></span></div>
+                                <div class="right"><span class="view"><i class="icon icon-eye-1"></i><b>{$vo.hits}</b></span></div>
+                            </div>
+                        </article>
+                  {/loop}
+
+                    <nav class="navigation pagination">
+                        <div class="nav-links">
+                            <div class="page-control">
+                                <ul class="pagination">
+                                  {loop type="typename" }<li class="page-item"><a class="page-link" data-type="mip" href="{$vo.typeurl}">{$k+1}</a></li>{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </mip-vd-tabs>
+        </section><!-- 侧边 -->
+        <aside class="sidebar">
+<!-- 热门文章 -->    
+<section class="sidebar_widget widget_posts">
+      <div class="sidebar_title">
+        <h3>热门文章</h3>
+            </div>
+  <ul>
+   {loop type="arclist" row="6" fan=1 image=1}
+    <li>
+       <article class="list_layout">
+                    <a href="{$vo.url}" class="thumbs" title="{$vo.title}">
+                        <mip-img src="{$vo.pic}" alt="{$vo.title}"></mip-img>
+                    </a>
+                    <h3><a href="{$vo.url}" title="{$vo.title}">{$vo.title}</a></h3>
+                    <div class="info"><span class="category">
+                        <a target="_blank" href="{$vo.url}">{随机栏目}</a>
+                    </span><span class="date">{$vo.postdate}</span><span class="view">
+                        <i class="icon icon-eye-1"></i><b>{$vo.hits}</b>
+                    </span></div>
+                </article>
+    </li>{/loop}
+    </ul>
+</section>
+
+<section class="sidebar_widget widget_posts">
+    <div class="sidebar_title">
+        <h3>最新文章</h3>
+    </div><section class="author_post">
+        <ul>
+          {loop type="arclist" row="5" fan=1}
+                <li><a href="{$vo.url}" class="imglayout" title="{$vo.title}">{$vo.title}</a></li>
+          {/loop}
+        </ul>
+    </section>
+</section>
+                
+            </aside>
+        </div>
+    </div>
+{include file="footer.html" }
+    <script src="https://c.mipcdn.com/static/v1/mip.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-gototop/mip-gototop.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-fixed/mip-fixed.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://c.mipcdn.com/extensions/platform/v1/mip-cambrian/mip-cambrian.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-lightbox/mip-lightbox.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-vd-tabs/mip-vd-tabs.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-form/mip-form.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+{include file="header.html"}
+<body class="body-main">
+<ul id="admin_sub_title">
+	<li class="unsub"><a href="{url('admin/ads/index')}">广告管理</a></li>
+	<li class="sub"><a href="javascript:">{if $id==0}添加{else}编辑{/if}广告</a></li>
+</ul>
+
+<div id="admin_right_b">
+  <form method="post">
+    <table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="tableConfig">
+	<tr class="tdbg">
+      <td width="120" align="right" class="config_td_first">广告标识(唯一)：</td>
+      <td><input name="con[mark]" type="text" value="{$mark}" class="input" size="20"> <font color="red">*</font> 字母或数字，用于调用</td>
+    </tr>
+
+	<tr class="tdbg">
+      <td align="right" class="config_td_first">广告说明：</td>
+      <td><input name="con[name]" type="text" value="{$name}" class="input" size="30"></td>
+    </tr>
+
+	<tr class="tdbg">
+	  <td align="right" class="config_td_first">插入页面的位置：</td>
+	  <td>
+	  <select name="con[insert_position]">
+		<option value="0" {if !$insert_position} selected="selected"{/if}>不插入</option>
+		<option value="1" {if $insert_position=='1'} selected="selected"{/if}>插入页面头部</option>
+		<option value="2" {if $insert_position=='2'} selected="selected"{/if}>插入页面底部</option>
+		<option value="3" {if $insert_position=='3'} selected="selected"{/if}>插入内容前面</option>
+		<option value="4" {if $insert_position=='4'} selected="selected"{/if}>插入内容后面</option>
+	  </select> <span> 广告自动插入页面，插入的是js文件调用</span></td>
+	</tr>
+	<tr class="tdbg">
+		  <td align="right" class="config_td_first">屏蔽蜘蛛：</td>
+		   <td class="icheck_radios"><label><input type="radio" name="con[ban_robot]" value="1" {if $ban_robot} checked{/if}>开启</label>
+				<label><input type="radio" name="con[ban_robot]" value="0" {if !$ban_robot} checked{/if}>关闭</label>　<span>屏蔽搜索引擎,抓取广告</span></td>
+		</tr>
+	<tr>
+			<td align="right" class="config_td_first">选择分组：</td>
+			<td><input type="hidden" name="con[ads_group]" id="ads_group_value" value="{$ads_group}" /><font id="ads_group_items" color="#ff6600">{if !$ads_group_name}未选择{else}{$ads_group_name}{/if}</font>&nbsp;&nbsp;<a href="javascript:" class="button button_small" onclick="select_group('ads');">点击选择</a> <span class="tips" style="color:red"><i class="typcn typcn-info"></i>选择开启广告的分组</span></td>
+		</tr>
+	<tr class="tdbg">
+      <td align="right" class="config_td_first">广告代码（JS代码）：</td>
+      <td valign="top"><textarea id="body" name="con[code]" style="width:630px;height:320px;" >{$code|htmlspecialchars}</textarea>
+	  </td>
+    </tr>
+		<tr>
+		  <td width="120">&nbsp;</td>
+		  <td><button type="submit" id="dosave" class="button button_submit">保存</button> <button type="button" onClick="history.go(-1)" class="button button_grey">返回</button></td>
+		</tr>
+	</table>
+ </form>
+<script type="text/javascript">
+$("#dosave").click(function(){
+	showDialog();
+	$.ajax({
+		type:"post",
+		url:"?admin-ads-update-id-{$id|default:0}",
+		data:$("form").serialize(),
+		dataType:'json',
+		timeout:28000,
+		global:false,
+		success:function(data){
+			if(data.status==1){
+				showAlert('success','恭喜你，{if $id==0}添加{else}编辑{/if}成功',"{url('admin/ads/index')}");
+			}else{
+				showAlert('error',data.info);
+			}
+		}
+	});
+ return false;
+});
+</script>
+<div class="runtime"></div>  
+</div>
+{include file="group_list.html"}
+{include file="footer.html"}
+</body>
+</html>

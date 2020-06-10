@@ -1,0 +1,1 @@
+<?php if(!defined('IN_TXTCMS')){define('IN_TXTCMS',true);} ?><div class="footer">Powered By xxfseo.com 版权所有 &copy; 2019, All right reserved.</div>

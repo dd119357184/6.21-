@@ -1,0 +1,28 @@
+<header class="header">
+    <section id="header_main" class="header_main">
+        <section class="wrapper">
+            <h1>
+                <a data-type="mip" class="logo" href="/">{网站名称}</a>
+            </h1>
+            <nav class="header_menu">
+                <ul class="menu">
+                    <li class="current-menu-item"><a href="/" title='首页'>首页</a></li>
+                    {menu row="6"} <li class="li-subcate"><a href='{$vo.url}' >{$vo.title}</a></li>{/menu}
+                </ul>
+            </nav>
+            <div class="header_menu header_btn">
+                <ul class="menu">
+                    <li class="search">
+                        <button on="tap:search.toggle" id="btn-open" role="button" tabindex="0">
+                            <i class="icon icon-search-1"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <button on="tap:menu.toggle" id="btn-open" role="button" tabindex="0" class="btn menu">
+                <i class="icon icon-th-large-outline"></i>
+            </button>
+        </section>
+    </section>
+</header>
+<main class="container">

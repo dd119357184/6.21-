@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>{$toptitle}</title>
+<meta name="description" content="{$description}" />
+<meta name="keywords" content="{$keywords}" />
+<link rel="stylesheet" type="text/css" href="{$theme_path}/skin/css/style.css">
+<script src="{$theme_path}/skin/js/jquery.min.js"></script>
+<script src="{$theme_path}/skin/js/main.js"></script>
+</head>
+<body class="other">
+{include file="head.html"}
+<!--头部end-->
+<div class="current"><span>
+  <p>您的当前位置：<a href="/">首页</a> > <a href="{$typeurl}">{$typename}</a> > <a href="{$thisurl}">{$title}</a> 正文</p>
+  </span></div>
+<div class="content clearfix padT">
+  <div class="left bgWhite">
+    <div class="nrHeader">
+      <h1>{$title}</h1>
+      <div class="infor">
+        <P class="time">时间：{$postdate} <span class="mlr">来源：网络整理</span> <span class="mlr">编辑：{$typename}</span></P>
+      </DIV>
+    </div>
+    <div class="tips"><span>核心提示</span>
+      <p>{$description}</p>
+    </div>
+    <div class="textBody">{$body}</div>
+    <div id="fenye" class="Pagenav">
+      <div class="pagination"></div>
+    </div>
+    <div class="nextpage">
+      <div class="lt">上一篇：{loop type="arclist" row=1 }<a href="{$vo.url}">{$vo.title}</a>{/loop}</div>
+      <div class="rt">下一篇：{loop type="arclist" row=1 }<a href="{$vo.url}">{$vo.title}</a>{/loop}</div>
+    </div>
+  </div>
+  <!--end 左侧新闻内容--> 
+ <!--start 右侧边栏-->
+  <div class="right sideBar">
+    <div class="original marB">
+      <h1 class="redbg">推荐</h1>
+      <ul class="rankList">
+        
+        {loop type="arclist" row="10"}
+          <li class='odd'><p><a href="{$vo.url}">{$vo.title}</a><span>{$vo.postdate}</span></p></li>
+                {/loop}
+      </ul>
+    </div>
+    <div class="adBox marB">
+      <h1 class="redbg">热门</h1>
+      <ul class="rankList">
+        
+        {loop type="arclist" row="10"}
+          <li class='even'><p><a href="{$vo.url}">{$vo.title}</a><span>{$vo.postdate}</span></p></li>
+                {/loop}
+      </ul>
+    </div>
+  </div>
+  <!--end 右侧边栏--> 
+</div>
+{include file="footer.html" }
+</body></html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{$toptitle}</title>
+	<meta name="description" content="{$description}" />
+	<meta name="keywords" content="{$keywords}" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link href="{$theme_path}/2016/wenzhang/css/style.css" rel="stylesheet" type="text/css">
+    <script src="{$theme_path}/jquery/jquery-1.9.1.min.js"></script>
+<style>
+.abstract { display:none;}
+</style>
+    <!--让ie8以下支持media query-->
+    <!--[if lte IE 8]>
+    <script src="{$theme_path}/jquery/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        $(document).ready(function () {
+            /*判断相关推荐里是否有图片，若没有话，就让文字左浮动*/
+            /*
+             $(".rec_one").each(function () {
+             var imgs = $(this).find("div.pic>img");
+             if (imgs.length > 0 && imgs[0].currentSrc == "") {
+             $(this).find("div.pic").css("display", "none");
+             }
+             });*/
+            if($(window).width()<=1200 )
+            {
+                $(".logo img")[0].src="/uploads/images/logo.png?n={$encode_name}&w=120";
+
+            }
+            $(".down_btn").click(function () {
+                $(".head_mobile").hide();
+                $(".drop_down").fadeIn("slow");
+            });
+            $(".drop_down .title img").click(function () {
+                $(".drop_down").fadeOut("slow");
+                $(".head_mobile").show();
+            });
+        });
+    </script>
+    <base target="_self"/>
+</head>
+<body>
+<!--导航区域开始-->
+{include file="header.html"}
+<!--导航区域结束-->
+<!--banner区域开始-->
+<div id="banner">
+    <div class="banner_inner">
+        <form class="search_box" action=""  id="searchForm" name="searchForm" method="get" onSubmit="document.charset='u'+'t'+'f'+'-8';">
+            <input name="q" type="text" id="anyWord" class="txt" placeholder="请输入您要查询的内容" /><input name="Submit" id="Submit" type="submit" class="btn" value="" /><input name="s" type="hidden" value="8349451817408476651" />
+            <input name="nsid" type="hidden" value="0" />
+        </form>
+        <div class="banner_r">
+            <div class="login"></div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<!--banner区域结束-->
+<!--正文开始-->
+<div id="contentMain">
+    <div class="content_inner">
+        <!--左侧区域-->
+        <div class="content_left">
+            <!--当前位置-->
+            <p class="position" id="locat">当前位置：<a href="/">首页</a> > <a href="{$typeurl}">{$typename}</a> > <a href="{$thisurl}">{$title}</a> 正文</p>
+
+            <div class="line"></div>
+           
+            <div class="clear"></div>
+
+            <!--新闻正文开始-->
+            <div class="text">
+                <h2 id="title">{$title}</h2>
+                
+                <div class="info">
+                   <span id="source_baidu">来源：<a href="{$web_url}">{$web_name}</a></span>&nbsp;&nbsp;
+                   <span id="author_baidu">作者：{typename type="name"/}</span>&nbsp;&nbsp;
+                   <span id="pubtime_baidu">时间：{$postdate}</span>
+                </div>
+
+                <div class="abstract"></div>
+				<!--正文-->
+				<div class="article" id="content">{$body}</div>
+
+
+<div class="clear"></div>
+            </div>
+            <!--新闻正文结束-->
+            <div class="append">
+                <p>标签：<span></span></p>
+
+                <p class="editor" id="editor"><span id="editor_baidu">责任编辑：{typename type="name"/}</span></p>
+                
+            </div>
+<div class="Hspace"></div>
+
+
+            <div class="clear"></div>
+            <div class="line"></div>
+            <!-- 相关新闻 开始 -->
+            <div class="related_news">
+                <!--相关新闻-->
+                <div id="relate">
+                    <h2>相关新闻</h2>
+                </div>
+				<ul>
+				
+				
+				 {loop type="arclist" row="5"}
+                    <li ><a href="{$vo.url}">{$vo.title}</a></li>
+                    {/loop}
+				
+				</ul>
+            </div>
+            <!-- 相关新闻 结束 -->
+
+
+            <!--广告区-->
+            <div class="clear"></div>
+          
+            <div class="Hspace"></div>
+        </div>
+        <!--左侧区域结束-->
+        <!--右侧区域-->
+        <div class="content_right" style="padding-top:60px;">
+            <!--国内新闻 开始-->
+            <div class="infomation">
+                <h3>国内新闻</h3>
+                <ul>
+		
+                     {loop type="arclist" row="5"}
+                    <li ><a href="{$vo.url}">{$vo.title}</a></li>
+                    {/loop}
+                </ul>
+<div class="clear"></div>
+            </div>
+            <!--国内新闻 结束-->
+<div class="Hspace"></div>
+
+<div class="news_pic">
+                <h3>图片精选</h3>
+                <ul>
+{loop type="arclist" row="8" image=1}
+                 <li>
+<a href="{$vo.url}"><img src="{$vo.pic}" alt="{$vo.title}"/></a>
+<p><a href="{$vo.url}">{$vo.title}</a></p>
+</li>
+   {/loop}  
+                    
+                </ul>
+<div class="clear"></div>
+            </div>
+<div class="Hspace"></div>
+<!--国际新闻 开始-->
+            <div class="infomation">
+                <h3>国际新闻</h3>
+                <ul>
+			  {loop type="arclist" row="5"} 
+                    <li ><a href="{$vo.url}">{$vo.title}</a></li>
+                    {/loop}
+                </ul>
+<div class="clear"></div>
+            </div>
+            <!--国际新闻 结束-->
+
+<div class="Hspace"></div>
+<div class="infomation">
+                <h3>全网热点</h3>
+                <ul>
+			 {loop type="domain"}<li ><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>{/loop}
+				{if $links_open}
+			   {loop type="link"}
+			   <li ><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>
+			   {/loop}
+			   {/if}
+			<div class="Hspace"></div>
+        </div>
+           
+            <div class="line"></div>
+        </div>
+        <!--右侧区域结束-->
+
+    </div>
+</div>
+<div class="clear"></div>
+<!--正文结束-->
+{include file="footer.html" }
+<!-- 百度推送 -->
+
+</body>
+</html>

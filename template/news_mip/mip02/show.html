@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html mip="">
+ <head>
+  <meta charset="utf-8" />
+  <meta name="applicable-device" content="pc,mobile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+  <link rel="shortcut icon" href="//{当前域名}/favicon.ico" type="image/x-icon" />
+  <title>{$toptitle}</title>
+  <meta name="keywords" content="{$keywords}" />
+  <meta name="description" content="{$description}" />
+  <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css" />
+  <link rel="stylesheet" type="text/css" href="{$theme_path}/static/css/base.css" />
+  <link rel="stylesheet" type="text/css" href="{$theme_path}/static/css/m.css" />
+  <link rel="canonical" href="{$thisurl}" />
+ </head>
+ <body>
+ {include file="head.html"}
+  <div class="searchbox"></div>
+  <!--top end-->
+  <article>
+   <div class="lbox">
+    <div class="content_box whitebg">
+     <h2 class="htitle"><span class="con_nav">您现在的位置是：<a href="{当前栏目URL}">{当前栏目}</a> &gt;&gt;</span>正文</h2>
+     <h1 class="con_tilte">{$title}</h1>
+     <p class="bloginfo"><i class="avatar"></i><span>{当前栏目}</span><span><time>{$vo.postdate}</time></span><span></span><span>{随机数字}人已围观</span></p>
+     <p class="con_info"><b>简介</b>{$content}...</p>
+     <div class="con_text">
+      <div>
+       <div id="post">{$body}</div>
+      </div>
+      <p>Tags： </p>
+      <p class="share"><b>转载：</b>欢迎各位朋友分享到网络，但转载请说明文章出处“{网站名称}”。<a href="{$thisurl}" target="_blank">{$thisurl}</a></p>
+      <!-- <p><span class="diggit">(<b id="diggnum"></b>)</span></p> -->
+      <div class="nextinfo"><p></p>
+	  {loop type="arclist" row=1 }<p>上一篇：<a href="{$vo.url}" target="_blank" alt="{$vo.title}">{$vo.title}</a>{/loop}</p>
+	  {loop type="arclist" row=1 }<p>下一篇：<a href="{$vo.url}" target="_blank" alt="{$vo.title}">{$vo.title}</a>{/loop}</p>
+	  </div>
+     </div>
+    </div>
+    <div class="whitebg bloglist">
+     <h2 class="htitle">相关文章</h2>
+     <ul>
+	 {loop type="arclist" row="3" fan=1 image=1 info=1}
+      <li><h3 class="blogtitle"><a href="{$vo.url}" target="_blank">{$vo.title}</a></h3><span class="blogpic imgscale"><i><a href="{当前栏目URL}" target="_blank">{当前栏目}</a></i><a href="{$vo.url}" title="{$vo.title}">
+         <mip-img layout="container" alt="{$vo.title}" src="{$vo.pic}"></mip-img></a></span><p class="blogtext">{$vo.info}...</p>
+		 <p class="bloginfo"><span><time>{$vo.postdate}</time></span><span>【<a href="{当前栏目URL}" target="_blank">{当前栏目}</a>】</span></p><a href="{$vo.url}" class="viewmore">阅读更多</a></li>
+	 {/loop}
+     </ul>
+    </div>
+       <!--bloglist end-->
+   {include file="footer.html" }
+ </body>
+</html>

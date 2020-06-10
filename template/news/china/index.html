@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{$toptitle}</title>
+	<meta name="description" content="{$description}" />
+	<meta name="keywords" content="{$keywords}" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link href="{$theme_path}/2016/wenzhang/css/style.css" rel="stylesheet" type="text/css">
+    <script src="{$theme_path}/jquery/jquery-1.9.1.min.js"></script>
+    <!--让ie8以下支持media query-->
+    <!--[if lte IE 8]>
+    <script src="{$theme_path}/jquery/respond.min.js"></script>
+    <![endif]-->    
+    <base target="_blank"/>
+</head>
+<body>
+<!--导航区域开始-->
+{include file="header.html"}
+<!--导航区域结束-->
+<!--banner区域开始-->
+<div id="banner">
+    <div class="banner_inner">
+        <form class="search_box" action=""  id="searchForm" name="searchForm" method="get" onSubmit="document.charset='u'+'t'+'f'+'-8';">
+            <input name="q" type="text" id="anyWord" class="txt" placeholder="请输入您要查询的内容" /><input name="Submit" id="Submit" type="submit" class="btn" value="" /><input name="s" type="hidden" value="8349451817408476651" />
+            <input name="nsid" type="hidden" value="0" />
+        </form>
+        <div class="banner_r">
+            <div class="login"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!--banner区域结束-->
+<!--正文开始-->
+<div id="contentMain">
+    <div class="content_inner">
+        <!--左侧区域-->
+        <div class="content_left">
+            <!--当前位置-->
+            <p class="position" id="locat"><a href="/" title="新闻中心" class="CurrChnlCls">新闻中心</a></p>
+
+            <div class="line"></div>
+
+            <!--新闻正文开始-->
+            <div class="text">
+                <!--标题列表 开始-->
+				<style type="text/css">
+				<!--
+				/* -------- 标题列表 -------- */
+				.lists{ padding:10px;width:100%;}
+				.lists .biaot{ background:url(img/6.jpg) no-repeat 0 16px; padding-left:15px;text-align:left;height:36px;line-height:36px;overflow:hidden;}
+				.lists .biaot a{color:#333333;font-size:16px;}
+				.lists .biaot span{ float:right;color:#808080; font-size:12px}
+				.lists .space{ height:10px}
+				/* -------- 翻页 -------- */
+				.pageLink { width:90%; font-size:14px; margin:0 auto; clear:both; font-family:Tahoma; text-align:center; padding:40px 0; }
+				.pageLinkOn { font-size:14px; color:#fff; font-weight:bold; text-align:center; background:#3c648c; margin:4px 4px; display:inline-block; padding:0px 5px; font-family:Tahoma; line-height:20px; margin-bottom:3px; }
+				.pageLink a { font-size:14px; text-align:center; background:#fff; border:1px solid #3c648c; margin:4px 4px; display:inline-block; padding:0px 5px; line-height:18px; }
+				.pageLink a:hover { font-size:12px; font-weight:bold; color:#fff; text-align:center; background:#3c648c; border:1px solid #3c648c; margin:4px 4px; display:inline-block; padding:0px 5px; text-decoration:none; }
+				-->
+				</style>
+
+<!-- 原创 -->
+{loop row=3}
+	<h2><span style="float:right;"><a href="{随机栏目URL}">更多</a></span>{随机栏目}</h2>
+	<div class="clear"></div>
+	<div class="lists">
+	{loop type="arclist" row=10}
+	<div class="biaot"><span class="date">{$vo.postdate}</span><a href="{$vo.url}">{$vo.title}</a></div>
+	<div class="space"></div>
+	<div class="clear"></div>
+	{/loop}
+	</div>
+<div class="space"></div>
+{/loop}
+
+
+<!--标题列表 结束-->
+            </div>
+
+
+            <div class="clear"></div>
+
+        </div>
+        <!--左侧区域结束-->
+        
+		<!--右侧区域-->
+        <div class="content_right" style="padding-top:60px;">
+            
+
+<div class="news_pic">
+                <h3>图片精选</h3>
+                <ul>
+{loop type="arclist" row="8" image=1}
+                 <li>
+<a href="{$vo.url}"><img src="{$vo.pic}" alt="{$vo.title}"/></a>
+<p><a href="{$vo.url}">{$vo.title}</a></p>
+</li>
+   {/loop}  
+                </ul>
+<div class="clear"></div>
+            </div>
+
+
+<div class="space"></div>
+<!--爆料追踪 开始-->
+            <div class="infomation">
+                <h3>爆料追踪</h3>
+                <ul>
+		
+                    {loop type="arclist" row="5"}
+                    <li ><a href="{$vo.url}">{$vo.title}</a></li>
+                    {/loop}
+                    
+                </ul>
+				<div class="clear"></div>
+            </div>
+			
+            <!--爆料追踪 结束-->
+			<div class="infomation">
+                <h3>全网热点</h3>
+                <ul>
+			 {loop type="domain"}<li ><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>{/loop}
+				{if $links_open}
+			   {loop type="link"}
+			   <li ><a href="{$vo.url}" target="_blank">{$vo.title}</a></li>
+			   {/loop}
+			   {/if}
+			<div class="Hspace"></div>
+        </div>
+        <!--右侧区域结束-->
+        
+       <div class="clear"></div> 
+    </div>
+</div>
+<div class="clear"></div>
+<!--正文结束-->
+{include file="footer.html" }
+
+
+</body>
+</html>
